@@ -1,0 +1,31 @@
+{
+  "name": "vinna_fitness_project",
+  "version": "1.0.0",
+  "description": "Prime group project to assist Vinna Fitness with documentation of physical testing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patkahnke/vinna_fitness_project.git"
+  },
+  "author": "Hannah Springer, Samantha Klein, Daniel Chavez, Sion Owen, Pat Kahnke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patkahnke/vinna_fitness_project/issues"
+  },
+  "homepage": "https://github.com/patkahnke/vinna_fitness_project#readme",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-ui-bootstrap": "^1.3.3",
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.6",
+    "express": "^4.14.0",
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
+    "path": "^0.12.7"
+  }
+}
