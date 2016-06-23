@@ -8,47 +8,47 @@ myApp.config(['$routeProvider', function($routeProvider) {
       controller: "HomeController"
     })
 
-    .when('/vitals' {
+    .when('/vitals', {
       templateUrl: '/views/vitals.html',
       controller: "HomeController"
     })
 
-    .when('/login' {
+    .when('/login', {
       templateUrl: '/views/login.html',
       controller: "HomeController"
     })
 
-    .when('/stage' {
+    .when('/stage', {
       templateUrl: '/views/stage.html',
       controller: "TrainerController"
     })
 
-    .when('/screen' {
+    .when('/screen', {
       templateUrl: '/views/screen.html',
       controller: "TrainerController"
     })
 
-    .when('/admin' {
+    .when('/admin', {
       templateUrl: '/views/admin.html',
       controller: "AdminController"
     })
 
-    .when('/companies' {
+    .when('/companies', {
       templateUrl: '/views/companies.html',
       controller: "AdminController"
     })
 
-    .when('/selectedco' {
+    .when('/selectedco', {
       templateUrl: '/views/selectedco.html',
       controller: "AdminController"
     })
 
-    .when('/search' {
+    .when('/search', {
       templateUrl: '/views/search.html',
       controller: "AdminController"
     })
 
-    .when('/trainers' {
+    .when('/trainers', {
       templateUrl: '/views/trainers.html',
       controller: "AdminController"
     })
