@@ -1,0 +1,19 @@
+<div class="assessmentContainer">
+  <div class="assessmentContent">
+    <h1>Assessment Form</h1>
+    <h2>Active Straight Leg Raise</h2>
+    <form>
+      <h3 class="assessmentItem">Left:</h3>
+      <input type="radio" name="leg_raise-left" value="1" ng-model="assessment.leg_raise.left" required>1
+      <input type="radio" name="leg_raise-left" value="2" ng-model="assessment.leg_raise.left">2
+      <input type="radio" name="leg_raise-left" value="3" ng-model="assessment.leg_raise.left">3<br>
+      <h3 class="assessmentItem">Right:</h3>
+      <input type="radio" name="leg_raise-right" value="1" ng-model="assessment.leg_raise.right" required>1
+      <input type="radio" name="leg_raise-right" value="2" ng-model="assessment.leg_raise.right">2
+      <input type="radio" name="leg_raise-right" value="3" ng-model="assessment.leg_raise.right">3<br>
+
+      <button class="assessmentPrev" ng-click="checkContent5Prev()">Prev</button>
+      <button class="assessmentNext" ng-click="checkContent5()">Next</button>
+    </form>
+  </div>
+</div>

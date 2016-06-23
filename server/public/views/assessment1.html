@@ -1,0 +1,20 @@
+<div class="assessmentContainer">
+  <div class="assessmentContent">
+    <h1>Assessment Form</h1>
+    <form>
+      <h3 class="assessmentItem">Toe Touch:</h3>
+      <input type="radio" name="toe_touch" value="yes" ng-model="assessment.toe_touch" required>Y
+      <input type="radio" name="toe_touch" value="no" ng-model="assessment.toe_touch">N<br>
+      <h3 class="assessmentItem">Deep Squat:</h3>
+      <input type="radio" name="squat" value="1" ng-model="assessment.squat" required>1
+      <input type="radio" name="squat" value="2" ng-model="assessment.squat">2
+      <input type="radio" name="squat" value="3" ng-model="assessment.squat">3<br>
+      <h3 class="assessmentItem">Trunk Stability Push Up:</h3>
+      <input type="radio" name="push_up" value="1" ng-model="assessment.push_up" required>1
+      <input type="radio" name="push_up" value="2" ng-model="assessment.push_up">2
+      <input type="radio" name="push_up" value="3" ng-model="assessment.push_up">3<br>
+
+      <button class="assessmentNext" ng-click="checkContent1()">Next</button>
+    </form>
+  </div>
+</div>
