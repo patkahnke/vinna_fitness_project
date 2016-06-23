@@ -1,0 +1,27 @@
+<div class="assessmentContainer">
+  <div class="assessmentContent">
+    <h1>Assessment Form</h1>
+    <h2>Shoulder Mobility</h2>
+    <form>
+      <h3 class="assessmentItem">Top Left:</h3>
+      <input type="radio" name="shoulder-top-left" value="1" ng-model="assessment.shoulder.top_left" required>1
+      <input type="radio" name="shoulder-top-left" value="2" ng-model="assessment.shoulder.top_left">2
+      <input type="radio" name="shoulder-top-left" value="3" ng-model="assessment.shoulder.top_left">3<br>
+      <h3 class="assessmentItem">Top Right:</h3>
+      <input type="radio" name="shoulder-top-right" value="1" ng-model="assessment.shoulder.top_right" required>1
+      <input type="radio" name="shoulder-top-right" value="2" ng-model="assessment.shoulder.top_right">2
+      <input type="radio" name="shoulder-top-right" value="3" ng-model="assessment.shoulder.top_right">3<br>
+      <h3 class="assessmentItem">Left:</h3>
+      <input type="radio" name="shoulder-left" value="1" ng-model="assessment.shoulder.left" required>1
+      <input type="radio" name="shoulder-left" value="2" ng-model="assessment.shoulder.left">2
+      <input type="radio" name="shoulder-left" value="3" ng-model="assessment.shoulder.left">3<br>
+      <h3 class="assessmentItem">Right:</h3>
+      <input type="radio" name="shoulder-right" value="1" ng-model="assessment.shoulder.right" required>1
+      <input type="radio" name="shoulder-right" value="2" ng-model="assessment.shoulder.right">2
+      <input type="radio" name="shoulder-right" value="3" ng-model="assessment.shoulder.right">3<br>
+
+      <button class="assessmentPrev" ng-click="checkContent4Prev()">Prev</button>
+      <button class="assessmentNext" ng-click="checkContent4()">Next</button>
+    </form>
+  </div>
+</div>

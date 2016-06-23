@@ -1,5 +1,6 @@
 myApp.factory('ApplicantFactory', ['$http', function($http){
 
+var assessment = {};
 
  var dataService = {
   all: function(){
@@ -7,9 +8,9 @@ myApp.factory('ApplicantFactory', ['$http', function($http){
   },
   create: function(){
     return console.log("factory also delivered"); //some post request to the server
-  }
-
-}
+  },
+  currentAssessment: assessment
+};
 
  return dataService;
 

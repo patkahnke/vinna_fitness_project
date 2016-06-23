@@ -1,0 +1,12 @@
+.assessmentContainer, .headerContainer, .footerContainer {
+  text-align: center;
+}
+
+.assessmentItem {
+  display: inline;
+}
+
+input[type=radio] {
+  margin-right: 3px;
+  margin-left: 7px;
+}
