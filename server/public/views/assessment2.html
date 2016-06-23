@@ -1,0 +1,19 @@
+<div class="assessmentContainer">
+  <div class="assessmentContent">
+    <h1>Assessment Form</h1>
+    <h2>Hurdle Step</h2>
+    <form>
+      <h3 class="assessmentItem">Left:</h3>
+      <input type="radio" name="hurdle-left" value="1" ng-model="assessment.hurdle.left" required>1
+      <input type="radio" name="hurdle-left" value="2" ng-model="assessment.hurdle.left">2
+      <input type="radio" name="hurdle-left" value="3" ng-model="assessment.hurdle.left">3<br>
+      <h3 class="assessmentItem">Right:</h3>
+      <input type="radio" name="hurdle-right" value="1" ng-model="assessment.hurdle.right" required>1
+      <input type="radio" name="hurdle-right" value="2" ng-model="assessment.hurdle.right">2
+      <input type="radio" name="hurdle-right" value="3" ng-model="assessment.hurdle.right">3<br>
+
+      <button class="assessmentPrev" ng-click="checkContent2Prev()">Prev</button>
+      <button class="assessmentNext" ng-click="checkContent2()">Next</button>
+    </form>
+  </div>
+</div>
