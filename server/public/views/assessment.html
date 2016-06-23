@@ -1,6 +1,7 @@
 <div class="assessmentContainer">
   <div class="assessmentContent">
-  <h1>Assessment Form</h1>
+    <h1>Assessment Form</h1>
+
     <div class="assessment1" ng-show="show1">
       <form>
         <h3 class="assessmentItem">Toe Touch:</h3>
@@ -15,7 +16,9 @@
         <input type="radio" name="push_up" value="2" ng-model="assessment.push_up">2
         <input type="radio" name="push_up" value="3" ng-model="assessment.push_up">3<br>
 
-        <button class="assessmentNext" ng-click="checkContent1()">Next</button>
+        <div class="assessmentNavContainer">
+          <button type="button" class="assessmentNext btn btn-secondary" ng-click="checkContent1()">></button>
+        </div>
       </form>
     </div>
 
@@ -31,8 +34,10 @@
         <input type="radio" name="hurdle-right" value="2" ng-model="assessment.hurdle.right">2
         <input type="radio" name="hurdle-right" value="3" ng-model="assessment.hurdle.right">3<br>
 
-        <button class="assessmentPrev" ng-click="checkContent2Prev()">Prev</button>
-        <button class="assessmentNext" ng-click="checkContent2()">Next</button>
+        <div class="assessmentNavContainer">
+          <button type="button" class="assessmentPrev btn btn-secondary" ng-click="checkContent2Prev()"><</button>
+          <button type="button" class="assessmentNext btn btn-secondary" ng-click="checkContent2()">></button>
+        </div>
       </form>
     </div>
 
@@ -48,8 +53,10 @@
         <input type="radio" name="lunge-right" value="2" ng-model="assessment.lunge.right">2
         <input type="radio" name="lunge-right" value="3" ng-model="assessment.lunge.right">3<br>
 
-        <button class="assessmentPrev" ng-click="checkContent3Prev()">Prev</button>
-        <button class="assessmentNext" ng-click="checkContent3()">Next</button>
+        <div class="assessmentNavContainer">
+          <button type="button" class="assessmentPrev btn btn-secondary" ng-click="checkContent3Prev()"><</button>
+          <button type="button" class="assessmentNext btn btn-secondary" ng-click="checkContent3()">></button>
+        </div>
       </form>
     </div>
 
@@ -73,8 +80,10 @@
         <input type="radio" name="shoulder-right" value="2" ng-model="assessment.shoulder.right">2
         <input type="radio" name="shoulder-right" value="3" ng-model="assessment.shoulder.right">3<br>
 
-        <button class="assessmentPrev" ng-click="checkContent4Prev()">Prev</button>
-        <button class="assessmentNext" ng-click="checkContent4()">Next</button>
+        <div class="assessmentNavContainer">
+          <button type="button" class="assessmentPrev btn btn-secondary" ng-click="checkContent4Prev()"><</button>
+          <button type="button" class="assessmentNext btn btn-secondary" ng-click="checkContent4()">></button>
+        </div>
       </form>
     </div>
 
@@ -90,8 +99,10 @@
         <input type="radio" name="leg_raise-right" value="2" ng-model="assessment.leg_raise.right">2
         <input type="radio" name="leg_raise-right" value="3" ng-model="assessment.leg_raise.right">3<br>
 
-        <button class="assessmentPrev" ng-click="checkContent5Prev()">Prev</button>
-        <button class="assessmentNext" ng-click="checkContent5()">Next</button>
+        <div class="assessmentNavContainer">
+          <button type="button" class="assessmentPrev btn btn-secondary" ng-click="checkContent5Prev()"><</button>
+          <button type="button" class="assessmentNext btn btn-secondary" ng-click="checkContent5()">></button>
+        </div>
       </form>
     </div>
 
@@ -107,8 +118,10 @@
         <input type="radio" name="rotary-right" value="2" ng-model="assessment.rotary.right">2
         <input type="radio" name="rotary-right" value="3" ng-model="assessment.rotary.right">3<br>
 
-        <button class="assessmentPrev" ng-click="checkContent6Prev()">Prev</button>
-        <button class="assessmentSubmit" ng-click="checkContent6()">Submit</button>
+        <div class="assessmentNavContainer">
+          <button type="button" class="assessmentPrev btn btn-secondary" ng-click="checkContent6Prev()"><</button>
+          <button class="assessmentSubmit" ng-click="checkContent6()">Submit</button>
+        </div>
       </form>
     </div>
 
