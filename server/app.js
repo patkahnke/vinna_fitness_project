@@ -1,7 +1,17 @@
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var session = require('express-session');
+var passport = require('./auth/passport');
+var isLoggedIn = require('./utils/auth');
+
+//Routes
+var index = require('./routes/index');
+var admin = require('./routes/admin');
+var trainer = require('./routes/trainer');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
