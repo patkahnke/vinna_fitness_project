@@ -11,7 +11,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   console.log($scope.assessment);
 
   $scope.checkContent1 = function () {
-    if($scope.assessment.toe_touch !== undefined && $scope.assessment.squat !== undefined && $scope.assessment.push_up !== undefined) {
+    if($scope.assessment.toe_touch !== undefined && $scope.assessment.squat !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show1 = false;
@@ -20,7 +20,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   };
 
   $scope.checkContent2 = function () {
-    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined) {
+    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined && $scope.assessment.hurdle.measurement !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show2 = false;
@@ -29,14 +29,14 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   };
 
   $scope.checkContent2Prev = function () {
-    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined) {
+    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined && $scope.assessment.hurdle.measurement !== undefined) {
       $scope.show1 = true;
       $scope.show2 = false;
     }
   };
 
   $scope.checkContent3 = function () {
-    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined) {
+    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined && $scope.assessment.lunge.measurement !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show3 = false;
@@ -45,7 +45,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   };
 
   $scope.checkContent3Prev = function () {
-    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined) {
+    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined && $scope.assessment.lunge.measurement !== undefined) {
       $scope.show3 = false;
       $scope.show2 = true;
     }
