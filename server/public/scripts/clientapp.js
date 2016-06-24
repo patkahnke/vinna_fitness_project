@@ -8,6 +8,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
       controller: "HomeController"
     })
 
+    .when('/assessment', {
+      templateUrl: '/views/assessment.html',
+      controller: "AssessmentController"
+    })
+
     .when('/vitals', {
       templateUrl: '/views/vitals.html',
       controller: "HomeController"
@@ -55,7 +60,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
     .otherwise({
       redirectTo: 'home'
-    })
+    });
 
 }
 ]);
