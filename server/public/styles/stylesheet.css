@@ -24,15 +24,19 @@ input[type=radio] {
 }
 
 .assessmentPrev {
-position:absolute;
-top:15%;
-left:10%;
-height: 175px;
+  position:absolute;
+  top:15%;
+  left:10%;
+  height: 175px;
 }
 
 .assessmentNext {
-position:absolute;
-top:15%;
-right:10%;
-height: 175px;
+  position:absolute;
+  top:15%;
+  right:10%;
+  height: 175px;
+}
+
+.assessmentSubmit {
+  margin-top: 10px;
 }
