@@ -10,3 +10,29 @@ input[type=radio] {
   margin-right: 3px;
   margin-left: 7px;
 }
+
+.btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-secondary:hover {
+    color: #373a3c;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.assessmentPrev {
+position:absolute;
+top:15%;
+left:10%;
+height: 175px;
+}
+
+.assessmentNext {
+position:absolute;
+top:15%;
+right:10%;
+height: 175px;
+}
