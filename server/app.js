@@ -13,6 +13,10 @@ var admin = require('./routes/admin');
 var trainer = require('./routes/trainer');
 
 
+//route variables
+var connection = require('./modules/connection');
+console.log(connection);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
