@@ -30,6 +30,7 @@
     "moment": "^2.13.0",
     "passport": "^0.3.2",
     "passport-google-oauth2": "^0.1.6",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pg": "^6.0.1"
   }
 }

@@ -56,7 +56,7 @@ console.log('token: '+token+  ' profile: ' +profile+ ' profile.email: ' + profil
           function (err, user) {
             console.log('updating user');
             if (err) {
-              throw err;
+              return done(err);
             }
           });
         return done(null, user);
