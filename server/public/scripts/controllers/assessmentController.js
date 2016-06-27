@@ -8,6 +8,8 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.show6 = false;
   $scope.show7 = false;
   $scope.show8 = false;
+  $scope.showShoulderRec = false;
+  $scope.shoulderRec = '';
 
   ApplicantFactory.all();
   console.log($scope.assessment);
@@ -53,6 +55,33 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+  $scope.getShoulderScore = function () {
+    if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.distance !== undefined) {
+      var shoulderScore = function (handDist, shoulderTop) {
+        var recScore = '';
+        if (shoulderTop / handDist <= 1) {
+          recScore = 3;
+        }
+        else if (shoulderTop / handDist > 1 && shoulderTop / handDist <= 1.5) {
+          recScore = 2;
+        }
+        else if (shoulderTop / handDist > 1.5) {
+          recScore = 1;
+        }
+        return recScore;
+      };
+
+      var recShoulderRight = shoulderScore($scope.assessment.shoulder.distance, $scope.assessment.shoulder.top_right);
+      var recShoulderLeft = shoulderScore($scope.assessment.shoulder.distance, $scope.assessment.shoulder.top_left);
+
+      $scope.showShoulderRec = true;
+      $scope.shoulderRec = 'If no pain present, left shoulder score = ' + recShoulderLeft + ' and right shoulder score = ' + recShoulderRight + '.';
+    }
+    else {
+      $scope.showShoulderRec = true;
+      $scope.shoulderRec = "Please enter values for all three measurement fields.";
+    }
+  };
 
   $scope.checkContent4 = function () {
     if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.right !== undefined && $scope.assessment.shoulder.left !== undefined && $scope.assessment.shoulder.distance !== undefined) {

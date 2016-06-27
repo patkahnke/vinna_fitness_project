@@ -162,13 +162,17 @@ table {
 }
 
 .noteBody {
-  width: 100%;
+  width: 80%;
   height: 150px;
   padding: 4px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
-  font-size: 13px;
+  font-size: 16px;
   resize: none;
+}
+
+.shoulderRec {
+  font-size: 16px;
 }
