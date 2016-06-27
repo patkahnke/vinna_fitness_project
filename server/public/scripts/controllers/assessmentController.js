@@ -7,6 +7,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.show5 = false;
   $scope.show6 = false;
   $scope.show7 = false;
+  $scope.show8 = false;
 
   ApplicantFactory.all();
   console.log($scope.assessment);
@@ -111,7 +112,8 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     if($scope.assessment.rotary.right !== undefined && $scope.assessment.rotary.left !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
-      console.log("submit function, then redirect to trainer home");
+      $scope.show7 = false;
+      $scope.show8 = true;
     }
   };
 
@@ -122,4 +124,17 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show6 = true;
     }
   };
+
+  $scope.checkContent8 = function () {
+    console.log($scope.assessment);
+      ApplicantFactory.currentAssessment = $scope.assessment;
+      console.log(ApplicantFactory.currentAssessment);
+      console.log("submit function, then redirect to trainer home");
+  };
+
+  $scope.checkContent8Prev = function () {
+    console.log($scope.assessment);
+      $scope.show8 = false;
+      $scope.show7 = true;
+    };
 }]);
