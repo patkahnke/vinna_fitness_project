@@ -1,114 +1,186 @@
 <div class="assessmentContainer">
   <div class="assessmentContent">
-  <h1>Assessment Form</h1>
+  <h1 class="assessmentHeader">Functional Movement Screen</h1>
     <div class="assessment1" ng-show="show1">
       <form>
-        <h3 class="assessmentItem">Toe Touch:</h3>
-        <input type="radio" name="toe_touch" value="yes" ng-model="assessment.toe_touch" required>Y
-        <input type="radio" name="toe_touch" value="no" ng-model="assessment.toe_touch">N<br>
-        <h3 class="assessmentItem">Deep Squat:</h3>
-        <input type="radio" name="squat" value="1" ng-model="assessment.squat" required>1
-        <input type="radio" name="squat" value="2" ng-model="assessment.squat">2
-        <input type="radio" name="squat" value="3" ng-model="assessment.squat">3<br>
-        <h3 class="assessmentItem">Trunk Stability Push Up:</h3>
-        <input type="radio" name="push_up" value="1" ng-model="assessment.push_up" required>1
-        <input type="radio" name="push_up" value="2" ng-model="assessment.push_up">2
-        <input type="radio" name="push_up" value="3" ng-model="assessment.push_up">3<br>
-
-        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent1()">></button>
+        <table class="borderless">
+          <tr>
+            <th><h3 class="assessmentItem">Toe Touch:</h3></th>
+            <td><input type="radio" name="toe_touch" value="yes" ng-model="assessment.toe_touch" required><label for="Y">Y</label></td>
+            <td><input type="radio" name="toe_touch" value="no" ng-model="assessment.toe_touch"><label for="N">N</label></td>
+          </tr>
+            <button type="button submit" class="btn btn-secondary assessmentNext" ng-click="checkContent1()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+          <tr>
+            <th><h3 class="assessmentItem">Deep Squat:</h3></th>
+            <td><input type="radio" name="squat" value="0" ng-model="assessment.squat" required><label for="0">0</label></td>
+            <td><input type="radio" name="squat" value="1" ng-model="assessment.squat"><label for="1">1</label></td>
+            <td><input type="radio" name="squat" value="2" ng-model="assessment.squat"><label for="2">2</label></td>
+            <td><input type="radio" name="squat" value="3" ng-model="assessment.squat"><label for="3">3</label></td>
+          </tr>
+        </table>
       </form>
     </div>
 
     <div class="assessment2" ng-show="show2">
-      <h2>Hurdle Step</h2>
       <form>
-        <h3 class="assessmentItem">Left:</h3>
-        <input type="radio" name="hurdle-left" value="1" ng-model="assessment.hurdle.left" required>1
-        <input type="radio" name="hurdle-left" value="2" ng-model="assessment.hurdle.left">2
-        <input type="radio" name="hurdle-left" value="3" ng-model="assessment.hurdle.left">3<br>
-        <h3 class="assessmentItem">Right:</h3>
-        <input type="radio" name="hurdle-right" value="1" ng-model="assessment.hurdle.right" required>1
-        <input type="radio" name="hurdle-right" value="2" ng-model="assessment.hurdle.right">2
-        <input type="radio" name="hurdle-right" value="3" ng-model="assessment.hurdle.right">3<br>
-
-        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent2Prev()"><</button>
-        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent2()">></button>
+        <h2>Hurdle Step</h2>
+        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent2Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent2()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <table class="borderless">
+          <tr>
+            <th><h3 class="assessmentItem">Inches:</h3></th>
+            <td><input type="number" class="measurement" name="hurdle-measurement" ng-model="assessment.hurdle.measurement" required></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Left Leg Up:</h3></th>
+            <td><input type="radio" name="hurdle-left" value="0" ng-model="assessment.hurdle.left" required><label for="0">0</label></td>
+            <td><input type="radio" name="hurdle-left" value="1" ng-model="assessment.hurdle.left"><label for="1">1</label></td>
+            <td><input type="radio" name="hurdle-left" value="2" ng-model="assessment.hurdle.left"><label for="2">2</label></td>
+            <td><input type="radio" name="hurdle-left" value="3" ng-model="assessment.hurdle.left"><label for="3">3</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Right Leg Up:</h3></th>
+            <td><input type="radio" name="hurdle-right" value="0" ng-model="assessment.hurdle.right" required><label for="0">0</label></td>
+            <td><input type="radio" name="hurdle-right" value="1" ng-model="assessment.hurdle.right"><label for="1">1</label></td>
+            <td><input type="radio" name="hurdle-right" value="2" ng-model="assessment.hurdle.right"><label for="2">2</label></td>
+            <td><input type="radio" name="hurdle-right" value="3" ng-model="assessment.hurdle.right"><label for="3">3</label></td>
+          </tr>
+        </table>
       </form>
     </div>
 
     <div class="assessment3" ng-show="show3">
-      <h2>In-Line Lunge</h2>
       <form>
-        <h3 class="assessmentItem">Left:</h3>
-        <input type="radio" name="lunge-left" value="1" ng-model="assessment.lunge.left" required>1
-        <input type="radio" name="lunge-left" value="2" ng-model="assessment.lunge.left">2
-        <input type="radio" name="lunge-left" value="3" ng-model="assessment.lunge.left">3<br>
-        <h3 class="assessmentItem">Right:</h3>
-        <input type="radio" name="lunge-right" value="1" ng-model="assessment.lunge.right" required>1
-        <input type="radio" name="lunge-right" value="2" ng-model="assessment.lunge.right">2
-        <input type="radio" name="lunge-right" value="3" ng-model="assessment.lunge.right">3<br>
-
-        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent3Prev()"><</button>
-        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent3()">></button>
+        <h2>In-Line Lunge</h2>
+        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent3Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent3()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <table class="borderless">
+          <tr>
+            <th><h3 class="assessmentItem">Inches:</h3></th>
+            <td><input type="number" class="measurement" name="hurdle-measurement" ng-model="assessment.lunge.measurement" required></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Left Leg Forward:</h3></th>
+            <td><input type="radio" name="lunge-left" value="0" ng-model="assessment.lunge.left" required><label for="0">0</label></td>
+            <td><input type="radio" name="lunge-left" value="1" ng-model="assessment.lunge.left"><label for="1">1</label></td>
+            <td><input type="radio" name="lunge-left" value="2" ng-model="assessment.lunge.left"><label for="2">2</label></td>
+            <td><input type="radio" name="lunge-left" value="3" ng-model="assessment.lunge.left"><label for="3">3</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Right Leg Forward:</h3></th>
+            <td><input type="radio" name="lunge-right" value="0" ng-model="assessment.lunge.right" required><label for="0">0</label></td>
+            <td><input type="radio" name="lunge-right" value="1" ng-model="assessment.lunge.right"><label for="1">1</label></td>
+            <td><input type="radio" name="lunge-right" value="2" ng-model="assessment.lunge.right"><label for="2">2</label></td>
+            <td><input type="radio" name="lunge-right" value="3" ng-model="assessment.lunge.right"><label for="3">3</label></td>
+          </tr>
+        </table>
       </form>
     </div>
 
     <div class="assessment4" ng-show="show4">
-      <h2>Shoulder Mobility</h2>
       <form>
-        <h3 class="assessmentItem">Top Left:</h3>
-        <input type="radio" name="shoulder-top-left" value="1" ng-model="assessment.shoulder.top_left" required>1
-        <input type="radio" name="shoulder-top-left" value="2" ng-model="assessment.shoulder.top_left">2
-        <input type="radio" name="shoulder-top-left" value="3" ng-model="assessment.shoulder.top_left">3<br>
-        <h3 class="assessmentItem">Top Right:</h3>
-        <input type="radio" name="shoulder-top-right" value="1" ng-model="assessment.shoulder.top_right" required>1
-        <input type="radio" name="shoulder-top-right" value="2" ng-model="assessment.shoulder.top_right">2
-        <input type="radio" name="shoulder-top-right" value="3" ng-model="assessment.shoulder.top_right">3<br>
-        <h3 class="assessmentItem">Left:</h3>
-        <input type="radio" name="shoulder-left" value="1" ng-model="assessment.shoulder.left" required>1
-        <input type="radio" name="shoulder-left" value="2" ng-model="assessment.shoulder.left">2
-        <input type="radio" name="shoulder-left" value="3" ng-model="assessment.shoulder.left">3<br>
-        <h3 class="assessmentItem">Right:</h3>
-        <input type="radio" name="shoulder-right" value="1" ng-model="assessment.shoulder.right" required>1
-        <input type="radio" name="shoulder-right" value="2" ng-model="assessment.shoulder.right">2
-        <input type="radio" name="shoulder-right" value="3" ng-model="assessment.shoulder.right">3<br>
-
-        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent4Prev()"><</button>
-        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent4()">></button>
+        <h2>Shoulder Mobility</h2>
+        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent4Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent4()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <table class="borderless">
+          <tr>
+            <th><h3 class="assessmentItem">Inches:</h3></th>
+            <td><input type="number" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.distance" required></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Top Left:</h3></th>
+            <td><input type="radio" name="shoulder-top-left" value="0" ng-model="assessment.shoulder.top_left" required><label for="0">0</label></td>
+            <td><input type="radio" name="shoulder-top-left" value="1" ng-model="assessment.shoulder.top_left"><label for="1">1</label></td>
+            <td><input type="radio" name="shoulder-top-left" value="2" ng-model="assessment.shoulder.top_left"><label for="2">2</label></td>
+            <td><input type="radio" name="shoulder-top-left" value="3" ng-model="assessment.shoulder.top_left"><label for="3">3</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Top Right:</h3></th>
+            <td><input type="radio" name="shoulder-top-right" value="0" ng-model="assessment.shoulder.top_right" required><label for="0">0</label></td>
+            <td><input type="radio" name="shoulder-top-right" value="1" ng-model="assessment.shoulder.top_right"><label for="1">1</label></td>
+            <td><input type="radio" name="shoulder-top-right" value="2" ng-model="assessment.shoulder.top_right"><label for="2">2</label></td>
+            <td><input type="radio" name="shoulder-top-right" value="3" ng-model="assessment.shoulder.top_right"><label for="3">3</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Left (Impingement):</h3></th>
+            <td><input type="radio" name="shoulder-left" value="0" ng-model="assessment.shoulder.left" required><label for="0">0</label></td>
+            <td><input type="radio" name="shoulder-left" value="1" ng-model="assessment.shoulder.left"><label for="1">1</label></td>
+            <td><input type="radio" name="shoulder-left" value="2" ng-model="assessment.shoulder.left"><label for="2">2</label></td>
+            <td><input type="radio" name="shoulder-left" value="3" ng-model="assessment.shoulder.left"><label for="3">3</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Right (Impingement):</h3></th>
+            <td><input type="radio" name="shoulder-right" value="0" ng-model="assessment.shoulder.right" required><label for="0">0</label></td>
+            <td><input type="radio" name="shoulder-right" value="1" ng-model="assessment.shoulder.right"><label for="1">1</label></td>
+            <td><input type="radio" name="shoulder-right" value="2" ng-model="assessment.shoulder.right"><label for="2">2</label></td>
+            <td><input type="radio" name="shoulder-right" value="3" ng-model="assessment.shoulder.right"><label for="3">3</label></td>
+          </tr>
+        </table>
       </form>
     </div>
 
     <div class="assessment5" ng-show="show5">
-      <h2>Active Straight Leg Raise</h2>
       <form>
-        <h3 class="assessmentItem">Left:</h3>
-        <input type="radio" name="leg_raise-left" value="1" ng-model="assessment.leg_raise.left" required>1
-        <input type="radio" name="leg_raise-left" value="2" ng-model="assessment.leg_raise.left">2
-        <input type="radio" name="leg_raise-left" value="3" ng-model="assessment.leg_raise.left">3<br>
-        <h3 class="assessmentItem">Right:</h3>
-        <input type="radio" name="leg_raise-right" value="1" ng-model="assessment.leg_raise.right" required>1
-        <input type="radio" name="leg_raise-right" value="2" ng-model="assessment.leg_raise.right">2
-        <input type="radio" name="leg_raise-right" value="3" ng-model="assessment.leg_raise.right">3<br>
-
-        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent5Prev()"><</button>
-        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent5()">></button>
+        <h2>Active Straight Leg Raise</h2>
+        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent5Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent5()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <table class="borderless">
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Left:</h3></th>
+            <td><input type="radio" name="leg_raise-left" value="0" ng-model="assessment.leg_raise.left" required><label for="0">0</label></td>
+            <td><input type="radio" name="leg_raise-left" value="1" ng-model="assessment.leg_raise.left"><label for="1">1</label></td>
+            <td><input type="radio" name="leg_raise-left" value="2" ng-model="assessment.leg_raise.left"><label for="2">2</label></td>
+            <td><input type="radio" name="leg_raise-left" value="3" ng-model="assessment.leg_raise.left"><label for="3">3</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Right:</h3></th>
+            <td><input type="radio" name="leg_raise-right" value="0" ng-model="assessment.leg_raise.right" required><label for="0">0</label></td>
+            <td><input type="radio" name="leg_raise-right" value="1" ng-model="assessment.leg_raise.right"><label for="1">1</label></td>
+            <td><input type="radio" name="leg_raise-right" value="2" ng-model="assessment.leg_raise.right"><label for="2">2</label></td>
+            <td><input type="radio" name="leg_raise-right" value="3" ng-model="assessment.leg_raise.right"><label for="3">3</label></td>
+          </tr>
+        </table>
       </form>
     </div>
 
     <div class="assessment6" ng-show="show6">
-      <h2>Rotary Stability</h2>
       <form>
-        <h3 class="assessmentItem">Left:</h3>
-        <input type="radio" name="rotary-left" value="1" ng-model="assessment.rotary.left" required>1
-        <input type="radio" name="rotary-left" value="2" ng-model="assessment.rotary.left">2
-        <input type="radio" name="rotary-left" value="3" ng-model="assessment.rotary.left">3<br>
-        <h3 class="assessmentItem">Right:</h3>
-        <input type="radio" name="rotary-right" value="1" ng-model="assessment.rotary.right" required>1
-        <input type="radio" name="rotary-right" value="2" ng-model="assessment.rotary.right">2
-        <input type="radio" name="rotary-right" value="3" ng-model="assessment.rotary.right">3<br>
+        <h2>Trunk Stability Push Up</h2>
+        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent6Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent6()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <table class="borderless">
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Prone Press Up:</h3></th>
+            <td><input type="radio" name="push_up" value="0" ng-model="assessment.push_up" required><label for="0">0</label></td>
+            <td><input type="radio" name="push_up" value="1" ng-model="assessment.push_up"><label for="1">1</label></td>
+            <td><input type="radio" name="push_up" value="2" ng-model="assessment.push_up"><label for="2">2</label></td>
+            <td><input type="radio" name="push_up" value="3" ng-model="assessment.push_up"><label for="3">3</label></td>
+          </tr>
+        </table>
+      </form>
+    </div>
 
-        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent6Prev()"><</button>
-        <button type="button submit" class="assessmentSubmit" ng-click="checkContent6()">Submit</button>
+    <div class="assessment7" ng-show="show7">
+      <form>
+        <h2>Rotary Stability Quadruped</h2>
+        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent7Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <table class="borderless">
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Left Up:</h3></th>
+            <td><input type="radio" name="rotary-left" value="0" ng-model="assessment.rotary.left" required><label for="0">0</label></td>
+            <td><input type="radio" name="rotary-left" value="1" ng-model="assessment.rotary.left"><label for="1">1</label></td>
+            <td><input type="radio" name="rotary-left" value="2" ng-model="assessment.rotary.left"><label for="2">2</label></td>
+            <td><input type="radio" name="rotary-left" value="3" ng-model="assessment.rotary.left"><label for="3">3</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Right Up:</h3></th>
+            <td><input type="radio" name="rotary-right" value="0" ng-model="assessment.rotary.right" required><label for="0">0</label></td>
+            <td><input type="radio" name="rotary-right" value="1" ng-model="assessment.rotary.right"><label for="1">1</label></td>
+            <td><input type="radio" name="rotary-right" value="2" ng-model="assessment.rotary.right"><label for="2">2</label></td>
+            <td><input type="radio" name="rotary-right" value="3" ng-model="assessment.rotary.right"><label for="3">3</label></td>
+          </tr>
+        </table>
+        <button type="button submit" class="assessmentSubmit btn btn-secondary" ng-click="checkContent7()">Submit All Results</button>
       </form>
     </div>
 
