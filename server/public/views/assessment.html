@@ -84,22 +84,16 @@
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent4()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
           <tr>
-            <th><h3 class="assessmentItem">Inches:</h3></th>
+            <th><h3 class="assessmentItem">Hand Length (in.):</h3></th>
             <td><input type="number" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.distance" required></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Top Left:</h3></th>
-            <td><input type="radio" name="shoulder-top-left" value="0" ng-model="assessment.shoulder.top_left" required><label for="0">0</label></td>
-            <td><input type="radio" name="shoulder-top-left" value="1" ng-model="assessment.shoulder.top_left"><label for="1">1</label></td>
-            <td><input type="radio" name="shoulder-top-left" value="2" ng-model="assessment.shoulder.top_left"><label for="2">2</label></td>
-            <td><input type="radio" name="shoulder-top-left" value="3" ng-model="assessment.shoulder.top_left"><label for="3">3</label></td>
+            <th><h3 class="assessmentItem">Top Left (in.):</h3></th>
+            <td><input type="number" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.top_left" required></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Top Right:</h3></th>
-            <td><input type="radio" name="shoulder-top-right" value="0" ng-model="assessment.shoulder.top_right" required><label for="0">0</label></td>
-            <td><input type="radio" name="shoulder-top-right" value="1" ng-model="assessment.shoulder.top_right"><label for="1">1</label></td>
-            <td><input type="radio" name="shoulder-top-right" value="2" ng-model="assessment.shoulder.top_right"><label for="2">2</label></td>
-            <td><input type="radio" name="shoulder-top-right" value="3" ng-model="assessment.shoulder.top_right"><label for="3">3</label></td>
+            <th><h3 class="assessmentItem">Top Right (in.):</h3></th>
+            <td><input type="number" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.top_right" required></td>
           </tr>
           <tr class="alignLeft">
             <th><h3 class="assessmentItem">Left (Impingement):</h3></th>
@@ -116,6 +110,8 @@
             <td><input type="radio" name="shoulder-right" value="3" ng-model="assessment.shoulder.right"><label for="3">3</label></td>
           </tr>
         </table>
+        <h3 class="shoulderRec" ng-show="showShoulderRec">{{shoulderRec}}</h3>
+        <button type="button" class="btn btn-secondary" ng-click="getShoulderScore()">Get Recommended Scores</button>
       </form>
     </div>
 
