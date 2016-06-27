@@ -164,6 +164,7 @@
       <form>
         <h2>Rotary Stability Quadruped</h2>
         <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent7Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent7()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
           <tr class="alignLeft">
             <th><h3 class="assessmentItem">Left Up:</h3></th>
@@ -180,7 +181,15 @@
             <td><input type="radio" name="rotary-right" value="3" ng-model="assessment.rotary.right"><label for="3">3</label></td>
           </tr>
         </table>
-        <button type="button submit" class="assessmentSubmit btn btn-secondary" ng-click="checkContent7()">Submit All Results</button>
+      </form>
+    </div>
+
+    <div class="assessment8" ng-show="show8">
+      <form>
+        <h2>Assessment Notes</h2>
+        <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent8Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+        <textarea class="noteBody" ng-model="assessment.notes"></textarea>
+        <button type="button submit" class="assessmentSubmit btn btn-secondary" ng-click="checkContent8()">Submit All Results</button>
       </form>
     </div>
 
