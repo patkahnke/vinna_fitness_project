@@ -55,6 +55,26 @@ main {
 }
 
 input[type=radio] {
+  margin-right: 3px;
+  margin-left: 40px;
+}
+
+.assessmentPrev {
+  position:absolute;
+  top:20%;
+  left:10%;
+  height: 200px;
+}
+
+.assessmentNext {
+  position:absolute;
+  top:20%;
+  right:10%;
+  height: 200px;
+}
+
+.assessmentSubmit {
+  margin-top: 15px;
   margin-right: 4px;
 }
 
@@ -72,6 +92,7 @@ label {
     color: #373a3c;
     background-color: #e6e6e6;
     border-color: #adadad;
+
 }
 
 .assessmentPrev {
@@ -157,6 +178,7 @@ input[type=radio] {
 
 table {
     margin: 0 auto;
+
 }
 
 .noteBody {
