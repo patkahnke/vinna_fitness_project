@@ -1,4 +1,52 @@
-.assessmentContainer, .headerContainer, .footerContainer {
+@font-face {
+  font-family: 'Comfortaa';
+  src: url("/vendors/fonts/Comfortaa/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url("/vendors/fonts/Myriad_Pro_Regular/Myriad_Pro_Regular.ttf");
+}
+
+body {
+  font-family: 'Myriad Pro';
+  background-color: #e9ebee;
+}
+
+main {
+  min-height: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerContainer {
+    background-color: #181818;
+    color: #e9ebee;
+    padding: 30px 40px 30px 50px;
+    font-family: 'Comfortaa';
+}
+
+.headerTitle {
+  display: inline;
+}
+
+.logout {
+  display: inline;
+  float: right;
+}
+
+.footerContainer {
+    background-color: #181818;
+    color: #e9ebee;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.assessmentContainer, .footerContainer {
   text-align: center;
 }
 
@@ -27,6 +75,12 @@ input[type=radio] {
 
 .assessmentSubmit {
   margin-top: 15px;
+  margin-right: 4px;
+}
+
+label {
+  padding-right: 30px;
+
 }
 
 .btn-secondary {
@@ -39,4 +93,87 @@ input[type=radio] {
     color: #373a3c;
     background-color: #e6e6e6;
     border-color: #adadad;
+
+}
+
+.assessmentPrev {
+  position: absolute;
+  transform: translateY(1%);
+  left: 5%;
+  padding: 0;
+}
+
+.assessmentPrev img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.assessmentNext {
+  position: absolute;
+  transform: translateY(1%);
+  right: 5%;
+  padding: 0;
+}
+
+.assessmentSubmit {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.assessmentHeader {
+  margin-top: 0px;
+  margin-bottom: 5%;
+  padding: 3% 0 3% 0;
+  border-radius: 10px 10px 0 0;
+  border-bottom: #d0d1d5 3px solid;
+  background-color: #F05123;
+  color: white;
+}
+
+.assessmentContainer {
+  padding: 0 30% 0 30%;
+}
+
+.assessmentContent {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 2% 0 2% 0;
+  padding-bottom: 5%;
+  min-width: 560px;
+  border: 1px solid;
+  border-color: #d0d1d5;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+th {
+  padding: 0 10px 10px 10px;
+  white-space: nowrap;
+}
+
+td {
+  white-space: nowrap;
+}
+
+.measurement {
+  width: 60px;
+}
+
+input[type=number] {
+  padding-left: 5px;
+}
+
+table {
+    margin: 0 auto;
+
 }
