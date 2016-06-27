@@ -5,7 +5,7 @@ var path = require('path');
 
 //route variables
 var connection = require('./modules/connection');
-console.log(connection);
+var companies = require('./routes/companies');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +22,7 @@ app.post('/data/:number', function (req, res) {
       res.send(req.params.number);
     });
 
+app.use('/companies', companies);
 // Handle index file separately
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './public/views/index.html'));
