@@ -137,4 +137,17 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show8 = false;
       $scope.show7 = true;
     };
+
+
+    $scope.generatePdf = function(){
+      $http.get('/generatePdf').then(function(response){
+        console.log('this ran');
+        console.log(response);
+        $scope.response = response;
+      })
+    };
+
+
+
+
 }]);

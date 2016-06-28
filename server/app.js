@@ -2,10 +2,12 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-
+var PDFDocument = require('pdfkit');
+var fs = require('fs');
 //route variables
 var connection = require('./modules/connection');
 var companies = require('./routes/companies');
+var generatePdf = require('./routes/generatePdf')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +25,8 @@ app.post('/data/:number', function (req, res) {
     });
 
 app.use('/companies', companies);
+app.use('/generatePdf', generatePdf);
+
 // Handle index file separately
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './public/views/index.html'));

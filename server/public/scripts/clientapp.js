@@ -57,6 +57,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/trainers.html',
       controller: "AdminController"
     })
+    .when('/generatePdf', {
+      templateUrl: '/views/generatePdf.html',
+      controller: "AssessmentController"
+    })
 
     .otherwise({
       redirectTo: 'home'
