@@ -1,7 +1,5 @@
-var Criteria = require('./criteria');
-var criteria = new Criteria();
-
-function Applicant(data) {
+function Applicant(data, jobCriteria) {
+  this.jobCriteria = jobCriteria;
   this.firstName = data.firstName;
   this.lastName = data.lastName;
   this.dateOfBirth = data.dateOfBirth;
@@ -134,6 +132,247 @@ function Applicant(data) {
   this.totalHighRiskAreas = function () {
     var totalHighRisk = this.totalZerosAndOnes() + this.totalAsymmetries();
     return totalHighRisk;
+  };
+
+  this.passDeepSquat = function () {
+    if (this.deepSquat >= jobCriteria.minDeepSquat) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passHurdleStep = function () {
+    if (this.hurdleStepTotal() >= jobCriteria.minHurdleStep) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passInlineLunge = function () {
+    if (this.inlineLungeTotal() >= jobCriteria.minInlineLunge) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passShoulderMob = function () {
+    if (this.shoulderMobTotal() >= jobCriteria.minShoulderMob) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passActiveStraightLegRaise = function () {
+    if (this.activeStraightLegRaiseTotal() >= jobCriteria.minActiveStraightLegRaise) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passRotaryStability = function () {
+    if (this.rotaryStabilityTotal() >= jobCriteria.minRotaryStability) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passTrunkStability = function () {
+    if (this.trunkStabilityPushup >= jobCriteria.minTrunkStabilityPushup) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passCompositeScore = function () {
+    if (this.compositeScore() >= jobCriteria.minCompositeScore) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passTotalZerosAndOnes = function () {
+    if (this.totalZerosAndOnes() <= jobCriteria.maxTotalZerosAndOnes) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passTotalAsymmetries = function () {
+    if (this.totalAsymmetries() <= jobCriteria.maxTotalAsymmetries) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passTotalHighRiskAreas = function () {
+    if (this.totalHighRiskAreas() <= jobCriteria.maxTotalHighRiskAreas) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  this.passSubtestOne = function () {
+    console.log('SUBTEST ONE');
+    var pass = true;
+    var tests = '';
+    var subtestArray = jobCriteria.minSubtestOne.subtestArray;
+    var subtestTotalScore = 0;
+    var minSubtestScore = jobCriteria.minSubtestOne.minScore;
+    for (var i = 0; i < subtestArray.length; i++) {
+      var test = undefined;
+      if (subtestArray[i] == 'deepSquat') {
+        test = this.deepSquat;
+      } else if (subtestArray[i] == 'hurdleStep') {
+        test = this.hurdleStepTotal();
+      } else if (subtestArray[i] == 'inlineLunge') {
+        test = this.inlineLungeTotal();
+      } else if (subtestArray[i] == 'shoulderMob') {
+        test = this.shoulderMobTotal();
+      } else if (subtestArray[i] == 'activeStraightLegRaise') {
+        test = this.activeStraightLegRaiseTotal();
+      } else if (subtestArray[i] == 'rotaryStability') {
+        test = this.rotaryStabilityTotal();
+      } else if (subtestArray[i] == 'trunkStabilityPushup') {
+        test = this.trunkStabilityPushup;
+      };
+
+      console.log('test', test);
+      subtestTotalScore += test;
+      tests += subtestArray[i] + '  ';
+    };
+
+    if (subtestTotalScore < minSubtestScore) {
+      pass = false;
+
+    } else {
+      pass = true;
+    };
+
+    console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
+    return pass;
+  };
+
+  this.passSubtestTwo = function () {
+    console.log('SUBTEST TWO');
+    var pass = true;
+    var subtestArray = jobCriteria.minSubtestTwo.subtestArray;
+    var subtestTotalScore = 0;
+    var minSubtestScore = jobCriteria.minSubtestTwo.minScore;
+    var tests = '';
+    for (var i = 0; i < subtestArray.length; i++) {
+      var test = 0;
+      if (subtestArray[i] == 'deepSquat') {
+        test = this.deepSquat;
+      } else if (subtestArray[i] == 'hurdleStep') {
+        test = this.hurdleStepTotal();
+      } else if (subtestArray[i] == 'inlineLunge') {
+        test = this.inlineLungeTotal();
+      } else if (subtestArray[i] == 'shoulderMob') {
+        test = this.shoulderMobTotal();
+      } else if (subtestArray[i] == 'activeStraightLegRaise') {
+        test = this.activeStraightLegRaiseTotal();
+      } else if (subtestArray[i] == 'rotaryStability') {
+        test = this.rotaryStabilityTotal();
+      } else if (subtestArray[i] == 'trunkStabilityPushup') {
+        test = this.trunkStabilityPushup;
+      };
+
+      tests += subtestArray[i] + '  ';
+      subtestTotalScore += test;
+      console.log('subtestTotalScore', subtestTotalScore);
+    };
+
+      console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
+    if (subtestTotalScore < minSubtestScore) {
+      pass = false;
+
+    } else {
+      pass = true;
+    };
+
+    return pass;
+  };
+
+  this.passSubtestThree = function () {
+    console.log('SUBTEST THREE');
+    var pass = true;
+    var tests = '';
+    var subtestArray = jobCriteria.minSubtestThree.subtestArray;
+    var subtestTotalScore = 0;
+    var minSubtestScore = jobCriteria.minSubtestThree.minScore;
+    for (var i = 0; i < subtestArray.length; i++) {
+      var test = undefined;
+      if (subtestArray[i] == 'deepSquat') {
+        test = this.deepSquat;
+      } else if (subtestArray[i] == 'hurdleStep') {
+        test = this.hurdleStepTotal();
+      } else if (subtestArray[i] == 'inlineLunge') {
+        test = this.inlineLungeTotal();
+      } else if (subtestArray[i] == 'shoulderMob') {
+        test = this.shoulderMobTotal();
+      } else if (subtestArray[i] == 'activeStraightLegRaise') {
+        test = this.activeStraightLegRaiseTotal();
+      } else if (subtestArray[i] == 'rotaryStability') {
+        test = this.rotaryStabilityTotal();
+      } else if (subtestArray[i] == 'trunkStabilityPushup') {
+        test = this.trunkStabilityPushup;
+      };
+
+      subtestTotalScore += test;
+      tests += subtestArray[i] + '  ';
+    };
+
+    if (subtestTotalScore < minSubtestScore) {
+      pass = false;
+
+    } else {
+      pass = true;
+    };
+console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
+    return pass;
+  };
+
+  this.passOverall = function () {
+    if (this.passDeepSquat() == false) {
+      return false;
+    } else if (this.passHurdleStep() == false) {
+      return false;
+    } else if (this.passInlineLunge() == false) {
+      return false;
+    } else if (this.passShoulderMob() == false) {
+      return false;
+    } else if (this.passActiveStraightLegRaise() == false) {
+      return false;
+    } else if (this.passRotaryStability() == false) {
+      return false;
+    } else if (this.passCompositeScore() == false) {
+      return false;
+    } else if (this.passTotalZerosAndOnes() == false) {
+      return false;
+    } else if (this.passTotalAsymmetries() == false) {
+      return false;
+    } else if (this.passTotalHighRiskAreas() == false) {
+      return false;
+    } else if (this.passSubtestOne() == false) {
+      return false;
+    } else if (this.passSubtestTwo() == false) {
+      return false;
+    } else if (this.passSubtestThree() == false) {
+      return false;
+    } else {
+      return true;
+    }
   };
 };
 
