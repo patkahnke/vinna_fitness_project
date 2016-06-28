@@ -1,6 +1,20 @@
 <h2>Companies</h2>
 <!--nav bar-->
-<button>Add a Company (opens add modal)</button>
+<button ng-click="addCompany">Add Company</button>
 list of company names w/edit(opens edit modal), delete, add job(links to selectedco.html)
-<div add modal></div>
-<div edit modal></div>
+
+ <div ng-repeat="company in companies">
+
+  </div>
+
+  <div data="add modal">
+
+  </div>
+
+  <div ng-show="message" class="ng-hide">
+    <h3>No results returned.</h3>
+  </div>
+  <modal-dialog show="company.dialogShown" dialog-title="{{company.name}}">
+  </modal-dialog>
+
+  <div edit modal></div>
