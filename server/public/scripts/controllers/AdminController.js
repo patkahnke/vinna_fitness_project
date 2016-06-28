@@ -1,18 +1,7 @@
-myApp.controller('AdminController', ['$scope', '$http', 'ApplicantFactory',  function($scope, $http, ApplicantFactory)
+myApp.controller('AdminController', ['$scope', '$http', 'ApplicantFactory', '$location', function($scope, $http, ApplicantFactory, $location)
 {
   ApplicantFactory.all();
 
-  $scope.companies = [];
-  getCompanies();
-
-  function getCompanies() {
-    $http.get('/companies')
-      .then(function (response) {
-        $scope.companies = response.data;
-        console.log('GET /companies ', response.data);
-      });
-  }
-
-
+  // TODO: Add Trainers and other admins
 
 }]);

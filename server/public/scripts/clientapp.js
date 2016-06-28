@@ -40,12 +40,12 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
     .when('/companies', {
       templateUrl: '/views/companies.html',
-      controller: "AdminController"
+      controller: "AdminCompanyController"
     })
 
     .when('/selectedco', {
       templateUrl: '/views/selectedco.html',
-      controller: "AdminController"
+      controller: "AdminJobController"
     })
 
     .when('/search', {
