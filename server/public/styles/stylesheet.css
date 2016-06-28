@@ -176,3 +176,10 @@ table {
 .shoulderRec {
   font-size: 16px;
 }
+
+.login {
+  text-align: center;
+}
+.login a {
+  display: block;
+}

@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngModal']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-
+  
     .when('/trainer', {
       templateUrl: '/views/home.html',
       controller: "UserController"
