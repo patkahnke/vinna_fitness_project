@@ -1,12 +1,23 @@
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var session = require('express-session');
+var passport = require('./auth/passport');
+var isLoggedIn = require('./utils/auth');
+
+//route variables
 var connection = require('./modules/connection');
-var Applicant = require('./modules/applicant');
-var JobCriteria = require('./modules/jobCriteria');
+var companies = require('./routes/companies');
+var trainer = require('./routes/trainer');
+var login = require('./routes/login');
+
+
 
 //Pat's Dummy Data
+//var Applicant = require('./modules/applicant');
+//var JobCriteria = require('./modules/jobCriteria');
 // for (var i = 0; i < 4; i++) {
 //   for (var j = 0; j < 4; j++) {
 //     var testJobData = {
@@ -71,21 +82,33 @@ var JobCriteria = require('./modules/jobCriteria');
 //   };
 // };
 
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public')));
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  key: 'user',
+  resave: 'true',
+  saveUninitialized: false,
+  cookie: { maxage: 60000, secure: false },
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 // Routes
-app.get('/data', function (req, res) {
-    res.send({ message: 'hello' });
-  });
+app.use('/login', login);
+app.use('/trainer', trainer)
 
 app.post('/data/:number', function (req, res) {
       res.send(req.params.number);
     });
 
+app.use('/companies', companies);
 // Handle index file separately
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './public/views/index.html'));
