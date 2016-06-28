@@ -3,9 +3,9 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngModal']);
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
 
-    .when('/home', {
+    .when('/trainer', {
       templateUrl: '/views/home.html',
-      controller: "HomeController"
+      controller: "UserController"
     })
 
     .when('/assessment', {
