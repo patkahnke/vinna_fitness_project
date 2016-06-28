@@ -3,38 +3,13 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngModal']);
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
 
-    .when('/home', {
+    .when('/trainer', {
       templateUrl: '/views/home.html',
-      controller: "HomeController"
+      controller: "UserController"
     })
 
-    .when('/assessment1', {
-      templateUrl: '/views/assessment1.html',
-      controller: "AssessmentController"
-    })
-
-    .when('/assessment2', {
-      templateUrl: '/views/assessment2.html',
-      controller: "AssessmentController"
-    })
-
-    .when('/assessment3', {
-      templateUrl: '/views/assessment3.html',
-      controller: "AssessmentController"
-    })
-
-    .when('/assessment4', {
-      templateUrl: '/views/assessment4.html',
-      controller: "AssessmentController"
-    })
-
-    .when('/assessment5', {
-      templateUrl: '/views/assessment5.html',
-      controller: "AssessmentController"
-    })
-
-    .when('/assessment6', {
-      templateUrl: '/views/assessment6.html',
+    .when('/assessment', {
+      templateUrl: '/views/assessment.html',
       controller: "AssessmentController"
     })
 
@@ -77,14 +52,14 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/search.html',
       controller: "AdminController"
     })
-
-    .when('/trainers', {
-      templateUrl: '/views/trainers.html',
-      controller: "AdminController"
-    })
+    //
+    // .when('/trainers', {
+    //   templateUrl: '/views/trainers.html',
+    //   controller: "AdminController"
+    // })
 
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'login'
     });
 
 }
