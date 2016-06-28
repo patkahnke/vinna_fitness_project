@@ -5,15 +5,83 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session');
 var passport = require('./auth/passport');
-var login = require('./routes/login');
 var isLoggedIn = require('./utils/auth');
-var trainer = require('./routes/trainer');
-
 
 //route variables
 var connection = require('./modules/connection');
-
 var companies = require('./routes/companies');
+var trainer = require('./routes/trainer');
+var login = require('./routes/login');
+
+
+
+//Pat's Dummy Data
+//var Applicant = require('./modules/applicant');
+//var JobCriteria = require('./modules/jobCriteria');
+// for (var i = 0; i < 4; i++) {
+//   for (var j = 0; j < 4; j++) {
+//     var testJobData = {
+//       jobName: '',
+//       minDeepSquat: i,
+//       minHurdleStep: i,
+//       minInlineLunge: i,
+//       minShoulderMob: i,
+//       minActiveStraightLegRaise: i,
+//       minRotaryStability: i,
+//       minTrunkStabilityPushup: i,
+//       minCompositeScore: i + 12,
+//       maxTotalZerosAndOnes: 5,
+//       maxTotalAsymmetries:  5,
+//       maxTotalHighRiskAreas: 10 - i,
+//       minSubtestOne: {
+//         exerciseArray: ['deepSquat', 'inlineLunge'],
+//         minScore: 3,
+//         description: 'Combined yada yada...',
+//       },
+//       minSubtestTwo: {
+//         exerciseArray: ['activeStraightLegRaise', 'shoulderMobility', 'rotaryStability'],
+//         minScore: 7,
+//         description: 'Combined yada yada...',
+//       },
+//       minSubtestThree: {
+//         exerciseArray: ['activeStraightLegRaise', 'trunkStabilityPushup', 'rotaryStability', 'hurdleStep'],
+//         minScore: 9,
+//         description: 'Combined yada yada...',
+//       },
+//     };
+//
+//     var testObject = {
+//       firstName: 'pat',
+//       lastName: 'kahnke',
+//       dateOfBirth: '10/02/1965',
+//       height: '70',
+//       weight: '195',
+//       gender: 'male',
+//       medicalHistory: 'perfection',
+//       handMeasurement: 7.5,
+//       armMeasurement: 25,
+//       toeTouch: false,
+//       deepSquat: j,
+//       hurdleStepLeft: j,
+//       hurdleStepRight: j,
+//       inlineLungeLeft: j,
+//       inlineLungeRight: j,
+//       shoulderMobLeftTop: 18,
+//       shoulderMobRightTop: 22,
+//       shoulderMobLeft: j,
+//       shoulderMobRight: j,
+//       activeStraightLegRaiseLeft: j,
+//       activeStraightLegRaiseRight: j,
+//       trunkStabilityPushup: j,
+//       rotaryStabilityLeft: j,
+//       rotaryStabilityRight: j,
+// };
+//
+//     var jobCriteria = new JobCriteria(testJobData);
+//     var applicant = new Applicant(testObject, jobCriteria);
+//   };
+// };
+
 
 
 app.use(bodyParser.json());
