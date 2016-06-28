@@ -1,6 +1,14 @@
-myApp.controller('AdminController', ['$scope', '$http', 'ApplicantFactory',  function($scope, $http, ApplicantFactory)
+myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory)
 {
-  ApplicantFactory.all();
+  userFactory = UserFactory;
+
+  if (userFactory.checkLoggedIn() === true) {
+    if (userFactory.checkAdmin() === false) {
+      $location.path('/trainer');
+    }
+  } else {
+    $location.path('/');
+  };
 
   $scope.companies = [];
   getCompanies();
