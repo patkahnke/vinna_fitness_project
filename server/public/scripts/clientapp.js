@@ -52,11 +52,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/search.html',
       controller: "AdminController"
     })
-
-    .when('/trainers', {
-      templateUrl: '/views/trainers.html',
-      controller: "AdminController"
-    })
+    //
+    // .when('/trainers', {
+    //   templateUrl: '/views/trainers.html',
+    //   controller: "AdminController"
+    // })
 
     .otherwise({
       redirectTo: 'login'

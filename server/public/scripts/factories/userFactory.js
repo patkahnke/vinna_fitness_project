@@ -1,17 +1,18 @@
 myApp.factory('UserFactory', function ($http) {
   console.log('UserFactory running');
-  var Status = {
+  var userStatus = {
     loggedIn: false,
     isAdmin: false
 
 };
 
   // the public API
-  return {
-    Status = Status,
+  var publicAPI = {
+
+    currentUser: userStatus,
 
     checkLoggedIn: function () {
-      return Status.loggedIn;
+      return userStatus.loggedIn;
     },
 
     isLoggedIn: function () {
@@ -19,17 +20,22 @@ myApp.factory('UserFactory', function ($http) {
     },
 
     setLoggedIn: function (value) {
-          Status.loggedIn = value;
+          userStatus.loggedIn = value;
         },
 
     logout: function () {
           return $http.get('/auth/logout');
         },
 
-    isAdmin: function (admin) {
-           Status.isAdmin = admin;
+    setAdmin: function (admin) {
+           userStatus.isAdmin = admin;
         },
+    checkAdmin: function () {
+      return userStatus.isAdmin;
+    }
 
   };
+
+  return publicAPI;
 
 });
