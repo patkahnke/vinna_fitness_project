@@ -22,7 +22,7 @@ var UserService = require('../services/user');
 
 // serialize the user onto the session
 passport.serializeUser(function (user, done) {
-  console.log('user idddd: '+user[0].id);
+  console.log('user id: ' + user[0].id);
   done(null, user[0].id);
 });
 
@@ -32,7 +32,7 @@ passport.deserializeUser(function (id, done) {
     if (err) {
       return done(err);
     }
-
+    console.log('deser', user);
     return done(null, user);
   });
 });

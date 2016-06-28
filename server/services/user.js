@@ -23,8 +23,8 @@ var UserService = {
       var results = [];
 
       pg.connect(connection, function(err, client, done) {
-        console.log('findUserByIdGet');
-        var query = client.query('SELECT * FROM staff WHERE id = $1', [id]);
+
+        var query = client.query('SELECT * FROM staff WHERE id = $1 LIMIT 1', [id]);
 
         // Stream results back one row at a time
         query.on('row', function(row) {
@@ -34,8 +34,10 @@ var UserService = {
         query.on('end', function (result) {
           done();
           if(result.rowCount == 0){
-            return callback(null, null);} else {
-            return callback(null, results);
+            return callback(null, null);
+          } else {
+            console.log('findUserByIdGet', results);
+            return callback(null, results[0]);
           }
         });
       });
