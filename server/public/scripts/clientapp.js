@@ -2,10 +2,10 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngModal']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-
-    .when('/home', {
+  
+    .when('/trainer', {
       templateUrl: '/views/home.html',
-      controller: "HomeController"
+      controller: "UserController"
     })
 
     .when('/assessment', {
@@ -52,14 +52,14 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/search.html',
       controller: "AdminController"
     })
-
-    .when('/trainers', {
-      templateUrl: '/views/trainers.html',
-      controller: "AdminController"
-    })
+    //
+    // .when('/trainers', {
+    //   templateUrl: '/views/trainers.html',
+    //   controller: "AdminController"
+    // })
 
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'login'
     });
 
 }
