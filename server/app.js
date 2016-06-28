@@ -5,17 +5,14 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session');
 var passport = require('./auth/passport');
-var isLoggedIn = require('./utils/auth');
-
-//Routes
 var login = require('./routes/login');
-var admin = require('./routes/admin');
+var isLoggedIn = require('./utils/auth');
 var trainer = require('./routes/trainer');
 
 
 //route variables
 var connection = require('./modules/connection');
-console.log(connection);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +31,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 // Routes
-app.use('/', login);
+app.use('/login', login);
 app.use('/trainer', trainer)
 
 app.post('/data/:number', function (req, res) {
