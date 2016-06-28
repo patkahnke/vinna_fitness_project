@@ -20,6 +20,11 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantF
         console.log('GET /companies ', response.data);
       });
   }
+  userFactory.logout()
+  //     .then(function (response) { // success
+  //       userFactory.setLoggedIn(false);
+  //         userFactory.isAdmin = false;
+  //       $window.location.href = '/login'; // forces a page reload which will update our UserController
 
 
 
