@@ -50,7 +50,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
   };
 
   // 'delete' == deactivate(gives company inactive status) existing company
-  $scope.deleteCompany = function(company) {
+  $scope.deactivateCompany = function(company) {
     console.log('deactivate', company);
     var id = company.id;
     var deactivateCompany = confirm('Are you sure you want to remove ' + company.name + '?');
@@ -58,13 +58,32 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
       $http.put('/companies/deactivate/' + id)
         .then(function (response) {
           console.log('PUT /companies/', response);
-          alert('Company Removed!');
           $scope.toggleEditCompanyModal();
+          alert('Company Removed!');
           getCompanies();
           return;
         });
       } else {
         alert('You can find removed companies in the inactive company screen.');
+        $scope.toggleEditCompanyModal();
+        return;
+      }
+  };
+
+  // reactivate existing company
+  $scope.reactivateCompany = function(company) {
+    console.log('reactivate', company);
+    var id = company.id;
+    var reactivateCompany = confirm('Are you sure you want to reactivate ' + company.name + '?');
+    if (reactivateCompany === true){
+      $http.put('/companies/reactivate/' + id)
+        .then(function (response) {
+          console.log('PUT /companies', response);
+          $scope.toggleEditCompanyModal();
+          getCompanies();
+          return;
+        });
+      } else {
         $scope.toggleEditCompanyModal();
         return;
       }
@@ -76,7 +95,16 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
     $location.path('/selectedco');
   };
 
-  //modals
+  //active/inactive company specific redirects
+  $scope.activeCompanies = function(){
+    $location.path('/companies');
+  };
+
+  $scope.inactiveCompanies = function(){
+    $location.path('/companies/inactive');
+  };
+
+  //company modals
   $scope.addCompanyModal = {
     modalShown : false
   };
