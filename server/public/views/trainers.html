@@ -1,6 +1,50 @@
-<h2>Add a Trainer</h2>
+<div class="admin">
+
+<h2>Trainers</h2>
 <!--nav bar-->
-<button>Add a Trainer (opens add modal)</button>
-list of trainers w/edit(opens edit modal), delete
-<div add modal></div>
-<div edit modal></div>
+<a ng-click="toggleAddTrainerModal()">Add New Trainer</a>
+
+  <!-- list of trainers -->
+  <div ng-repeat="trainer in trainers" ng-if="trainer.active == true">
+    <h3>{{trainer.name}}</h3>
+    <!-- edit opens edit modal -->
+    <button ng-click="toggleEditTrainerModal(trainer)">Edit</button>
+  </div>
+
+  <modal-dialog show="addTrainerModal.modalShown" width="50%" height="50%">
+    <h2>Add A New Trainer</h2>
+    <form class="addTrainer">
+     <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="newTrainer.name">
+      </li>
+      <li>
+        <label for="email">Email:</label>
+        <input type="text" name="email" ng-model="newTrainer.email" required>
+        <h6>*required</h6>
+      </li>
+        <button type="submit" ng-click="addTrainer(newTrainer)">Submit</button>
+    </ul>
+    </form>
+  </modal-dialog>
+
+  <modal-dialog show="editTrainerModal.modalShown" width="50%" height="50%">
+    <h2>Edit {{trainer.name}}</h2>
+    <form class="editTrainer">
+      <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="trainer.name">
+      </li>
+      <li>
+        <label for="email">Email:</label>
+        <input type="text" name="email" ng-model="trainer.email" required>
+        <h6>*required</h6>
+      </li>
+        <button type="update" ng-click="updateTrainer(trainer)">Update</button>
+        <button ng-click="deleteTrainer(trainer)">Remove</button>
+    </ul>
+  </form>
+  </modal-dialog>
+</class>

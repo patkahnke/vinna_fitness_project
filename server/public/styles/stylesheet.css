@@ -183,3 +183,7 @@ table {
 .login a {
   display: block;
 }
+
+.admin {
+  text-align: center;
+}
