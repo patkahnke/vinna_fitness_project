@@ -12,6 +12,7 @@ var connection = require('./modules/connection');
 var companies = require('./routes/companies');
 var trainer = require('./routes/trainer');
 var login = require('./routes/login');
+var mail= require('./routes/mail');
 
 
 
@@ -102,7 +103,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Routes
 app.use('/login', login);
-app.use('/trainer', trainer)
+app.use('/trainer', trainer);
+app.use('/mail', mail);
 
 app.post('/data/:number', function (req, res) {
       res.send(req.params.number);

@@ -11,6 +11,13 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.showShoulderRec = false;
   $scope.shoulderRec = '';
 
+//$scope.email = object with fields
+  /*$scope.sendMail = function ()  {
+    $http.post('/mail', $scope.email).then(function(response) {
+      console.log(response);
+    });
+  };*/
+
   ApplicantFactory.all();
   console.log($scope.assessment);
 
@@ -158,6 +165,9 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     console.log($scope.assessment);
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
+        $http.post('/mail').then(function(response) {
+          console.log(response);
+        });
       console.log("submit function, then redirect to trainer home");
   };
 
