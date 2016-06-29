@@ -19,11 +19,11 @@ router.get('/', function(req, res){
    applicant.gender = "M";
    applicant.score = "14";
    applicant.subTests = [
-     subTestOne: {
+     subTestOne = {
        excerciseArray: ['deepSquat', 'inlineLunge'],
        minScore: 3
      },
-     subTestTwo: {
+     subTestTwo = {
        excerciseArray: ['deepSquat', 'inlineLunge'],
        minScore: 3,
      },
