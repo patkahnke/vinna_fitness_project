@@ -1,15 +1,26 @@
+<div class="companyContainer">
 <h2>Companies</h2>
-<!--nav bar-->
-<a ng-click="toggleAddCompanyModal()">Add New Company</a>
-
+<!-- TODO: nav bar-->
+<div>
+  <a ng-click="toggleAddCompanyModal()">Add New Company</a>
+  <br>
+  <a ng-click="inactiveCompanies()">View Inactive Companies</a>
+</div>
   <!-- list of companies -->
-  <div ng-repeat="company in companies" ng-if="company.active == true">
+  <div class="col-md-4" ng-repeat="company in companies" ng-if="company.active == true">
     <h3>{{company.name}}</h3>
-    <!-- edit opens edit modal -->
-    <button ng-click="toggleEditCompanyModal(company)">Edit</button>
-    <!-- TODO: should link to slectedco.html -->
-    <button ng-click="selectedCoRedirect(company)">{{company.name}} Jobs</button>
+    <ul>
+      <li>
+        <!-- edit opens edit company modal -->
+        <button ng-click="toggleEditCompanyModal(company)">Edit</button>
+      </li>
+      <li>
+        <!-- links to slectedco.html -->
+        <button ng-click="selectedCoRedirect(company)">{{company.name}} Jobs</button>
+      </li>
+    </ul>
   </div>
+</div>
 
   <modal-dialog show="addCompanyModal.modalShown" width="50%" height="50%">
     <h2>Add A New Company</h2>
@@ -48,10 +59,10 @@
       <li>
         <label for="email">Contact Email:</label>
         <input type="text" name="email" ng-model="company.email" required>
-        <h6>*company email required</h6>
+        <h6>*contact email required</h6>
       </li>
         <button type="update" ng-click="updateCompany(company)">Update</button>
-        <button ng-click="deleteCompany(company)">Remove</button>
+        <button ng-click="deactivateCompany(company)">Remove</button>
     </ul>
   </form>
   </modal-dialog>

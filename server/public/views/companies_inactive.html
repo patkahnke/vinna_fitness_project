@@ -1,0 +1,28 @@
+<div class="companyContainer">
+<h2>Inactive Companies</h2>
+<!--nav bar-->
+  <div>
+    <a ng-click="activeCompanies()">View Active Companies</a>
+  </div>
+  <!-- list of companies -->
+  <div class="col-md-4" ng-repeat="company in companies" ng-if="company.active == false">
+    <h3>{{company.name}}</h3>
+    <ul>
+      <li>
+        <!-- edit opens edit modal -->
+        <button ng-click="toggleEditCompanyModal(company)">Edit</button>
+      </li>
+    </ul>
+  </div>
+</div>
+  <modal-dialog show="editCompanyModal.modalShown" width="25%" height="30%">
+    <h2>{{company.name}}</h2>
+    <form class="editCompany">
+      <ul>
+        <li>
+          <label for="location">Location: {{company.location}}</label>
+        </li>
+          <button ng-click="reactivateCompany(company)">Reactivate</button>
+      </ul>
+  </form>
+  </modal-dialog>

@@ -6,7 +6,8 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
   //scope variables
   $scope.jobs = [];
   $scope.newJobs = {};
-
+  //ng option dropdown values and variations
+  $scope.standardMinimums = [0,1,2,3];
   // getJobs();
 
   //retrieve existing jobs
