@@ -5,14 +5,14 @@ userFactory = UserFactory;
 
   userFactory.isLoggedIn()
   .then(function (response) {
-    console.log(response.data);
       if (response.data.name !== undefined) {
+        userFactory.setName(response.data.name);
         userFactory.setLoggedIn(true);
         if (response.data.admin === true) {
         userFactory.setAdmin(response.data.admin);
         $location.path('/admin');
       } else {
-        $location.path('/trainer');
+        $location.path('/applicant');
       }
 
  } else { // is not logged in on server
@@ -20,6 +20,7 @@ userFactory = UserFactory;
    userFactory.setLoggedIn(false);
    $location.path('/');
      }
+
 
   });
 

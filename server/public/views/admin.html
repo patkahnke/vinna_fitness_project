@@ -1,8 +1,16 @@
-<h2>Admin View</h2>
-<!--logout link-->
-<p>Welcome, {{admin.name}}!</p>
-<button>Companies(links to companies.html)</button>
-<button>Add Trainer/Admin (links to trainers.html)</button>
-<!--stretch goal: include button?-->
-<button>Search Applicant(links to search.html)</button>
-<button>Assess Applicant(links to stage.html)</button>
+<div class="admin">
+<h2>Welcome, {{username}}!</h2>
+<table class="borderless">
+<tr>
+  <th><a href="#companies"<button class="btn btn-secondary btn-lg btn-block">Companies</button></a></th>
+  <th></th>
+  <th><button class="btn btn-secondary btn-lg btn-block">Search Applicants</button></th>
+</tr>
+<tr><th></th></tr>
+<tr>
+  <th><a href="#trainers"><button class="btn btn-secondary btn-lg btn-block">Trainers</button></a></th>
+  <th></th>
+  <th><a href="#applicant"><button class="btn btn-secondary btn-lg btn-block">FMS Screen</button></a></th>
+</tr>
+</table>
+</div>

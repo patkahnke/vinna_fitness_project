@@ -10,7 +10,7 @@ var isLoggedIn = require('./utils/auth');
 //route variables
 var connection = require('./modules/connection');
 var companies = require('./routes/companies');
-var trainer = require('./routes/trainer');
+var trainers = require('./routes/trainers');
 var login = require('./routes/login');
 
 
@@ -102,7 +102,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Routes
 app.use('/login', login);
-app.use('/trainer', trainer)
+app.use('/trainers', trainers)
 
 app.post('/data/:number', function (req, res) {
       res.send(req.params.number);
