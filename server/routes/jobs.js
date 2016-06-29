@@ -9,10 +9,10 @@ router.get('/', function(req, res) {
         if (err) {
             res.sendStatus(500);
         }
-        client.query("SELECT * FROM company ",
+        client.query("SELECT * FROM job ",
          function(err, result) {
             if (err) {
-                console.log(err, "retrieving existing companies from database error");
+                console.log(err, "error retrieving existing job from database");
             }
             done();
             // console.log(result);

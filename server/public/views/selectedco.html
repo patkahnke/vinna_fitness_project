@@ -1,6 +1,100 @@
+<div class="companyContainer">
 <h2>{{selectedCo.name}} Jobs</h2>
-<!--nav bar-->
-<button>Add a Job (opens add modal)</button>
-list of company jobs w/edit(opens edit modal) delete?
-<div add modal></div>
-<div edit modal></div>
+<!-- TODO: nav bar-->
+<div>
+  <a ng-click="toggleAddJobModal()">Add New Job</a>
+</div>
+  <!-- list of jobs -->
+  <div class="col-md-4" ng-repeat="job in jobs" ng-if="">
+    <h3>{{job.title}}</h3>
+    <ul>
+      <li>
+        <!-- edit opens edit job modal -->
+        <button ng-click="toggleEditJobModal(job)">Edit</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <modal-dialog show="addJobModal.modalShown" width="50%" height="80%">
+    <h2>Add A New Job</h2>
+    <form class="addJob">
+     <ul>
+      <li>
+        <label for="title">Title:</label>
+        <input type="text" name="title" ng-model="newJob.title">
+      </li>
+      <li>
+        <label for="email">Job Specific Email:</label>
+        <input type="text" name="email" ng-model="newJob.email">
+        <h6>If left blank will default to: {{selectedCo.email}}</h6>
+      </li>
+      <li>
+          <label for="min_deep_squat">Deep Squat Min</label>
+            <select name="min_deep_squat" ng-model="newJob.minDeepSquat">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_hurdle_step">Hurdle Step Min</label>
+            <select name="min_hurdle_step" ng-model="newJob.minHurdleStep">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_inline_lunge">Inline Lunge Min</label>
+            <select name="min_inline_lunge" ng-model="newJob.minInlineLunge">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_shoulder_mob">Shoulder Mobility Min</label>
+            <select name="min_shoulder_mob" ng-model="newJob.minShoulderMob">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_straight_leg">Active Straight Leg Raise Min</label>
+            <select name="min_straight_leg" ng-model="newJob.minActiveStraightLegRaise">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_rotary_stab">Rotary Stability Quadruped Min</label>
+            <select name="min_rotary_stab" ng-model="newJob.minRotaryStability">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_trunk_push_up">Trunk Stability Push Up Min</label>
+            <select name="min_trunk_push_up" ng-model="newJob.minTrunkStabilityPushup">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+        <button type="submit" ng-click="addJob(newJob)">Submit</button>
+    </ul>
+    </form>
+  </modal-dialog>
+
+  <modal-dialog show="editJobModal.modalShown" width="50%" height="70%">
+    <h2>Edit {{job.name}}</h2>
+    <form class="editJob">
+      <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="job.name">
+      </li>
+      <li>
+        <label for="location">Location:</label>
+        <input type="text" name="location" ng-model="job.location">
+      </li>
+      <li>
+        <label for="email">Contact Email:</label>
+        <input type="text" name="email" ng-model="job.email" required>
+        <h6>*contact email required</h6>
+      </li>
+        <button type="update" ng-click="updateJob(job)">Update</button>
+        <button ng-click="deactivateJob(job)">Remove</button>
+    </ul>
+  </form>
+  </modal-dialog>
