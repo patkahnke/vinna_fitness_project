@@ -1,6 +1,7 @@
 myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory)
 {
   userFactory = UserFactory;
+  $scope.username = userFactory.currentUser.username;
 
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
@@ -20,6 +21,16 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantF
       .then(function (response) {
         $scope.companies = response.data;
         console.log('GET /companies ', response.data);
+      });
+  }
+  $scope.trainers = [];
+  getTrainers();
+
+  function getTrainers() {
+    $http.get('/trainers')
+      .then(function (response) {
+        $scope.trainers = response.data;
+        console.log('GET /trainers ', response.data);
       });
   }
   userFactory.logout()
