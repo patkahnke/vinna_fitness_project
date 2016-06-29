@@ -10,6 +10,8 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantF
     $location.path('/');
   };
 
+  // TODO: Add Trainers and other admins
+
   $scope.companies = [];
   getCompanies();
 
@@ -25,7 +27,6 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantF
   //       userFactory.setLoggedIn(false);
   //         userFactory.isAdmin = false;
   //       $window.location.href = '/login'; // forces a page reload which will update our UserController
-
 
 
 }]);
