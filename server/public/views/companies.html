@@ -1,15 +1,27 @@
+<div class="admin">
 <h2>Companies</h2>
 <!--nav bar-->
-<a ng-click="toggleAddCompanyModal()">Add New Company</a>
+<a ng-click="toggleAddCompanyModal()" class="link">Add New Company</a>
 
   <!-- list of companies -->
-  <div ng-repeat="company in companies" ng-if="company.active == true">
-    <h3>{{company.name}}</h3>
-    <!-- edit opens edit modal -->
-    <button ng-click="toggleEditCompanyModal(company)">Edit</button>
-    <!-- TODO: should link to slectedco.html -->
-    <button ng-click="selectedCoRedirect(company)">{{company.name}} Jobs</button>
-  </div>
+  <table class="table table-striped table-bordered">
+    <thead>
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+              <th></th>
+              <th></th>
+            </tr>
+    </thead>
+    <tbody>
+      <tr id="companyList" ng-repeat="company in companies | orderBy:'name'" ng-if="company.active == true">
+            <td id="company" name="name">{{company.name}}</td>
+            <td id="company" name="email">{{company.email}}</td>
+            <td><button ng-click="selectedCoRedirect(company)">Jobs</button></td>
+            <td><button ng-click="toggleEditCompanyModal(company)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
 
   <modal-dialog show="addCompanyModal.modalShown" width="50%" height="50%">
     <h2>Add A New Company</h2>
@@ -55,3 +67,4 @@
     </ul>
   </form>
   </modal-dialog>
+</div>
