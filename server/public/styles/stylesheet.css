@@ -8,16 +8,22 @@
   src: url("/vendors/fonts/Myriad_Pro_Regular/Myriad_Pro_Regular.ttf");
 }
 
+html, body {
+  height: 100%
+}
+
 body {
   font-family: 'Myriad Pro';
   background-color: #e9ebee;
 }
 
 main {
-  min-height: 370px;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
+  padding-bottom: 53px;
 }
 
 .headerContainer {
@@ -31,19 +37,23 @@ main {
   display: inline;
 }
 
-.logout {
+.headerNav {
   display: inline;
   float: right;
+}
+
+footer {
+  position: relative;
+  margin-top: -53px;
+  clear: both;
+  width: 100%;
+  height: 53px;
 }
 
 .footerContainer {
     background-color: #181818;
     color: #e9ebee;
     padding: 10px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
 
 .assessmentContainer, .footerContainer {
@@ -180,6 +190,16 @@ table {
 .login {
   text-align: center;
 }
+
 .login a {
   display: block;
+}
+
+.displayMeasurement {
+  margin: -25%;
+  padding-left: 23%;
+}
+
+.assessment0, .assessment1, .assessment2, .assessment3, .assessment4, .assessment5, .assessment6, .assessment7, .asseessment8 {
+  padding: 0 5% 0 5%;
 }
