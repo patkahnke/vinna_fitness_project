@@ -22,15 +22,15 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function (req, res) {
-  var company = req.body;
+  var staff = req.body;
   pg.connect(connectionString, function (err, client, done) {
     if (err) {
       res.sendStatus(500);
     }
 
-    client.query( 'INSERT INTO staff (name, email) ' +
-                  'VALUES ($1, $2)',
-                   [trainer.name, trainer.email],
+    client.query( 'INSERT INTO staff (name, email, admin) ' +
+                  'VALUES ($1, $2, $3)',
+                   [staff.name, staff.email, staff.admin],
                  function (err, result) {
                    done();
                    if (err) {
@@ -53,8 +53,9 @@ router.put('/edit/:id', function(req, res) {
             client.query('UPDATE staff ' +
                          'SET name = $1, ' +
                          'email = $2, ' +
-                         'WHERE id = $3 ',
-                         [company.name, company.email, company.id],
+                         'admin = $3 ' +
+                         'WHERE id = $4 ',
+                         [trainer.name, trainer.email, trainer.admin, trainer.id],
                 function(err, result) {
                     done();
                     if (err) {
@@ -67,18 +68,17 @@ router.put('/edit/:id', function(req, res) {
     });
 });
 
-router.put('/deactivate/:id', function(req, res) {
+router.delete('/:id', function(req, res) {
     var id = req.params.id;
-     console.log('DEACTIVATED TRAINER', id);
+     console.log('DELETED TRAINER', id);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');
                 res.sendStatus(500);
             }
-            client.query('UPDATE staff ' +
-                         'SET active = $1 ' +
-                         'WHERE id = $2 ',
-                         [false, id],
+            client.query('DELETE FROM staff ' +
+                         'WHERE id = $1 ',
+                         [id],
                 function(err, result) {
                     done();
                     if (err) {
