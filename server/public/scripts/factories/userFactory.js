@@ -2,7 +2,8 @@ myApp.factory('UserFactory', function ($http) {
   console.log('UserFactory running');
   var userStatus = {
     loggedIn: false,
-    isAdmin: false
+    isAdmin: false,
+    username: ''
 
 };
 
@@ -34,7 +35,11 @@ myApp.factory('UserFactory', function ($http) {
     checkAdmin: function () {
       console.log(userStatus.isAdmin);
       return userStatus.isAdmin;
-    }
+    },
+    //gets username
+    setName: function (name) {
+    userStatus.username = name;
+  }
 
   };
 
