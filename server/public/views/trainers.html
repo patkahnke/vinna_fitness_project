@@ -1,15 +1,27 @@
 <div class="admin">
-
 <h2>Trainers</h2>
 <!--nav bar-->
-<a ng-click="toggleAddTrainerModal()">Add New Trainer</a>
+<a ng-click="toggleAddTrainerModal()" class="link">Add New Trainer</a>
 
   <!-- list of trainers -->
-  <div ng-repeat="trainer in trainers" ng-if="trainer.active == true">
-    <h3>{{trainer.name}}</h3>
-    <!-- edit opens edit modal -->
-    <button ng-click="toggleEditTrainerModal(trainer)">Edit</button>
-  </div>
+  <table class="table table-striped table-bordered">
+    <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th></th>
+            </tr>
+    </thead>
+    <tbody>
+        <tr id="trainerList" ng-repeat="trainer in trainers | orderBy:'name'">
+              <td id="trainer" name="name">{{trainer.name}}</td>
+              <td id="trainer" name="email">
+                {{trainer.email}}
+              </td></td>
+              <td><button ng-click="toggleEditTrainerModal(trainer)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
 
   <modal-dialog show="addTrainerModal.modalShown" width="50%" height="50%">
     <h2>Add A New Trainer</h2>
@@ -21,8 +33,13 @@
       </li>
       <li>
         <label for="email">Email:</label>
-        <input type="text" name="email" ng-model="newTrainer.email" required>
-        <h6>*required</h6>
+        <input type="text" name="email" ng-model="newTrainer.email" class="text-box">
+      </li>
+      <li>
+        <div class="checkbox">
+          <label for="admin">Check for Admin permissions:</label>
+          <input type="checkbox" value="admin" ng-checked="trainer.admin" ng-model="newTrainer.admin">
+        </div>
       </li>
         <button type="submit" ng-click="addTrainer(newTrainer)">Submit</button>
     </ul>
@@ -39,12 +56,17 @@
       </li>
       <li>
         <label for="email">Email:</label>
-        <input type="text" name="email" ng-model="trainer.email" required>
-        <h6>*required</h6>
+        <input type="text" name="email" ng-model="trainer.email" class="text-box" required>
+      </li>
+      <li>
+        <div class="checkbox">
+          <label for="admin">Check for Admin permissions:</label>
+          <input type="checkbox" value="admin" ng-checked="trainer.admin"ng-model="trainer.admin">
+        </div>
       </li>
         <button type="update" ng-click="updateTrainer(trainer)">Update</button>
         <button ng-click="deleteTrainer(trainer)">Remove</button>
     </ul>
   </form>
   </modal-dialog>
-</class>
+</div>

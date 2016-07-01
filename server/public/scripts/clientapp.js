@@ -60,7 +60,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
     .when('/trainers', {
       templateUrl: '/views/trainers.html',
-      controller: "AdminController"
+      controller: "AdminTrainersController"
     })
 
     .otherwise({

@@ -187,3 +187,17 @@ table {
 .admin {
   text-align: center;
 }
+
+.big-checkbox {
+  width: 30px; height: 30px;
+}
+
+.text-box {
+  width: 200px;
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor:pointer;
+  color: darkblue;
+}
