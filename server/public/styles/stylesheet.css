@@ -203,3 +203,7 @@ table {
 .assessment0, .assessment1, .assessment2, .assessment3, .assessment4, .assessment5, .assessment6, .assessment7, .asseessment8 {
   padding: 0 5% 0 5%;
 }
+
+.dropdown {
+  margin-right: 2%;
+}
