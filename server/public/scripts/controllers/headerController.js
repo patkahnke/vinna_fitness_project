@@ -1,9 +1,17 @@
-myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location', 'UserFactory',  function($scope, $http, $window, $location, UserFactory)
+myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location', 'UserFactory', '$log',  function($scope, $http, $window, $location, UserFactory, $log)
 
 {
   userFactory = UserFactory;
   $scope.hide = true;
   $scope.trainerHide = true;
+  $scope.hiddenAdmin = true;
+
+  userFactory.checkAdmin();
+  if (userFactory.checkAdmin === true) {
+    $scope.hiddenAdmin = false;
+  } else {
+    $scope.hiddenAdmin = true;
+  }
 
   userFactory.isLoggedIn()
   .then(function (response) {
@@ -24,7 +32,27 @@ myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location',
   });
   };
 
+  $scope.items = [
+    'The first choice!',
+    'And another choice for you.',
+    'but wait! A third!'
+  ];
 
+  $scope.status = {
+    isopen: false
+  };
+
+  $scope.toggled = function(open) {
+    $log.log('Dropdown is now: ', open);
+  };
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
+
+  $scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
 
 
 }]);
