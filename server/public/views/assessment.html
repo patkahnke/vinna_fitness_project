@@ -1,14 +1,32 @@
 <div class="assessmentContainer">
   <div class="assessmentContent">
   <h1 class="assessmentHeader">Functional Movement Screen</h1>
+
+  <div class="assessment0" ng-show="show0">
+    <form>
+      <table class="borderless">
+        <tr>
+          <th><h3 class="assessmentItem">Shin Length (inches):</h3></th>
+          <td><input type="number" step="0.1" class="measurement" name="leg-measurement" ng-model="assessment.leg_measurement" required></td>
+        </tr>
+          <button type="button submit" class="btn btn-secondary assessmentNext" ng-click="checkContent0()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+          <tr>
+            <th><h3 class="assessmentItem">Hand Length (inches):</h3></th>
+            <td><input type="number" step="0.1" class="measurement" name="hand-measurement" ng-model="assessment.hand_measurement" required></td>
+          </tr>
+      </table>
+    </form>
+  </div>
+
     <div class="assessment1" ng-show="show1">
       <form>
         <table class="borderless">
           <tr>
             <th><h3 class="assessmentItem">Toe Touch:</h3></th>
-            <td><input type="radio" name="toe_touch" value="yes" ng-model="assessment.toe_touch" required><label for="Y">Y</label></td>
-            <td><input type="radio" name="toe_touch" value="no" ng-model="assessment.toe_touch"><label for="N">N</label></td>
+            <td><input type="radio" name="toe_touch" ng-value=true ng-model="assessment.toe_touch" required><label for="Y">Y</label></td>
+            <td><input type="radio" name="toe_touch" ng-value=false ng-model="assessment.toe_touch"><label for="N">N</label></td>
           </tr>
+            <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent1Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
             <button type="button submit" class="btn btn-secondary assessmentNext" ng-click="checkContent1()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
           <tr>
             <th><h3 class="assessmentItem">Deep Squat:</h3></th>
@@ -27,9 +45,9 @@
         <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent2Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent2()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
-          <tr>
-            <th><h3 class="assessmentItem">Inches:</h3></th>
-            <td><input type="number" step="0.1" class="measurement" name="hurdle-measurement" ng-model="assessment.hurdle.measurement" required></td>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Shin Length: </h3></th>
+            <td><h3 class="displayMeasurement">{{assessment.leg_measurement}} in.</h3></td>
           </tr>
           <tr class="alignLeft">
             <th><h3 class="assessmentItem">Left Leg Up:</h3></th>
@@ -55,9 +73,9 @@
         <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent3Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent3()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
-          <tr>
-            <th><h3 class="assessmentItem">Inches:</h3></th>
-            <td><input type="number" step="0.1" class="measurement" name="hurdle-measurement" ng-model="assessment.lunge.measurement" required></td>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Shin Length: </h3></th>
+            <td><h3 class="displayMeasurement">{{assessment.leg_measurement}} in.</h3></td>
           </tr>
           <tr class="alignLeft">
             <th><h3 class="assessmentItem">Left Leg Forward:</h3></th>
@@ -83,27 +101,37 @@
         <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent4Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent4()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
-          <tr>
-            <th><h3 class="assessmentItem">Hand Length (in.):</h3></th>
-            <td><input type="number" step="0.1" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.distance" required></td>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Hand Length: </h3></th>
+            <td><h3 class="displayMeasurement">{{assessment.hand_measurement}} in.</h3></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Top Left (in.):</h3></th>
+            <th><h3 class="assessmentItem">Top Left (inches):</h3></th>
             <td><input type="number" step="0.1" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.top_left" required></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Top Right (in.):</h3></th>
+            <th><h3 class="assessmentItem">Top Right (inches):</h3></th>
             <td><input type="number" step="0.1" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.top_right" required></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Left (Impingement):</h3></th>
+            <th><h3 class="assessmentItem">Left Impingement:</h3></th>
+            <td><input type="radio" name="shoulder-left-impingement" ng-value="true" ng-model="assessment.shoulder.left_impingement" required><label for="Y">Y</label></td>
+            <td><input type="radio" name="shoulder-left-impingement" ng-value="false" ng-model="assessment.shoulder.left_impingement"><label for="N">N</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Right Impingement:</h3></th>
+            <td><input type="radio" name="shoulder-right-impingement" ng-value="true" ng-model="assessment.shoulder.right_impingement" required><label for="Y">Y</label></td>
+            <td><input type="radio" name="shoulder-right-impingement" ng-value="false" ng-model="assessment.shoulder.right_impingement"><label for="N">N</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Left Mobility:</h3></th>
             <td><input type="radio" name="shoulder-left" value="0" ng-model="assessment.shoulder.left" required><label for="0">0</label></td>
             <td><input type="radio" name="shoulder-left" value="1" ng-model="assessment.shoulder.left"><label for="1">1</label></td>
             <td><input type="radio" name="shoulder-left" value="2" ng-model="assessment.shoulder.left"><label for="2">2</label></td>
             <td><input type="radio" name="shoulder-left" value="3" ng-model="assessment.shoulder.left"><label for="3">3</label></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Right (Impingement):</h3></th>
+            <th><h3 class="assessmentItem">Right Mobility:</h3></th>
             <td><input type="radio" name="shoulder-right" value="0" ng-model="assessment.shoulder.right" required><label for="0">0</label></td>
             <td><input type="radio" name="shoulder-right" value="1" ng-model="assessment.shoulder.right"><label for="1">1</label></td>
             <td><input type="radio" name="shoulder-right" value="2" ng-model="assessment.shoulder.right"><label for="2">2</label></td>
@@ -111,7 +139,7 @@
           </tr>
         </table>
         <h3 class="shoulderRec" ng-show="showShoulderRec">{{shoulderRec}}</h3>
-        <button type="button" class="btn btn-secondary" ng-click="getShoulderScore()">Get Recommended Scores</button>
+        <button type="button" class="btn btn-secondary" ng-click="getShoulderScore()">Get Recommended Mobility Scores</button>
       </form>
     </div>
 
@@ -141,12 +169,16 @@
 
     <div class="assessment6" ng-show="show6">
       <form>
-        <h2>Trunk Stability Push Up</h2>
         <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent6Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent6()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
           <tr class="alignLeft">
             <th><h3 class="assessmentItem">Prone Press Up:</h3></th>
+            <td><input type="radio" name="press_up" ng-value="true" ng-model="assessment.prone_press_up" required><label for="Y">Y</label></td>
+            <td><input type="radio" name="press_up" ng-value="false" ng-model="assessment.prone_press_up"><label for="N">N</label></td>
+          </tr>
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Trunk Stabilty Push Up:</h3></th>
             <td><input type="radio" name="push_up" value="0" ng-model="assessment.push_up" required><label for="0">0</label></td>
             <td><input type="radio" name="push_up" value="1" ng-model="assessment.push_up"><label for="1">1</label></td>
             <td><input type="radio" name="push_up" value="2" ng-model="assessment.push_up"><label for="2">2</label></td>
@@ -162,6 +194,11 @@
         <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent7Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent7()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
+          <tr class="alignLeft">
+            <th><h3 class="assessmentItem">Kneeling Lumbar Flexion:</h3></th>
+            <td><input type="radio" name="lumbar-flexion" ng-value="true" ng-model="assessment.rotary.lumbar_flexion" required><label for="Y">Y</label></td>
+            <td><input type="radio" name="lumbar-flexion" ng-value="false" ng-model="assessment.rotary.lumbar_flexion"><label for="N">N</label></td>
+          </tr>
           <tr class="alignLeft">
             <th><h3 class="assessmentItem">Left Up:</h3></th>
             <td><input type="radio" name="rotary-left" value="0" ng-model="assessment.rotary.left" required><label for="0">0</label></td>
