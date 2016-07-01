@@ -1,6 +1,16 @@
-myApp.controller('TrainerController',['$scope', '$http', 'ApplicantFactory', function($scope, $http, ApplicantFactory)
+myApp.controller('TrainerController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory)
+
 {
-  
+  userFactory = UserFactory;
+  $scope.username = userFactory.currentUser.username;
+
+  if (userFactory.checkLoggedIn() === true) {
+    if (userFactory.checkAdmin() === false) {
+      $location.path('/trainer');
+    }
+  } else {
+    $location.path('/');
+  };
 
 
 
