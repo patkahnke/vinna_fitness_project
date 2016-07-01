@@ -1,4 +1,4 @@
-myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'ApplicantFactory',  function($scope, $http, $location, ApplicantFactory) {
+myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory) {
   $scope.assessment = ApplicantFactory.currentAssessment;
   $scope.show0 = true;
   $scope.show1 = false;
@@ -12,12 +12,20 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.showShoulderRec = false;
   $scope.shoulderRec = '';
 
+  userFactory = UserFactory;
+
 //$scope.email = object with fields
   /*$scope.sendMail = function ()  {
     $http.post('/mail', $scope.email).then(function(response) {
       console.log(response);
     });
   };*/
+
+  if (userFactory.checkLoggedIn() === true) {
+      $location.path('/assessment');
+  } else {
+    $location.path('/');
+  }
 
   ApplicantFactory.all();
   console.log($scope.assessment);
