@@ -6,11 +6,11 @@ myApp.controller('TrainerController', ['$scope', '$http', '$location', 'Applican
 
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
-      $location.path('/trainer');
+      $location.path('/assessment');
     }
   } else {
     $location.path('/');
-  };
+  }
 
 
 
