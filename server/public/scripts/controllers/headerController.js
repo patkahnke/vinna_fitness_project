@@ -22,7 +22,7 @@ myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location',
   $scope.routeHome = function() {
     if (userFactory.checkLoggedIn() === true) {
       if ($scope.hiddenAdmin === true) {
-      $location.path('/assessment');
+      $location.path('/applicant');
       }
       else {
       $location.path('/admin');
