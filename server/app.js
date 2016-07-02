@@ -10,6 +10,7 @@ var isLoggedIn = require('./utils/auth');
 //route variables
 var connection = require('./modules/connection');
 var companies = require('./routes/companies');
+var jobs = require('./routes/jobs');
 var trainer = require('./routes/trainer');
 var login = require('./routes/login');
 
@@ -102,13 +103,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Routes
 app.use('/login', login);
-app.use('/trainer', trainer)
+app.use('/trainer', trainer);
+app.use('/companies', companies);
+app.use('/jobs', jobs);
 
 app.post('/data/:number', function (req, res) {
       res.send(req.params.number);
     });
 
-app.use('/companies', companies);
 // Handle index file separately
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './public/views/index.html'));

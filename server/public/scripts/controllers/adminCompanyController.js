@@ -30,7 +30,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
           alert('Your company was not recieved!');
         }
       });
-    };
+  };
 
   // update existing company
   $scope.updateCompany = function (company) {
