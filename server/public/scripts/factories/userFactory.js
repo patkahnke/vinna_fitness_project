@@ -33,7 +33,6 @@ myApp.factory('UserFactory', function ($http) {
         },
     //checks to see if a user is an admin
     checkAdmin: function () {
-      console.log(userStatus.isAdmin);
       return userStatus.isAdmin;
     },
     //gets username
