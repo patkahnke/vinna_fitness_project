@@ -186,3 +186,6 @@ table {
 .companyContainer{
   display: block;
 }
+.input {
+  width : 250px;
+}

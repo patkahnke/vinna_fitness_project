@@ -5,14 +5,19 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
   $scope.selectedCo = $scope.dataFactory.selectedCo.job;
   //scope variables
   $scope.jobs = [];
-  $scope.newJobs = {};
+  $scope.newJob = {};
   //ng option dropdown values and variations
   $scope.standardMinimums = [0,1,2,3];
-  // getJobs();
+  $scope.coreMinimums = [0,1,2,3,4,5,6,7,8,9];
+  $scope.otherMinimums = [0,1,2,3,4,5,6,7,8,9,10,11,12];
+  $scope.compositeMinimums = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 
-  //retrieve existing jobs
+  getJobs();
+
+  //retrieve existing jobs from selected company
   function getJobs() {
-    $http.get('/jobs')
+    var id = $scope.selectedCo.id;
+    $http.get('/jobs/' + id)
       .then(function (response) {
         $scope.jobs = response.data;
         console.log('GET /jobs ', response.data);
@@ -22,7 +27,8 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
   //add new job
   $scope.addJob = function () {
     var data = $scope.newJob;
-    $http.post('/jobs', data)
+    var id = $scope.selectedCo.id;
+    $http.post('/jobs/' + id, data)
       .then(function (response) {
         console.log('POST /jobs');
         console.log(response);
