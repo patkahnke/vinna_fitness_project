@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vinna-fitness-mu",
+  "private_key_id": "414406228b53013e24c864a73bd9306fa75613d2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDfK1QrgNi3wIaj\n+st3NPGOeJZO7629o/xZ7S1iNHDUEC90gMIjexXC7VnRPT6BIpzENBunS1tI2Jfi\nhWsd1BtXHvVWk4s3/Jjluxt63DtddTup0EfxtRAEaKvC8/eKKbSeiSTfGykXhb2f\n1kRNTjtcbhbSHPAYUWzbWM90yz2BzRyVzeKNd1nu75TrI+iLVpJrUwzDqSJCLcwv\nP3O0rhlo6XVyehL/Qxo63+Fm5cJiYygnqezJBxRTiX2fnBMY4lHmGOBVvKyb5f3l\nEzBdQ+MnMzMXbOgSnN0zHenKlFtNGPsGkPo01JlEo2vSkeYSySZXYRhM753O5+zU\ndc3MJZsDAgMBAAECggEBAKd2ghCq/PTWGbKPDYMETYcVYeUV4Y/+r+xjF70rkMbw\n5ktMG2I4iJnfNZjXlkGc0XpBh8a/u14sebzXVQvrECEN8BfpW3zFpY4uG27UOA/n\nWsAQtQvhTIWibdE69TPOG+UjEHIClZE7IJICXPqNi+nOCn3cjSYSY9ctC2+e2ya8\ndp7KB3N5lVIgiaPuYRulWiELmuXU2aq0Zfk1uLPvPecRWacplS7nah1e/Fla4fhy\n6pdKGEvzVZ4logN9Z6fWGs0y1HU9GkrqlmEtjslN0B91ytf6efwTPLID5S+iEpVs\nhUtj5/bWraXXtDaQXbwqXT8S/Tg4HLIk5sJtRYqAiIECgYEA9vieTFlvlgohUfkz\njBxXMmHytBZO13eEITfiSbJhxQ6nRpNu4pH18zAksEaKiwkevyMzhb374UYsqhy+\nrdmlEQip98OA/yvfXK/2fA4bCkUILRDfPVaKCjrqbxIMwGlSLy/QBgVbSYSx4RqT\nH9IZCJtcsCRl/VWEiJU70FB0qKECgYEA51PzTgvL1Z11cfLy3WArb7QO68eEaxbh\n7RxDPaLEAbJfP07NEwtMSyIhOQQquXsz9zDvdzN2N81pJvYRPLMTOF+DHkrd7Wyr\nPoV0kx/WdM4F3VG0ZYoKow0FNLf4q0o6He5sJd0WRy2+NENYdwq0oJMMTrJf2j6O\nj9zh7simbSMCgYEA4zp4GvMmsbt8ULmh7cWdjKOF9J+ZxrEWBqIuN3RCdFY5HbxE\nh32X9zpSZ0Vf7vBjM6UloGXeO7SfH5z262mWcAeyql1ccGpjRho4BIfN5TMChMRD\nQWI/+42daLgIt3evv+6TzRZcmVXXe69BskNR+RNIwl+a3u0x1aDIua9sxkECgYAc\nmfWgNbcrHz/RKe+7TVOxiPq7TjziHL8sWO07Zq+DYjGCm1ShwSjatUqUSR6bNk9z\nhbpl65f3SE9zAMOa1K1QsAZ/LVSJMYFuxoNmWW5jnMF+3sZGM64jAM4e+YwmaZQL\n9VmryM0jWdWFkroSZeF1ZRkFdeqCCnAH+5B3vJlPLwKBgCo0d+wirzEezjq0gWDI\nWlrfzRtV+RPekxcfSXsAJRZDwCXrIBYxxXl8k8HbivyD3qQUYMi32QC5z2vD+bor\n084rGYpWsvdF9QBX5oFepp2m8UJ7pwbDh3OLA+yElMeRUUPDrmgUyXupLocRdg9D\nl99PfrlhYA0tqLs8iM6iuEo5\n-----END PRIVATE KEY-----\n",
+  "client_email": "vinna-fitness-mu@appspot.gserviceaccount.com",
+  "client_id": "102305726457000653312",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vinna-fitness-mu%40appspot.gserviceaccount.com"
+}
