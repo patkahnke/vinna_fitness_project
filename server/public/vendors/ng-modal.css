@@ -36,7 +36,7 @@
   padding: 10px;
 }
 .ng-modal-dialog-content {
-  overflow: hidden;
+  overflow: scroll;
   height: 100%;
 }
 .ng-modal-close {
