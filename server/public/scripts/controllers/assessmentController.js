@@ -194,15 +194,15 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       var results = $scope.assessment;
-        $http.post('/mail', results).then(function(response) {
+        $http.post('/assessmentResults', results).then(function(response) {
           if (response.status == 201 ) {
             $scope.assessment = {};
             ApplicantFactory.currentAssessment = $scope.assessment;
             console.log($scope.assessment);
-            alert('Assessment data successfully saved, and email sent.');
+            alert('Assessment data successfully saved.');
             $location.path('/applicant');
           } else {
-            alert('Error saving or emailing results. Please try again.');
+            alert('Error saving results. Please try again.');
           }
         });
   };
