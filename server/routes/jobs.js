@@ -51,20 +51,46 @@ router.post('/:id', function (req, res) {
     });
 });
 
-router.put('/edit/:id', function(req, res) {
-    var company = req.body;
-     console.log('HERE FOOL', company);
+router.put('/update/:id', function(req, res) {
+    var job = req.body;
+    var id = req.params.id;
+     console.log('HERE FOOL', job);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');
                 res.sendStatus(500);
             }
-            client.query('UPDATE company ' +
-                         'SET name = $1, ' +
-                         'location = $2, ' +
-                         'email = $3 ' +
-                         'WHERE id = $4 ',
-                         [company.name, company.location, company.email, company.id],
+            client.query('UPDATE job ' +
+                         'SET title = $1, job_email = $2, ' +
+                         'min_deep_squat = $3, min_hurdle_step = $4, min_inline_lunge = $5, ' +
+                         'min_shoulder_mob = $6, min_straight_leg = $7, min_rotary_stab = $8, ' +
+                         'min_trunk_push_up = $9, min_composite = $10, core_subtest = $11, ' +
+                         'shoulder_subtest = $12, low_body_subtest = $13, other_subtest = $14 ' +
+                         'WHERE id = $15 ',
+                         [job.title, job.job_email, job.minDeepSquat, job.minHurdleStep, job.minInlineLunge, job.minShoulderMob, job.minActiveStraightLegRaise, job.minRotaryStability, job.minTrunkStabilityPushup, job.compositeScore, job.coreSubtest, job.shoulderSubtest, job.lowerBodySubtest, job.otherSubtest, job.id],
+                function(err, result) {
+                    done();
+                    if (err) {
+                        console.log(err, 'put err');
+                        res.sendStatus(500);
+                        return;
+                    }
+                    res.sendStatus(204);
+                });
+    });
+});
+
+router.delete('/delete/:id', function(req, res) {
+    var id = req.params.id;
+     console.log('DELETING JOB ID :', id);
+    pg.connect(connectionString, function(err, client, done) {
+            if (err) {
+                console.log('connection err');
+                res.sendStatus(500);
+            }
+            client.query('DELETE FROM job ' +
+                         'WHERE id = $1 ',
+                         [id],
                 function(err, result) {
                     done();
                     if (err) {
@@ -77,52 +103,6 @@ router.put('/edit/:id', function(req, res) {
     });
 });
 
-router.put('/deactivate/:id', function(req, res) {
-    var id = req.params.id;
-     console.log('DEACTIVATED COMPANY', id);
-    pg.connect(connectionString, function(err, client, done) {
-            if (err) {
-                console.log('connection err');
-                res.sendStatus(500);
-            }
-            client.query('UPDATE company ' +
-                         'SET active = $1 ' +
-                         'WHERE id = $2 ',
-                         [false, id],
-                function(err, result) {
-                    done();
-                    if (err) {
-                        console.log('put err');
-                        res.sendStatus(500);
-                        return;
-                    }
-                    res.sendStatus(204);
-                });
-    });
-});
 
-router.put('/reactivate/:id', function(req, res) {
-    var id = req.params.id;
-     console.log('REACTIVATED COMPANY', id);
-    pg.connect(connectionString, function(err, client, done) {
-            if (err) {
-                console.log('connection err');
-                res.sendStatus(500);
-            }
-            client.query('UPDATE company ' +
-                         'SET active = $1 ' +
-                         'WHERE id = $2 ',
-                         [true, id],
-                function(err, result) {
-                    done();
-                    if (err) {
-                        console.log('put err');
-                        res.sendStatus(500);
-                        return;
-                    }
-                    res.sendStatus(204);
-                });
-    });
-});
 
 module.exports = router;
