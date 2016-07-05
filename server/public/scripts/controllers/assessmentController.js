@@ -1,6 +1,7 @@
-myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'ApplicantFactory',  function($scope, $http, $location, ApplicantFactory) {
+myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory) {
   $scope.assessment = ApplicantFactory.currentAssessment;
-  $scope.show1 = true;
+  $scope.show0 = true;
+  $scope.show1 = false;
   $scope.show2 = false;
   $scope.show3 = false;
   $scope.show4 = false;
@@ -11,8 +12,32 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.showShoulderRec = false;
   $scope.shoulderRec = '';
 
+  userFactory = UserFactory;
+
+//$scope.email = object with fields
+  /*$scope.sendMail = function ()  {
+    $http.post('/mail', $scope.email).then(function(response) {
+      console.log(response);
+    });
+  };*/
+
+  if (userFactory.checkLoggedIn() === true) {
+      $location.path('/assessment');
+  } else {
+    $location.path('/');
+  }
+
   ApplicantFactory.all();
   console.log($scope.assessment);
+
+  $scope.checkContent0 = function () {
+    if($scope.assessment.leg_measurement !== undefined && $scope.assessment.hand_measurement !== undefined) {
+      ApplicantFactory.currentAssessment = $scope.assessment;
+      console.log(ApplicantFactory.currentAssessment);
+      $scope.show0 = false;
+      $scope.show1 = true;
+    }
+  };
 
   $scope.checkContent1 = function () {
     if($scope.assessment.toe_touch !== undefined && $scope.assessment.squat !== undefined) {
@@ -23,8 +48,15 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+  $scope.checkContent1Prev = function () {
+    if($scope.assessment.toe_touch !== undefined && $scope.assessment.squat !== undefined) {
+      $scope.show0 = true;
+      $scope.show1 = false;
+    }
+  };
+
   $scope.checkContent2 = function () {
-    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined && $scope.assessment.hurdle.measurement !== undefined) {
+    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show2 = false;
@@ -33,14 +65,14 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   };
 
   $scope.checkContent2Prev = function () {
-    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined && $scope.assessment.hurdle.measurement !== undefined) {
+    if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined) {
       $scope.show1 = true;
       $scope.show2 = false;
     }
   };
 
   $scope.checkContent3 = function () {
-    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined && $scope.assessment.lunge.measurement !== undefined) {
+    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show3 = false;
@@ -49,14 +81,14 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   };
 
   $scope.checkContent3Prev = function () {
-    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined && $scope.assessment.lunge.measurement !== undefined) {
+    if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined) {
       $scope.show3 = false;
       $scope.show2 = true;
     }
   };
 
   $scope.getShoulderScore = function () {
-    if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.distance !== undefined) {
+    if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.hand_measurement !== undefined) {
       var shoulderScore = function (handDist, shoulderTop) {
         var recScore = '';
         if (shoulderTop / handDist <= 1) {
@@ -71,20 +103,20 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
         return recScore;
       };
 
-      var recShoulderRight = shoulderScore($scope.assessment.shoulder.distance, $scope.assessment.shoulder.top_right);
-      var recShoulderLeft = shoulderScore($scope.assessment.shoulder.distance, $scope.assessment.shoulder.top_left);
+      var recShoulderRight = shoulderScore($scope.assessment.hand_measurement, $scope.assessment.shoulder.top_right);
+      var recShoulderLeft = shoulderScore($scope.assessment.hand_measurement, $scope.assessment.shoulder.top_left);
 
       $scope.showShoulderRec = true;
-      $scope.shoulderRec = 'If no pain present, left shoulder score = ' + recShoulderLeft + ' and right shoulder score = ' + recShoulderRight + '.';
+      $scope.shoulderRec = 'If no pain/impingement, left shoulder = ' + recShoulderLeft + ' and right shoulder = ' + recShoulderRight + '.';
     }
     else {
       $scope.showShoulderRec = true;
-      $scope.shoulderRec = "Please enter values for all three measurement fields.";
+      $scope.shoulderRec = "Please enter values for both measurement fields.";
     }
   };
 
   $scope.checkContent4 = function () {
-    if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.right !== undefined && $scope.assessment.shoulder.left !== undefined && $scope.assessment.shoulder.distance !== undefined) {
+    if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.right !== undefined && $scope.assessment.shoulder.left !== undefined && $scope.assessment.shoulder.right_impingement !== undefined && $scope.assessment.shoulder.left_impingement !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show4 = false;
@@ -94,7 +126,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   $scope.checkContent4Prev = function () {
     console.log($scope.assessment);
-    if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.right !== undefined && $scope.assessment.shoulder.left !== undefined && $scope.assessment.shoulder.distance !== undefined) {
+    if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.right !== undefined && $scope.assessment.shoulder.left !== undefined && $scope.assessment.shoulder.right_impingement !== undefined && $scope.assessment.shoulder.left_impingement !== undefined) {
       $scope.show4 = false;
       $scope.show3 = true;
     }
@@ -120,7 +152,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   $scope.checkContent6 = function () {
     console.log($scope.assessment);
-    if($scope.assessment.push_up !== undefined) {
+    if($scope.assessment.push_up !== undefined && $scope.assessment.prone_press_up !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show6 = false;
@@ -130,7 +162,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   $scope.checkContent6Prev = function () {
     console.log($scope.assessment);
-    if($scope.assessment.push_up !== undefined) {
+    if($scope.assessment.push_up !== undefined && $scope.assessment.prone_press_up !== undefined) {
       $scope.show6 = false;
       $scope.show5 = true;
     }
@@ -138,7 +170,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   $scope.checkContent7 = function () {
     console.log($scope.assessment);
-    if($scope.assessment.rotary.right !== undefined && $scope.assessment.rotary.left !== undefined) {
+    if($scope.assessment.rotary.right !== undefined && $scope.assessment.rotary.left !== undefined  && $scope.assessment.rotary.lumbar_flexion != undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show7 = false;
@@ -148,7 +180,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   $scope.checkContent7Prev = function () {
     console.log($scope.assessment);
-    if($scope.assessment.rotary.right !== undefined && $scope.assessment.rotary.left !== undefined) {
+    if($scope.assessment.rotary.right !== undefined && $scope.assessment.rotary.left !== undefined && $scope.assessment.rotary.lumbar_flexion != undefined) {
       $scope.show7 = false;
       $scope.show6 = true;
     }
@@ -156,9 +188,23 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   $scope.checkContent8 = function () {
     console.log($scope.assessment);
+      if ($scope.assessment.notes === undefined) {
+        $scope.assessment.notes = "none";
+      }
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
-      console.log("submit function, then redirect to trainer home");
+      var results = $scope.assessment;
+        $http.post('/mail', results).then(function(response) {
+          if (response.status == 201 ) {
+            $scope.assessment = {};
+            ApplicantFactory.currentAssessment = $scope.assessment;
+            console.log($scope.assessment);
+            alert('Assessment data successfully saved, and email sent.');
+            $location.path('/applicant');
+          } else {
+            alert('Error saving or emailing results. Please try again.');
+          }
+        });
   };
 
   $scope.checkContent8Prev = function () {
@@ -166,4 +212,5 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show8 = false;
       $scope.show7 = true;
     };
+
 }]);

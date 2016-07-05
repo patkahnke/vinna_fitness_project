@@ -60,3 +60,7 @@
   padding-bottom: 7px;
   border-bottom: solid 1px #999;
 }
+
+.ng-modal ul {
+  list-style-type: none;
+}
