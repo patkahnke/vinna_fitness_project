@@ -196,6 +196,13 @@ table {
   display: block;
 }
 
+.companyContainer{
+  display: block;
+}
+.input {
+  width : 250px;
+}
+
 .displayMeasurement {
   margin: -25%;
   padding-left: 23%;
@@ -207,6 +214,7 @@ table {
 
 .dropdown {
   margin-right: 2%;
+}
 
 .admin {
   text-align: center;
