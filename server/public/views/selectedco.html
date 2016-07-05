@@ -1,6 +1,203 @@
+<div class="companyContainer">
 <h2>{{selectedCo.name}} Jobs</h2>
-<!--nav bar-->
-<button>Add a Job (opens add modal)</button>
-list of company jobs w/edit(opens edit modal) delete?
-<div add modal></div>
-<div edit modal></div>
+<!-- TODO: nav bar-->
+<div>
+  <div>
+    <a ng-click="activeCompanies()">Back to Active Companies</a>
+    <br>
+    <a ng-click="toggleAddJobModal()">Add New Job</a>
+  </div>
+
+</div>
+  <!-- list of jobs -->
+  <div class="col-md-4" ng-repeat="job in jobs">
+    <h3>{{job.title}}</h3>
+    <ul>
+      <li>
+        <!-- edit opens edit job modal -->
+        <button ng-click="toggleEditJobModal(job)">Edit</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <modal-dialog show="addJobModal.modalShown" width="50%" height="60%">
+    <h2>Add A New Job</h2>
+    <form class="addJob">
+     <ul>
+      <li>
+        <label for="title">Title:</label>
+        <input class="input" type="text" name="title" ng-model="newJob.title">
+      </li>
+      <li>
+        <label for="email">Job Specific Email:</label>
+        <input class="input" type="text" name="email" ng-model="newJob.email">
+        <h6>If left blank will default to: {{selectedCo.email}}</h6>
+      </li>
+      <li>
+          <label for="min_deep_squat">Deep Squat Min</label>
+            <select name="min_deep_squat" ng-model="newJob.minDeepSquat">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_hurdle_step">Hurdle Step Min</label>
+            <select name="min_hurdle_step" ng-model="newJob.minHurdleStep">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_inline_lunge">Inline Lunge Min</label>
+            <select name="min_inline_lunge" ng-model="newJob.minInlineLunge">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_shoulder_mob">Shoulder Mobility Min</label>
+            <select name="min_shoulder_mob" ng-model="newJob.minShoulderMob">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_straight_leg">Active Straight Leg Raise Min</label>
+            <select name="min_straight_leg" ng-model="newJob.minActiveStraightLegRaise">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_rotary_stab">Rotary Stability Quadruped Min</label>
+            <select name="min_rotary_stab" ng-model="newJob.minRotaryStability">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_trunk_push_up">Trunk Stability Push Up Min</label>
+            <select name="min_trunk_push_up" ng-model="newJob.minTrunkStabilityPushup">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="composite_score">Min Composite Score</label>
+            <select name="composite_score" ng-model="newJob.compositeScore">
+              <option ng-repeat="min in compositeMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="core_subtest">Core Subtest</label>
+            <select name="core_subtest" ng-model="newJob.coreSubtest">
+              <option ng-repeat="min in coreMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="shoulder_subtest">Shoulder Subtest</label>
+            <select name="shoulder_subtest" ng-model="newJob.shoulderSubtest">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="lower_body_subtest">Lower Body Subtest</label>
+            <select name="subtest" ng-model="newJob.lowerBodySubtest">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="other_subtest">Other Subtest</label>
+            <select name="other_subtest" ng-model="newJob.otherSubtest">
+              <option ng-repeat="min in otherMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+        <button type="submit" ng-click="addJob(newJob)">Submit</button>
+    </ul>
+    </form>
+  </modal-dialog>
+
+  <modal-dialog show="editJobModal.modalShown" width="50%" height="70%">
+    <h2>Edit {{job.title}}</h2>
+    <form class="editJob">
+     <ul>
+      <li>
+        <label for="title">Title: </label>
+        <input class="input" type="text" name="title" ng-model="job.title">
+      </li>
+      <li>
+        <label for="email">Job Specific Email:</label>
+        <input class="input" type="text" name="email" ng-model="job.job_email">
+        <h6>If left blank will default to: {{selectedCo.email}}</h6>
+      </li>
+      <li>
+          <label for="min_deep_squat">Deep Squat Min : {{job.min_deep_squat}}</label>
+            <select name="min_deep_squat" ng-model="job.minDeepSquat">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_hurdle_step">Hurdle Step Min: {{job.min_hurdle_step}}</label>
+            <select name="min_hurdle_step" ng-model="job.minHurdleStep">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_inline_lunge">Inline Lunge Min: {{job.min_inline_lunge}}</label>
+            <select name="min_inline_lunge" ng-model="job.minInlineLunge">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_shoulder_mob">Shoulder Mobility Min: {{job.min_shoulder_mob}}</label>
+            <select name="min_shoulder_mob" ng-model="job.minShoulderMob">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_straight_leg">Active Straight Leg Raise Min: {{job.min_straight_leg}}</label>
+            <select name="min_straight_leg" ng-model="job.minActiveStraightLegRaise">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_rotary_stab">Rotary Stability Quadruped Min: {{job.min_rotary_stab}}</label>
+            <select name="min_rotary_stab" ng-model="job.minRotaryStability">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="min_trunk_push_up">Trunk Stability Push Up Min: {{job.min_trunk_push_up}}</label>
+            <select name="min_trunk_push_up" ng-model="job.minTrunkStabilityPushup">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="composite_score">Min Composite Score: {{job.min_composite}}</label>
+            <select name="composite_score" ng-model="job.compositeScore">
+              <option ng-repeat="min in compositeMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="core_subtest">Core Subtest: {{job.core_subtest}}</label>
+            <select name="core_subtest" ng-model="job.coreSubtest">
+              <option ng-repeat="min in coreMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="shoulder_subtest">Shoulder Subtest: {{job.shoulder_subtest}}</label>
+            <select name="shoulder_subtest" ng-model="job.shoulderSubtest">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="lower_body_subtest">Lower Body Subtest: {{job.low_body_subtest}}</label>
+            <select name="subtest" ng-model="job.lowerBodySubtest">
+              <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+      <li>
+          <label for="other_subtest">Other Subtest: {{job.other_subtest}}</label>
+            <select name="other_subtest" ng-model="job.otherSubtest">
+              <option ng-repeat="min in otherMinimums" value="{{min}}">{{min}}</option>
+            </select>
+      </li>
+        <button type="submit" ng-click="updateJob(job)">Submit</button>
+        <button ng-click="deleteJob(job)">Delete</button>
+    </ul>
+    </form>
+  </modal-dialog>
