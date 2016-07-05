@@ -9,10 +9,10 @@ router.get('/', function(req, res) {
         if (err) {
             res.sendStatus(500);
         }
-        client.query("SELECT * FROM company ",
+        client.query("SELECT * FROM staff ",
          function(err, result) {
             if (err) {
-                console.log(err, "retrieving existing companies from database error");
+                console.log(err, "retrieving existing trainers from database error");
             }
             done();
             // console.log(result);
@@ -22,15 +22,15 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function (req, res) {
-  var company = req.body;
+  var staff = req.body;
   pg.connect(connectionString, function (err, client, done) {
     if (err) {
       res.sendStatus(500);
     }
 
-    client.query( 'INSERT INTO company (name, location, email) ' +
+    client.query( 'INSERT INTO staff (name, email, admin) ' +
                   'VALUES ($1, $2, $3)',
-                   [company.name, company.location, company.email],
+                   [staff.name, staff.email, staff.admin],
                  function (err, result) {
                    done();
                    if (err) {
@@ -43,19 +43,19 @@ router.post('/', function (req, res) {
 });
 
 router.put('/edit/:id', function(req, res) {
-    var company = req.body;
-     console.log('HERE FOOL', company);
+    var trainer = req.body;
+     console.log('HERE FOOL', trainer);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');
                 res.sendStatus(500);
             }
-            client.query('UPDATE company ' +
+            client.query('UPDATE staff ' +
                          'SET name = $1, ' +
-                         'location = $2, ' +
-                         'email = $3 ' +
+                         'email = $2, ' +
+                         'admin = $3 ' +
                          'WHERE id = $4 ',
-                         [company.name, company.location, company.email, company.id],
+                         [trainer.name, trainer.email, trainer.admin, trainer.id],
                 function(err, result) {
                     done();
                     if (err) {
@@ -68,18 +68,17 @@ router.put('/edit/:id', function(req, res) {
     });
 });
 
-router.put('/deactivate/:id', function(req, res) {
+router.delete('/:id', function(req, res) {
     var id = req.params.id;
-     console.log('DEACTIVATED COMPANY', id);
+     console.log('DELETED TRAINER', id);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');
                 res.sendStatus(500);
             }
-            client.query('UPDATE company ' +
-                         'SET active = $1 ' +
-                         'WHERE id = $2 ',
-                         [false, id],
+            client.query('DELETE FROM staff ' +
+                         'WHERE id = $1 ',
+                         [id],
                 function(err, result) {
                     done();
                     if (err) {

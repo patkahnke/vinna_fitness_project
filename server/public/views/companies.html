@@ -1,20 +1,70 @@
+<div class="admin">
 <h2>Companies</h2>
 <!--nav bar-->
-<button ng-click="addCompany">Add Company</button>
-list of company names w/edit(opens edit modal), delete, add job(links to selectedco.html)
+<a ng-click="toggleAddCompanyModal()" class="link">Add New Company</a>
 
- <div ng-repeat="company in companies">
+  <!-- list of companies -->
+  <table class="table table-striped table-bordered">
+    <thead>
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+              <th></th>
+              <th></th>
+            </tr>
+    </thead>
+    <tbody>
+      <tr id="companyList" ng-repeat="company in companies | orderBy:'name'" ng-if="company.active == true">
+            <td id="company" name="name">{{company.name}}</td>
+            <td id="company" name="email">{{company.email}}</td>
+            <td><button ng-click="selectedCoRedirect(company)">Jobs</button></td>
+            <td><button ng-click="toggleEditCompanyModal(company)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
 
-  </div>
-
-  <div data="add modal">
-
-  </div>
-
-  <div ng-show="message" class="ng-hide">
-    <h3>No results returned.</h3>
-  </div>
-  <modal-dialog show="company.dialogShown" dialog-title="{{company.name}}">
+  <modal-dialog show="addCompanyModal.modalShown" width="50%" height="50%">
+    <h2>Add A New Company</h2>
+    <form class="addCompany">
+     <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="newCompany.name">
+      </li>
+      <li>
+        <label for="location">Location:</label>
+        <input type="text" name="location" ng-model="newCompany.location">
+      </li>
+      <li>
+        <label for="email">Contact Email:</label>
+        <input type="text" name="email" ng-model="newCompany.email" required>
+        <h6>*company email required</h6>
+      </li>
+        <button type="submit" ng-click="addCompany(newCompany)">Submit</button>
+    </ul>
+    </form>
   </modal-dialog>
 
-  <div edit modal></div>
+  <modal-dialog show="editCompanyModal.modalShown" width="50%" height="50%">
+    <h2>Edit {{company.name}}</h2>
+    <form class="editCompany">
+      <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="company.name">
+      </li>
+      <li>
+        <label for="location">Location:</label>
+        <input type="text" name="location" ng-model="company.location">
+      </li>
+      <li>
+        <label for="email">Contact Email:</label>
+        <input type="text" name="email" ng-model="company.email" required>
+        <h6>*company email required</h6>
+      </li>
+        <button type="update" ng-click="updateCompany(company)">Update</button>
+        <button ng-click="deleteCompany(company)">Remove</button>
+    </ul>
+  </form>
+  </modal-dialog>
+</div>
