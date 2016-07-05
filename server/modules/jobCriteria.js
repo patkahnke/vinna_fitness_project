@@ -1,6 +1,7 @@
 function JobCriteria(data) {
   this.title = data.title;
   this.email = data.email;
+  this.location = data.location;
   this.minDeepSquat = data.minDeepSquat;
   this.minHurdleStep = data.minHurdleStep;
   this.minInlineLunge = data.minInlineLunge;
