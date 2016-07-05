@@ -188,12 +188,23 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   $scope.checkContent8 = function () {
     console.log($scope.assessment);
+      if ($scope.assessment.notes === undefined) {
+        $scope.assessment.notes = "none";
+      }
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
-        $http.post('/mail').then(function(response) {
-          console.log(response);
+      var results = $scope.assessment;
+        $http.post('/mail', results).then(function(response) {
+          if (response.status == 201 ) {
+            $scope.assessment = {};
+            ApplicantFactory.currentAssessment = $scope.assessment;
+            console.log($scope.assessment);
+            alert('Assessment data successfully saved, and email sent.');
+            $location.path('/applicant');
+          } else {
+            alert('Error saving or emailing results. Please try again.');
+          }
         });
-      console.log("submit function, then redirect to trainer home");
   };
 
   $scope.checkContent8Prev = function () {
@@ -201,4 +212,5 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show8 = false;
       $scope.show7 = true;
     };
+
 }]);
