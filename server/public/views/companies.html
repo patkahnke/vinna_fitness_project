@@ -4,10 +4,10 @@
 <div>
   <a ng-click="toggleAddCompanyModal()">Add New Company</a>
   <br>
-  <a ng-click="inactiveCompanies()">View Inactive Companies</a>
+  <a ng-click="inactiveCoView()">View Inactive Companies</a>
 </div>
   <!-- list of companies -->
-  <div class="col-md-4" ng-repeat="company in companies" ng-if="company.active == true">
+  <div class="col-md-4" ng-repeat="company in activeCompanies">
     <h3>{{company.name}}</h3>
     <ul>
       <li>

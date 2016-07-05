@@ -3,17 +3,28 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
   //injections
   $scope.dataFactory = AdminDataFactory;
   //scope variables
-  $scope.companies = [];
+  $scope.activeCompanies = [];
+  $scope.inactiveCompanies = [];
   $scope.newCompany = {};
 
-  getCompanies();
+  getActiveCompanies();
+  getInactiveCompanies();
 
   //get existing companies
-  function getCompanies() {
-    $http.get('/companies')
+  function getActiveCompanies() {
+    $http.get('/companies/active')
       .then(function (response) {
-        console.log('GET /companies ', response.data);
-        $scope.companies = response.data;
+        console.log('GET /companies/active ', response.data);
+        $scope.activeCompanies = response.data;
+      });
+  }
+
+  //get inactive companies
+  function getInactiveCompanies() {
+    $http.get('/companies/inactive')
+      .then(function (response) {
+        console.log('GET /companies/inactive ', response.data);
+        $scope.inactiveCompanies = response.data;
       });
   }
 
@@ -25,7 +36,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
         console.log('POST /companies', response);
         if (response.status == 201) {
            $scope.toggleAddCompanyModal();
-           getCompanies();
+           getActiveCompanies();
         } else {
           alert('Your company was not recieved!');
         }
@@ -41,7 +52,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
         if (response.status == 204) {
            alert('Company Updated!');
            $scope.toggleEditCompanyModal();
-           getCompanies();
+           getActiveCompanies();
            return;
         } else {
           alert('Your company was not recieved!');
@@ -60,7 +71,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
           console.log('PUT /companies/', response);
           $scope.toggleEditCompanyModal();
           alert('Company Removed!');
-          getCompanies();
+          getActiveCompanies();
           return;
         });
       } else {
@@ -80,7 +91,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
         .then(function (response) {
           console.log('PUT /companies', response);
           $scope.toggleEditCompanyModal();
-          getCompanies();
+          getInactiveCompanies();
           return;
         });
       } else {
@@ -96,11 +107,11 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
   };
 
   //active/inactive company specific redirects
-  $scope.activeCompanies = function(){
+  $scope.activeCoView = function(){
     $location.path('/companies');
   };
 
-  $scope.inactiveCompanies = function(){
+  $scope.inactiveCoView = function(){
     $location.path('/companies/inactive');
   };
 
