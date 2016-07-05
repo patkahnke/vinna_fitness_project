@@ -1,11 +1,16 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngModal']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngModal', 'ui.bootstrap']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
 
-    .when('/trainer', {
-      templateUrl: '/views/home.html',
+    .when('/user', {
+      templateUrl: '/views/user.html',
       controller: "UserController"
+    })
+
+    .when('/applicant', {
+      templateUrl: '/views/applicant.html',
+      controller: "TrainerController"
     })
 
     .when('/assessment', {
@@ -57,11 +62,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/search.html',
       controller: "AdminController"
     })
-    //
-    // .when('/trainers', {
-    //   templateUrl: '/views/trainers.html',
-    //   controller: "AdminController"
-    // })
+
+    .when('/trainers', {
+      templateUrl: '/views/trainers.html',
+      controller: "AdminTrainersController"
+    })
 
     .otherwise({
       redirectTo: 'login'

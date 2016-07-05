@@ -11,8 +11,9 @@ var isLoggedIn = require('./utils/auth');
 var connection = require('./modules/connection');
 var companies = require('./routes/companies');
 var jobs = require('./routes/jobs');
-var trainer = require('./routes/trainer');
+var trainers = require('./routes/trainers');
 var login = require('./routes/login');
+var mail= require('./routes/mail');
 
 
 
@@ -103,9 +104,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Routes
 app.use('/login', login);
-app.use('/trainer', trainer);
 app.use('/companies', companies);
 app.use('/jobs', jobs);
+app.use('/mail', mail);
+app.use('/trainers', trainers);
+
 
 app.post('/data/:number', function (req, res) {
       res.send(req.params.number);
