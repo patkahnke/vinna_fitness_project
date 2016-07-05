@@ -1,5 +1,6 @@
 function JobCriteria(data) {
-  this.jobName = data.jobName;
+  this.title = data.title;
+  this.email = data.email;
   this.minDeepSquat = data.minDeepSquat;
   this.minHurdleStep = data.minHurdleStep;
   this.minInlineLunge = data.minInlineLunge;
@@ -7,11 +8,11 @@ function JobCriteria(data) {
   this.minActiveStraightLegRaise = data.minActiveStraightLegRaise;
   this.minRotaryStability = data.minRotaryStability;
   this.minTrunkStabilityPushup = data.minTrunkStabilityPushup;
-  this.minCompositeScore = data.minCompositeScore;
-  this.minCoreSubtest = data.minCoreSubtest;
-  this.minShoulderSubtest = data.minShoulderSubtest;
-  this.minLowerBodySubtest = data.minLowerBodySubtest;
-  this.minSubtestFour = data.minSubtestFour;
+  this.compositeScore = data.compositeScore;
+  this.coreSubtest = data.coreSubtest;
+  this.shoulderSubtest = data.shoulderSubtest;
+  this.lowerBodySubtest = data.lowerBodySubtest;
+  this.otherSubtest = data.otherSubtest;
 };
 
 module.exports = JobCriteria;
