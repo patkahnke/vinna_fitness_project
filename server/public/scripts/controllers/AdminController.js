@@ -1,6 +1,7 @@
 myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory)
 {
   userFactory = UserFactory;
+  $scope.username = userFactory.currentUser.username;
 
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
@@ -10,17 +11,8 @@ myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantF
     $location.path('/');
   };
 
-  $scope.companies = [];
-  getCompanies();
-
-  function getCompanies() {
-    $http.get('/companies')
-      .then(function (response) {
-        $scope.companies = response.data;
-        console.log('GET /companies ', response.data);
-      });
-  }
-
+  userFactory.logout()
+  
 
 
 }]);
