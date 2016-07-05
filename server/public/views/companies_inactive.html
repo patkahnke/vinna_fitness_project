@@ -2,10 +2,10 @@
 <h2>Inactive Companies</h2>
 <!--nav bar-->
   <div>
-    <a ng-click="activeCompanies()">View Active Companies</a>
+    <a ng-click="activeCoView()">View Active Companies</a>
   </div>
   <!-- list of companies -->
-  <div class="col-md-4" ng-repeat="company in companies" ng-if="company.active == false">
+  <div class="col-md-4" ng-repeat="company in inactiveCompanies">
     <h3>{{company.name}}</h3>
     <ul>
       <li>
