@@ -1,5 +1,34 @@
-<h2>Search Applicants</h2>
-<!--nav bar-->
-<form>
-  
-</form>
+<div class="admin">
+  <h2>Search for Applicants</h2>
+  <form>
+    <label for="name">Enter a name:</label>
+    <input type="text" name="name">
+  </form>
+  <div>
+    <button ng-click="searchApplicants()">Submit</button>
+  </div>
+  <div ng-show="message" class="ng-hide">
+    <h3>No results returned.</h3>
+  </div>
+  <table class="table table-striped table-bordered ng-hide" ng-show="results">
+    <thead>
+            <tr>
+              <th>Name</th>
+              <th></th>
+            </tr>
+    </thead>
+    <tbody>
+        <tr id="applicantList" ng-repeat="applicant in applicants | orderBy:'name'">
+              <td id="name" name="name">{{applicant.name}}</td>
+              <td><button ng-click="viewResults(applicant)">View Results</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+      <modal-dialog show='applicant.resultShown' dialog-title='{{applicant.name}}'>
+        <p>Company/Job: {{applicant.company}}: {{applicant.job}}</p>
+        <p>Assessed By: {{applicant.trainer}}</p>
+        <p>Date of screen: {{applicant.date | date: 'MM/dd/yyyy'}}</p>
+        <p>Passed: {{applicant.test_pass}}</p>
+      </modal-dialog>
+</div>

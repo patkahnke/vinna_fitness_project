@@ -23,6 +23,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
     $http.post('/companies', data)
       .then(function (response) {
         console.log('POST /companies', response);
+        $scope.newCompany = {};
         if (response.status == 201) {
            $scope.toggleAddCompanyModal();
            getCompanies();

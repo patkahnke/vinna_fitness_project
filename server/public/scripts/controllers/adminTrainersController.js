@@ -36,6 +36,7 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
       .then(function (response) {
         console.log('POST /trainers', response);
         alert("Trainer added!");
+        $scope.newTrainer = {};
         if (response.status == 201) {
            $scope.toggleAddTrainerModal();
            getTrainers();
