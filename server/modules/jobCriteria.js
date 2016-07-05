@@ -8,12 +8,9 @@ function JobCriteria(data) {
   this.minRotaryStability = data.minRotaryStability;
   this.minTrunkStabilityPushup = data.minTrunkStabilityPushup;
   this.minCompositeScore = data.minCompositeScore;
-  this.maxTotalZerosAndOnes = data.maxTotalZerosAndOnes;
-  this.maxTotalAsymmetries = data.maxTotalAsymmetries;
-  this.maxTotalHighRiskAreas = data.maxTotalHighRiskAreas;
-  this.minSubtestOne = data.minSubtestOne;
-  this.minSubtestTwo = data.minSubtestTwo;
-  this.minSubtestThree = data.minSubtestThree;
+  this.minCoreSubtest = data.minCoreSubtest;
+  this.minShoulderSubtest = data.minShoulderSubtest;
+  this.minLowerBodySubtest = data.minLowerBodySubtest;
   this.minSubtestFour = data.minSubtestFour;
 };
 
