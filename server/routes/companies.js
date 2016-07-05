@@ -4,12 +4,33 @@ var pg = require('pg');
 var connectionString = require('../modules/connection');
 
 
-router.get('/', function(req, res) {
+router.get('/active', function(req, res) {
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
             res.sendStatus(500);
         }
-        client.query("SELECT * FROM company ",
+        client.query('SELECT * FROM company ' +
+                     'WHERE active = true ' +
+                     'ORDER BY id ASC',
+         function(err, result) {
+            if (err) {
+                console.log(err, "retrieving existing companies from database error");
+            }
+            done();
+            // console.log(result);
+            res.send(result.rows);
+        });
+    });
+});
+
+router.get('/inactive', function(req, res) {
+    pg.connect(connectionString, function(err, client, done) {
+        if (err) {
+            res.sendStatus(500);
+        }
+        client.query('SELECT * FROM company ' +
+                     'WHERE active = false ' + 
+                     'ORDER BY id ASC',
          function(err, result) {
             if (err) {
                 console.log(err, "retrieving existing companies from database error");
