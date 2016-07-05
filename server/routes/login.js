@@ -6,7 +6,7 @@ var auth = require('../utils/auth');
 
 router.get('/login',
   passport.authenticate('google', { scope:
-    [ 'openid', 'email' ] }
+    [ 'openid', 'email'] }
 ));
 
 router.get( '/callback',
