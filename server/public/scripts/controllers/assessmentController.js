@@ -14,13 +14,6 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   userFactory = UserFactory;
 
-//$scope.email = object with fields
-  /*$scope.sendMail = function ()  {
-    $http.post('/mail', $scope.email).then(function(response) {
-      console.log(response);
-    });
-  };*/
-
   if (userFactory.checkLoggedIn() === true) {
       $location.path('/assessment');
   } else {

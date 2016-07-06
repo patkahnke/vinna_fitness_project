@@ -95,66 +95,68 @@ router.post('/', function (req, res) {
 });
 
 router.get('/', function (req, res) {
-var testJobData = {
- jobName: 'Fury Motors',
- minDeepSquat: 2,
- minHurdleStep: 2,
- minInlineLunge: 2,
- minShoulderMob: 2,
- minActiveStraightLegRaise: 2,
- minRotaryStability: 2,
- minTrunkStabilityPushup: 2,
- minCompositeScore:  12,
- maxTotalZerosAndOnes: 5,
- maxTotalAsymmetries:  5,
- maxTotalHighRiskAreas: 5,
- minSubtestOne: {
-   exerciseArray: ['deepSquat', 'inlineLunge'],
-   minScore: 3,
-   description: 'Combined yada yada...',
- },
- minSubtestTwo: {
-   exerciseArray: ['activeStraightLegRaise', 'shoulderMobility', 'rotaryStability'],
-   minScore: 7,
-   description: 'Combined yada yada...',
- },
- minSubtestThree: {
-   exerciseArray: ['activeStraightLegRaise', 'trunkStabilityPushup', 'rotaryStability', 'hurdleStep'],
-   minScore: 9,
-   description: 'Combined yada yada...',
- },
-};
+  var testJobData = {
+        title: 'buffer',
+        email: 'patkahnke@gmail.com',
+        location: 'Burnsville',
+        minDeepSquat: 2,
+        minHurdleStep: 2,
+        minInlineLunge: 2,
+        minShoulderMob: 2,
+        minActiveStraightLegRaise: 1,
+        minRotaryStability: 1,
+        minTrunkStabilityPushup: 2,
+        minCompositeScore: 12,
+        minCoreSubtest: {
+          exerciseArray: ['activeStraightLegRaise', 'trunkStabilityPushup', 'rotaryStability'],
+          minScore: 9,
+          description: 'Combined yada yada...',
+        },
+        minShoulderSubtest: {
+          exerciseArray: ['shoulderMob'],
+          minScore: 3,
+          description: 'Combined yada yada...',
+        },
+        minLowerBodySubtest: {
+          exerciseArray: ['deepSquat'],
+          minScore: 3,
+          description: 'Combined yada yada...',
+        },
+        minOtherSubtest: {
+          exerciseArray: ['rotaryStability', 'inlineLunge'],
+          minScore: 4,
+          description: 'Combined yada yada...',
+        },
+      };
 
-var testObject = {
- firstName: 'pat',
- lastName: 'kahnke',
- dateOfBirth: '10/02/1965',
- height: '70',
- weight: '195',
- gender: 'male',
- medicalHistory: 'perfection',
- handMeasurement: 7.5,
- armMeasurement: 25,
- legMeasurement: 50,
- toeTouch: false,
- deepSquat: 2,
- hurdleStepLeft: 2,
- hurdleStepRight: 2,
- inlineLungeLeft: 2,
- inlineLungeRight: 2,
- shoulderMobLeftTop: 18,
- shoulderMobRightTop: 22,
- shoulderMobLeft: 2,
- shoulderMobRight: 2,
- activeStraightLegRaiseLeft: 2,
- activeStraightLegRaiseRight: 2,
- trunkStabilityPushup: 2,
- rotaryStabilityLeft: 2,
- rotaryStabilityRight: 2,
-};
+  var testObject = {
+        firstName: 'pat',
+        lastName: 'kahnke',
+        dateOfBirth: '10/02/1965',
+        height: '70',
+        weight: '195',
+        gender: 'male',
+        medicalHistory: 'perfection',
+        handMeasurement: 7.5,
+        toeTouch: false,
+        deepSquat: 2,
+        hurdleStepLeft: 2,
+        hurdleStepRight: 2,
+        inlineLungeLeft: 2,
+        inlineLungeRight: 2,
+        shoulderMobLeftTop: 18,
+        shoulderMobRightTop: 22,
+        shoulderMobLeft: 2,
+        shoulderMobRight: 2,
+        activeStraightLegRaiseLeft: 2,
+        activeStraightLegRaiseRight: 2,
+        trunkStabilityPushup: 2,
+        rotaryStabilityLeft: 2,
+        rotaryStabilityRight: 2,
+      };
 
-var jobCriteria = new JobCriteria(testJobData);
-var applicant = new Applicant(testObject, jobCriteria);
+  var jobCriteria = new JobCriteria(testJobData);
+  var applicant = new Applicant(testObject, jobCriteria);
 
 
              var targetEmail = 'vinnatest@gmail.com';
