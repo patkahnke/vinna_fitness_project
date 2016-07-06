@@ -190,10 +190,21 @@ table {
 
 .login {
   text-align: center;
+  background-color: #337ab7;
+  padding: 5%;
 }
 
 .login a {
   display: block;
+}
+
+.login h2, .login h3 {
+  color: white;
+}
+
+.googleLogin {
+  padding-top: 5%;
+  padding-bottom: 3%;
 }
 
 .companyContainer{
