@@ -1,11 +1,21 @@
-myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', function($scope, $http, AdminDataFactory, $location)
+myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', 'UserFactory', function($scope, $http, AdminDataFactory, $location, UserFactory)
 {
   //injections
   $scope.dataFactory = AdminDataFactory;
+  userFactory = UserFactory;
   //scope variables
   $scope.activeCompanies = [];
   $scope.inactiveCompanies = [];
   $scope.newCompany = {};
+
+  //authenticated?
+  if (userFactory.checkLoggedIn() === true) {
+    if (userFactory.checkAdmin() === false) {
+      $location.path('/trainer');
+    }
+  } else {
+    $location.path('/');
+  };
 
   getActiveCompanies();
   getInactiveCompanies();
@@ -51,6 +61,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
         console.log('PUT /companies ', response);
         if (response.status == 204) {
            alert('Company Updated!');
+           $scope.newCompany = {};
            $scope.toggleEditCompanyModal();
            getActiveCompanies();
            return;

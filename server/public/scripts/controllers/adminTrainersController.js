@@ -39,6 +39,7 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
         if (response.status == 201) {
            $scope.toggleAddTrainerModal();
            getTrainers();
+           $scope.newTrainer = {};
         } else {
           alert('Your trainer was not received!');
         }
