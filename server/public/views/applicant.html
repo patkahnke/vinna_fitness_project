@@ -1,7 +1,54 @@
+<link rel="stylesheet" href="/styles/applicant.css">
+<div class="container">
+  <div class="row">
+    <h2 class="row col-xs-6 col-xs-offset-3">Welcome to Vinna Vel!</h2>
 
-<h2>Welcome to Vinna Vel!</h2>
-  <h3>To begin, please fill out your information, then click submit.</h3>
-<form>
 
-</form>
-<button a href=#vitals.html>Submit</button>
+    <h3 class="row col-xs-6 col-xs-offset-3">To begin, please fill out your information, then click submit.</h3>
+
+  </div>
+
+
+
+    <div class="container">
+      <form class="applicantForm">
+        <div class="row">
+          <label for="assessment.applicant.firstName">First Name: </label>
+          <input type="text" ng-model="assessment.applicant.firstName" />
+        </div>
+
+        <div class="row">
+          <label for="assessment.applicant.lastName">Last Name: </label>
+          <input type="text" ng-model="assessment.applicant.lastName" />
+        </div>
+
+        <div class="row">
+          <label for="assessment.applicant.phoneNumber">Phone Number: </label>
+          <input type="text" ng-model="assessment.applicant.phoneNumber" />
+        </div>
+
+        <div class="row">
+          <label for="assessment.applicant.age">Age: </label>
+          <input type="text" ng-model="assessment.applicant.age" />
+        </div>
+
+        <div class="row">
+          <label for="assessment.applicant.height">Height In Inches: </label>
+          <input type="text" ng-model="assessment.applicant.height" />
+        </div>
+        <div class="row">
+          <label for="assessment.applicant.weight">Weight: </label>
+          <input type="text" ng-model="assessment.applicant.weight" />
+        </div>
+        <div class="row">
+          <label for="assessment.applicant.medicalHistory">Medical History</label>
+          <input type="text" ng-model="assessment.applicant.medicalHistory" />
+        </div>
+
+        <a ng-click="applicantSubmit()"><button>Submit</button></a>
+
+      </form>
+    </div>
+
+
+</div>
