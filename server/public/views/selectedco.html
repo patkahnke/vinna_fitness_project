@@ -3,23 +3,29 @@
 <!-- TODO: nav bar-->
 <div>
   <div>
-    <a ng-click="activeCompanies()">Back to Active Companies</a>
+    <a ng-click="activeCompanies()" class="link">Back to Active Companies</a>
     <br>
-    <a ng-click="toggleAddJobModal()">Add New Job</a>
+    <a ng-click="toggleAddJobModal()" class="link">Add New Job</a>
   </div>
 
 </div>
   <!-- list of jobs -->
-  <div class="col-md-4" ng-repeat="job in jobs">
-    <h3>{{job.title}}</h3>
-    <ul>
-      <li>
+  <table class="table table-striped table-bordered">
+    <thead>
+            <tr>
+              <th>Job Title</th>
+              <th></th>
+            </tr>
+    </thead>
+    <tbody>
+      <tr id="jobList" ng-repeat="job in jobs | orderBy:'name'">
+            <td id="job" name="title">{{job.title}}</td>
+            <td><button ng-click="toggleEditJobModal(job)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+
         <!-- edit opens edit job modal -->
-        <button ng-click="toggleEditJobModal(job)">Edit</button>
-      </li>
-    </ul>
-  </div>
-</div>
 
   <modal-dialog show="addJobModal.modalShown" width="50%" height="60%">
     <h2>Add A New Job</h2>
