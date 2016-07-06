@@ -19,7 +19,7 @@ var mailOptions = {
     subject: 'CES/FMS Results', // Subject line
     text: 'Hello world 🐴', // plaintext body
     html: '<center><b><h1 style="margin: 0;">Initial CES/FMS Screen Report For: ' +  applicant.firstName + ' ' + applicant.lastName + '<h1></b></center>' +
-          '<center><h2 style="margin: 0;">Test Date:</h3></center>' +
+          '<center><h2 style="margin: 0;">Test Date: ' + (moment().month() + '/' + moment().date() + '/' + moment().year()) + '</h3></center>' +
           '<h3>Work Location: ' + applicant.jobCriteria.location + '</h3>' +
           '<h3>Job Title: ' + applicant.jobCriteria.title + '</h3>' +
           '<h3>DOB: ' + applicant.dateOfBirth + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Height: ' + applicant.height + '"' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Weight: ' + applicant.weight + 'lbs' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Gender: ' + applicant.gender + '</h3>' +

@@ -19,19 +19,6 @@ myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location',
 
   });
 
-  $scope.routeHome = function() {
-    if (userFactory.checkLoggedIn() === true) {
-      if ($scope.hiddenAdmin === true) {
-      $location.path('/applicant');
-      }
-      else {
-      $location.path('/admin');
-      }
-    } else {
-      $location.path('/');
-    }
-};
-
   $scope.logout = function () {
     userFactory.logout()
   .then(function (response) { // success

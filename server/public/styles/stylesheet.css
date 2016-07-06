@@ -35,7 +35,6 @@ main {
 
 .headerTitle {
   display: inline;
-  cursor: pointer;
 }
 
 .headerNav {
@@ -190,16 +189,19 @@ table {
 
 .login {
   text-align: center;
-  background-color: #337ab7;
-  padding: 5%;
+  border: 1px solid #d0d1d5;
+  border-radius: 10px;
+  background-color: #F05123;
+  color: white;
+  padding: 0 3% 0 3%;
+}
+
+.login h2 {
+  padding-bottom: 8%;
 }
 
 .login a {
   display: block;
-}
-
-.login h2, .login h3 {
-  color: white;
 }
 
 .googleLogin {
@@ -210,6 +212,7 @@ table {
 .companyContainer{
   display: block;
 }
+
 .input {
   width : 250px;
 }

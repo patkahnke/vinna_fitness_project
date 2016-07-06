@@ -10,7 +10,7 @@ userFactory = UserFactory;
         userFactory.setLoggedIn(true);
         if (response.data.admin === true) {
         userFactory.setAdmin(response.data.admin);
-        $location.path('/admin');
+        $location.path('/applicant');
       } else {
         $location.path('/applicant');
       }

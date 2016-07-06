@@ -38,11 +38,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       controller: "TrainerController"
     })
 
-    .when('/admin', {
-      templateUrl: '/views/admin.html',
-      controller: "AdminController"
-    })
-
     .when('/companies', {
       templateUrl: '/views/companies.html',
       controller: "AdminCompanyController"
