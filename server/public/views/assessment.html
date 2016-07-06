@@ -18,8 +18,9 @@
         </tr>
           <button type="button submit" class="btn btn-secondary assessmentNext" ng-click="checkContentA()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
           <tr>
-            <th><h3 class="assessmentItem">Hand Length (inches):</h3></th>
-            <td></td>
+            <th><h3 class="assessmentItem">Jobs: </h3></th>
+            <td><select ng-click="getJobs()" name="companySelector" ng-model="assessment.selectedJob" ng-options="job.title for job in jobs">
+            </select></td>
           </tr>
       </table>
     </form>

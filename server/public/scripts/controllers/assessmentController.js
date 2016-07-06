@@ -255,8 +255,8 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   }
 
   //retrieve existing jobs from selected company
-  $scope.getJobs = function(selectedCo) {
-    var id = selectedCo.id;
+  $scope.getJobs = function() {
+    var id = $scope.assessment.selectedCompany.id;
     $http.get('/jobs/' + id)
       .then(function (response) {
         $scope.jobs = response.data;
