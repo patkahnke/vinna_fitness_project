@@ -11,7 +11,10 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.show8 = false;
   $scope.showShoulderRec = false;
   $scope.shoulderRec = '';
+  $scope.jobs = [];
+  $scope.companies = [];
   $scope.selectedCo = {};
+
 
   userFactory = UserFactory;
 
