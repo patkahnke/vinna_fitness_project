@@ -26,12 +26,12 @@ var mailOptions = {
           '<h3>Significant Medical History: ' + applicant.medicalHistory + '</h3>' +
           '<h3><u>COMPOSITE MOVEMENT SCORE (scores range from 0-21, average is 12.7):</u>' + ' ' + applicant.compositeScore() + '</h3>' +
           '<h3><u>High Injury Risk Indicators (0s and 1s on subtests & asymmetric patterning):</u>' + ' ' + applicant.totalHighRiskAreas() + '</h3>' +
-          '<h3><u>Job-Specific Requirements</u></h3>' +
+          '<div style=" line-height:50%;"><h3><u>Job-Specific Requirements</u></h3>' +
           '<h3>Minimum Passing Composite Score: ' + applicant.jobCriteria.minCompositeScore + '</h3>' +
           '<h3>Core Subtest Requirement: ' + applicant.passCoreSubtest() + '</h3>' +
           '<h3>Shoulder Subtest Requirement: ' + applicant.passShoulderSubtest() + '</h3>' +
           '<h3>Lower Body/Compound Subtest Requirement: ' + applicant.passLowerBodySubtest() + '</h3>' +
-          '<h3>Other Subtest Requirement: ' + applicant.passOtherSubtest() + '</h3>' +
+          '<h3>Other Subtest Requirement: ' + applicant.passOtherSubtest() + '</h3></div>' +
           '<h2><u>JOB-SPECIFIC OVERALL RESULT:</u>' + ' ' + applicant.passOverall() + '</h2>' +
           '<h3><u>Raw Results: </u><h3>' +
           '<table style=" background-repeat:no-repeat; width:450px; margin:0;" cellpadding="5px" cellspacing="0" border="1px">' +
