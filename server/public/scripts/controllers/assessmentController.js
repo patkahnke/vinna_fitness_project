@@ -20,9 +20,11 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       console.log(response);
     });
   };*/
+  $scope.assessment.applicant = {};
+
 
   if (userFactory.checkLoggedIn() === true) {
-      $location.path('/assessment');
+
   } else {
     $location.path('/');
   }
