@@ -11,7 +11,7 @@ var JobCriteria = require('../modules/jobCriteria');
 router.post('/', function (req, res) {
   var assessment = req.body;
   console.log(assessment);
-  var jobCriteria = new JobCriteria(assessment.job);
+  var jobCriteria = new JobCriteria(assessment.selectedJob);
   var applicant = new Applicant(assessment.applicant, jobCriteria);
 
 
