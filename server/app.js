@@ -84,19 +84,6 @@ var testObject = {
 var jobCriteria = new JobCriteria(testJobData);
 var applicant = new Applicant(testObject, jobCriteria);
 
-console.log('jobCriteria', jobCriteria);
-console.log('applicant', '\nDeep Squat', applicant.deepSquat, applicant.passDeepSquat(),
-'hurdleStep', applicant.hurdleStepTotal(), applicant.passHurdleStep(), '\ninline lunge', applicant.inlineLungeTotal(),
-applicant.passInlineLunge(), '\nshoulder mobility', applicant.shoulderMobTotal(), applicant.passShoulderMob(),
-'\nActive Straight Leg Raise', applicant.activeStraightLegRaiseTotal(), applicant.passActiveStraightLegRaise(),
-'\nRotary Stability', applicant.rotaryStabilityTotal(), applicant.passRotaryStability(),
-'\nTrunk Stability', applicant.trunkStabilityPushup, applicant.passTrunkStability(),
-'\nComposite Score', applicant.compositeScore(), applicant.passCompositeScore(),
-'\nCore Subtest', applicant.passCoreSubtest(),
-'\nShoulder Subtest', applicant.passShoulderSubtest(),
-'\nLower Body Subtest', applicant.passLowerBodySubtest(),
-'\nOther Subtest', applicant.passOtherSubtest());
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
