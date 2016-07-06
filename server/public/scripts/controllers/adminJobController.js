@@ -1,7 +1,8 @@
-myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '$location', function($scope, $http, AdminDataFactory, $location)
+myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '$location', 'UserFactory', function ($scope, $http, AdminDataFactory, $location, UserFactory)
 {
   //injections
   $scope.dataFactory = AdminDataFactory;
+  userFactory = UserFactory;
   $scope.selectedCo = $scope.dataFactory.selectedCo.job;
   //scope variables
   $scope.jobs = [];
@@ -12,6 +13,15 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
   $scope.coreMinimums = [0,1,2,3,4,5,6,7,8,9];
   $scope.otherMinimums = [0,1,2,3,4,5,6,7,8,9,10,11,12];
   $scope.compositeMinimums = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+
+  //authenticated?
+  if (userFactory.checkLoggedIn() === true) {
+    if (userFactory.checkAdmin() === false) {
+      $location.path('/trainer');
+    }
+  } else {
+    $location.path('/');
+  };
 
   getJobs();
 
