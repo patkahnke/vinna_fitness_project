@@ -11,6 +11,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.show8 = false;
   $scope.showShoulderRec = false;
   $scope.shoulderRec = '';
+  $scope.selectedCo = {};
 
   userFactory = UserFactory;
 
@@ -22,6 +23,9 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
   ApplicantFactory.all();
   console.log($scope.assessment);
+
+  //utility functions
+  getActiveCompanies();
 
   $scope.checkContent0 = function () {
     if($scope.assessment.leg_measurement !== undefined && $scope.assessment.hand_measurement !== undefined) {
@@ -216,7 +220,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   }
 
   //retrieve existing jobs from selected company
-  function getJobs(selectedCo) {
+  $scope.getJobs = function(selectedCo) {
     var id = selectedCo.id;
     $http.get('/jobs/' + id)
       .then(function (response) {
@@ -224,5 +228,12 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
         console.log('GET /jobs ', response.data);
       });
   }
+
+  //selected job and params to be stored in factory
+  $scope.selectedJob = function (job) {
+    $scope.assessment.job = job;
+    ApplicantFactory.currentAssessment.job = $scope.assessment.job;
+  }
+
 
 }]);
