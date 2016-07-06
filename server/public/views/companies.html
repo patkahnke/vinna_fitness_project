@@ -1,6 +1,11 @@
-<div class="admin">
+<div class="companyContainer">
 <h2>Companies</h2>
-<!--nav bar-->
+<div class="admin">
+  <div>
+    <a ng-click="toggleAddCompanyModal()">Add New Company</a>
+    <br>
+    <a ng-click="inactiveCoView()">View Inactive Companies</a>
+  </div>
 <a ng-click="toggleAddCompanyModal()" class="link">Add New Company</a>
 
   <!-- list of companies -->
@@ -14,7 +19,7 @@
             </tr>
     </thead>
     <tbody>
-      <tr id="companyList" ng-repeat="company in companies | orderBy:'name'" ng-if="company.active == true">
+      <tr id="companyList" ng-repeat="company in activeCompanies | orderBy:'name'">
             <td id="company" name="name">{{company.name}}</td>
             <td id="company" name="email">{{company.email}}</td>
             <td><button ng-click="selectedCoRedirect(company)">Jobs</button></td>
@@ -60,10 +65,10 @@
       <li>
         <label for="email">Contact Email:</label>
         <input type="text" name="email" ng-model="company.email" required>
-        <h6>*company email required</h6>
+        <h6>*contact email required</h6>
       </li>
         <button type="update" ng-click="updateCompany(company)">Update</button>
-        <button ng-click="deleteCompany(company)">Remove</button>
+        <button ng-click="deactivateCompany(company)">Remove</button>
     </ul>
   </form>
   </modal-dialog>
