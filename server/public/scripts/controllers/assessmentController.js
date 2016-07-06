@@ -229,14 +229,18 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       .then(function (response) {
         $scope.jobs = response.data;
         console.log('GET /jobs ', response.data);
+        $scope.selectedJob();
       });
-  }
+  };
 
   //selected job and params to be stored in factory
   $scope.selectedJob = function (job) {
     $scope.assessment.job = job;
+    console.log('selected job function', job);
     ApplicantFactory.currentAssessment.job = $scope.assessment.job;
-  }
+  };
+
+  $scope.getJobs($scope.selectedCo);
 
 
 }]);
