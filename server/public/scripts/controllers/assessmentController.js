@@ -206,4 +206,23 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show7 = true;
     };
 
+  //get companies for testing
+  function getActiveCompanies() {
+    $http.get('/companies/active')
+      .then(function (response) {
+        console.log('GET /companies/active ', response.data);
+        $scope.companies = response.data;
+      });
+  }
+
+  //retrieve existing jobs from selected company
+  function getJobs(selectedCo) {
+    var id = selectedCo.id;
+    $http.get('/jobs/' + id)
+      .then(function (response) {
+        $scope.jobs = response.data;
+        console.log('GET /jobs ', response.data);
+      });
+  }
+
 }]);
