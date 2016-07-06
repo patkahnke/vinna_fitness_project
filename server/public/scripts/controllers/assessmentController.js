@@ -1,6 +1,7 @@
 myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory) {
   $scope.assessment = ApplicantFactory.currentAssessment;
-  $scope.show0 = true;
+  $scope.showA = true;
+  $scope.show0 = false;
   $scope.show1 = false;
   $scope.show2 = false;
   $scope.show3 = false;
@@ -11,11 +12,23 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.show8 = false;
   $scope.showShoulderRec = false;
   $scope.shoulderRec = '';
+  $scope.jobs = [];
+  $scope.companies = [];
+  $scope.selectedCo = {};
+
+
+  $scope.applicantSubmit = function(){
+    ApplicantFactory.currentAssessment = $scope.assessment;
+        console.log('this ran');
+    $location.path('/assessment');
+
+  }
 
   userFactory = UserFactory;
 
+
   if (userFactory.checkLoggedIn() === true) {
-      $location.path('/assessment');
+
   } else {
     $location.path('/');
   }
@@ -23,12 +36,31 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   ApplicantFactory.all();
   console.log($scope.assessment);
 
+  //utility functions
+  getActiveCompanies();
+
+  $scope.checkContentA = function () {
+    if($scope.assessment.selectedCompany !== undefined && $scope.assessment.selectedJob !== undefined) {
+      ApplicantFactory.currentAssessment = $scope.assessment;
+      console.log(ApplicantFactory.currentAssessment);
+      $scope.showA = false;
+      $scope.show0 = true;
+    }
+  };
+
   $scope.checkContent0 = function () {
     if($scope.assessment.leg_measurement !== undefined && $scope.assessment.hand_measurement !== undefined) {
       ApplicantFactory.currentAssessment = $scope.assessment;
       console.log(ApplicantFactory.currentAssessment);
       $scope.show0 = false;
       $scope.show1 = true;
+    }
+  };
+
+  $scope.checkContent0Prev = function () {
+    if($scope.assessment.leg_measurement !== undefined && $scope.assessment.hand_measurement !== undefined) {
+      $scope.show0 = false;
+      $scope.showA = true;
     }
   };
 
@@ -216,13 +248,13 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   }
 
   //retrieve existing jobs from selected company
-  function getJobs(selectedCo) {
-    var id = selectedCo.id;
+  $scope.getJobs = function() {
+    var id = $scope.assessment.selectedCompany.id;
     $http.get('/jobs/' + id)
       .then(function (response) {
         $scope.jobs = response.data;
         console.log('GET /jobs ', response.data);
       });
-  }
+  };
 
 }]);
