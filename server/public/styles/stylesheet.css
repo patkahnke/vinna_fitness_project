@@ -189,9 +189,9 @@ table {
 
 .login {
   text-align: center;
-  border: 1px solid #d0d1d5;
   border-radius: 10px;
   background-color: #F05123;
+  opacity: 0.85;
   color: white;
   padding: 0 3% 0 3%;
 }
@@ -207,6 +207,17 @@ table {
 .googleLogin {
   padding-top: 5%;
   padding-bottom: 3%;
+}
+
+.loginBody {
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  background-image: url(/vendors/images/iStock_000025435822Large.jpg);
+  background-size: cover;
 }
 
 .companyContainer{
