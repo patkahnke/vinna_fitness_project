@@ -2,6 +2,29 @@
   <div class="assessmentContent">
   <h1 class="assessmentHeader">Functional Movement Screen</h1>
 
+
+  <div class="assessmentA" ng-show="showA">
+    <form>
+      <table class="borderless">
+        <tr>
+          <th><h3 class="assessmentItem">Company</h3></th>
+
+          <td><select name="companySelector" ng-model="assessment.selectedCompany" ng-options="company.name for company in companies">
+
+
+          </select></td>
+        </tr>
+          <button type="button submit" class="btn btn-secondary assessmentNext" ng-click="checkContentA()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
+          <tr>
+            <th><h3 class="assessmentItem">Jobs: </h3></th>
+            <td><select ng-click="getJobs()" name="companySelector" ng-model="assessment.selectedJob" ng-options="job.title for job in jobs">
+            </select></td>
+          </tr>
+      </table>
+    </form>
+  </div>
+
+
   <div class="assessment0" ng-show="show0">
     <form>
       <table class="borderless">
@@ -9,6 +32,7 @@
           <th><h3 class="assessmentItem">Shin Length (inches):</h3></th>
           <td><input type="number" step="0.1" class="measurement" name="leg-measurement" ng-model="assessment.leg_measurement" required></td>
         </tr>
+          <button type="button submit" class="assessmentPrev btn btn-secondary" ng-click="checkContent0Prev()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
           <button type="button submit" class="btn btn-secondary assessmentNext" ng-click="checkContent0()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
           <tr>
             <th><h3 class="assessmentItem">Hand Length (inches):</h3></th>
