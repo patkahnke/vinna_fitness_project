@@ -9,7 +9,7 @@
   </div>
 
 
-    <!-- Social Security number (last 4 digits), name, address, phone, birth date, height, weight, previous medical history,   and signature. (Image below does not reflect all information.) -->
+
     <div class="container">
       <form class="applicantForm">
         <div class="row">
@@ -45,12 +45,7 @@
           <input type="text" ng-model="assessment.applicant.medicalHistory" />
         </div>
 
-        <div class="row">
-          <label for="assessment.applicant.signature">Type Full Name Below:</label>
-          <input type="text" ng-model="assessment.applicant.signature" />
-        </div>
-
-        <a href="#assessment"><button>Submit</button></a>
+        <a ng-click="applicantSubmit()"><button>Submit</button></a>
 
       </form>
     </div>

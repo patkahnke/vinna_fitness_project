@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngModal', 'ui.bootstrap']);
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
 
-      .when('/user', {
+    .when('/user', {
       templateUrl: '/views/user.html',
       controller: "UserController"
     })
@@ -45,6 +45,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
     .when('/companies', {
       templateUrl: '/views/companies.html',
+      controller: "AdminCompanyController"
+    })
+
+    .when('/companies/inactive', {
+      templateUrl: '/views/companies_inactive.html',
       controller: "AdminCompanyController"
     })
 
