@@ -22,7 +22,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
         console.log('this ran');
     $location.path('/assessment');
 
-  }
+  };
 
   userFactory = UserFactory;
   console.log(userFactory);
