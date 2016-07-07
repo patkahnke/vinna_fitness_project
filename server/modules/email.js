@@ -16,8 +16,8 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
     from: '"Vinna Test 👥" <vinnatest@gmail.com>', // sender address
     to: targetEmail, // list of receivers, targetEmail = string parameter
-    subject: 'CES/FMS Results', // Subject line
-    text: 'Hello world 🐴', // plaintext body
+    subject: applicant.firstName + ' ' + applicant.lastName + ' CES/FMS Results', // Subject line
+    text: 'CES/FMS Results', // plaintext body
     html: '<center><b><h1 style="margin: 0;">Initial CES/FMS Screen Report For: ' +  applicant.firstName + ' ' + applicant.lastName + '<h1></b></center>' +
           '<center><h2 style="margin: 0;">Test Date:</h3></center>' +
           '<h3>Work Location: ' + applicant.jobCriteria.location + '</h3>' +
@@ -30,8 +30,8 @@ var mailOptions = {
           '<h3>Minimum Passing Composite Score: ' + applicant.jobCriteria.minCompositeScore + '</h3>' +
           '<h3>Core Subtest Requirement: ' + applicant.passCoreSubtest() + '</h3>' +
           '<h3>Shoulder Subtest Requirement: ' + applicant.passShoulderSubtest() + '</h3>' +
-          '<h3>Lower Body/Compound Subtest Requirement: ' + applicant.passLowerBodySubtest() + '</h3>' +
-          '<h3>Other Subtest Requirement: ' + applicant.passOtherSubtest() + '</h3></div>' +
+          '<h3>Lower Body/Compound Subtest Requirement: ' + applicant.passLowerBodySubtest() + '</h3></div>' +
+          // '<h3>Other Subtest Requirement: ' + applicant.passOtherSubtest() + '</h3></div>' +
           '<h2><u>JOB-SPECIFIC OVERALL RESULT:</u>' + ' ' + applicant.passOverall() + '</h2>' +
           '<h3><u>Raw Results: </u><h3>' +
           '<table style=" background-repeat:no-repeat; width:450px; margin:0;" cellpadding="5px" cellspacing="0" border="1px">' +

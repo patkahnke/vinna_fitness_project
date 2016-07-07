@@ -14,6 +14,8 @@ var jobs = require('./routes/jobs');
 var trainers = require('./routes/trainers');
 var login = require('./routes/login');
 var assessmentResults= require('./routes/assessmentResults');
+var search = require('./routes/search');
+
 
 
 
@@ -21,68 +23,7 @@ var assessmentResults= require('./routes/assessmentResults');
 //Pat's Dummy Data
 var Applicant = require('./modules/applicant');
 var JobCriteria = require('./modules/jobCriteria');
-var testJobData = {
-      title: 'buffer',
-      email: 'patkahnke@gmail.com',
-      location: 'Burnsville',
-      minDeepSquat: 2,
-      minHurdleStep: 2,
-      minInlineLunge: 2,
-      minShoulderMob: 2,
-      minActiveStraightLegRaise: 1,
-      minRotaryStability: 1,
-      minTrunkStabilityPushup: 2,
-      minCompositeScore: 12,
-      minCoreSubtest: {
-        exerciseArray: ['activeStraightLegRaise', 'trunkStabilityPushup', 'rotaryStability'],
-        minScore: 9,
-        description: 'Combined yada yada...',
-      },
-      minShoulderSubtest: {
-        exerciseArray: ['shoulderMob'],
-        minScore: 3,
-        description: 'Combined yada yada...',
-      },
-      minLowerBodySubtest: {
-        exerciseArray: ['deepSquat'],
-        minScore: 3,
-        description: 'Combined yada yada...',
-      },
-      minOtherSubtest: {
-        exerciseArray: ['rotaryStability', 'inlineLunge'],
-        minScore: 4,
-        description: 'Combined yada yada...',
-      },
-    };
 
-var testObject = {
-      firstName: 'pat',
-      lastName: 'kahnke',
-      dateOfBirth: '10/02/1965',
-      height: '70',
-      weight: '195',
-      gender: 'male',
-      medicalHistory: 'perfection',
-      handMeasurement: 7.5,
-      toeTouch: false,
-      deepSquat: 2,
-      hurdleStepLeft: 2,
-      hurdleStepRight: 2,
-      inlineLungeLeft: 2,
-      inlineLungeRight: 2,
-      shoulderMobLeftTop: 18,
-      shoulderMobRightTop: 22,
-      shoulderMobLeft: 2,
-      shoulderMobRight: 2,
-      activeStraightLegRaiseLeft: 2,
-      activeStraightLegRaiseRight: 2,
-      trunkStabilityPushup: 2,
-      rotaryStabilityLeft: 2,
-      rotaryStabilityRight: 2,
-    };
-
-var jobCriteria = new JobCriteria(testJobData);
-var applicant = new Applicant(testObject, jobCriteria);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -106,6 +47,7 @@ app.use('/assessmentResults', assessmentResults);
 app.use('/companies', companies);
 app.use('/jobs', jobs);
 app.use('/trainers', trainers);
+app.use('/search', search);
 
 
 app.post('/data/:number', function (req, res) {

@@ -1,4 +1,4 @@
-myApp.controller('TrainerController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory)
+myApp.controller('TrainerController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory', '$window', function($scope, $http, $location, ApplicantFactory, UserFactory, $window)
 
 {
   userFactory = UserFactory;
@@ -6,10 +6,10 @@ myApp.controller('TrainerController', ['$scope', '$http', '$location', 'Applican
 
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
-      $location.path('/applicant');
+      $window.location.href='#/applicant';
     }
   } else {
-    $location.path('/');
+    $window.location.href='#/';
   }
 
 
