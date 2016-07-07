@@ -26,37 +26,6 @@ main {
   padding-bottom: 53px;
 }
 
-.headerContainer {
-    background-color: #181818;
-    color: #e9ebee;
-    padding: 30px 40px 30px 50px;
-    font-family: 'Comfortaa';
-}
-
-.headerTitle {
-  display: inline;
-  cursor: pointer;
-}
-
-.headerNav {
-  display: inline;
-  float: right;
-}
-
-footer {
-  position: relative;
-  margin-top: -53px;
-  clear: both;
-  width: 100%;
-  height: 53px;
-}
-
-.footerContainer {
-    background-color: #181818;
-    color: #e9ebee;
-    padding: 10px;
-}
-
 .assessmentContainer, .footerContainer {
   text-align: center;
 }
