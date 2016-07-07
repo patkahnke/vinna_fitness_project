@@ -5,11 +5,13 @@ userFactory = UserFactory;
 
   userFactory.isLoggedIn()
   .then(function (response) {
+      console.log(response);
       if (response.data.name !== undefined) {
         userFactory.setName(response.data.name);
         userFactory.setLoggedIn(true);
         if (response.data.admin === true) {
         userFactory.setAdmin(response.data.admin);
+        userFactory.setId(response.data.id);
         $location.path('/admin');
       } else {
         $location.path('/applicant');
