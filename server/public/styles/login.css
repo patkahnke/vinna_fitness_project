@@ -21,12 +21,12 @@ main {
   min-height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   overflow: auto;
   padding-bottom: 53px;
 }
 
-.assessmentContainer, .footerContainer {
+.assessmentContainer {
   text-align: center;
 }
 
@@ -216,8 +216,8 @@ table {
   text-align: center;
 }
 
-.admin a:hover {
-  text-decoration: none;
+.admin {
+  text-align: center;
 }
 
 .big-checkbox {
