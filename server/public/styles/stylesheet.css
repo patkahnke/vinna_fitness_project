@@ -21,7 +21,6 @@ main {
   min-height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   overflow: auto;
   padding-bottom: 53px;
 }
@@ -194,9 +193,10 @@ table {
   opacity: 0.85;
   color: white;
   padding: 0 3% 0 3%;
+  height: 60%;
 }
 
-.login h2 {
+.login h1 {
   padding-bottom: 8%;
 }
 
