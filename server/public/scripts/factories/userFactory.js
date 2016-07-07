@@ -3,8 +3,8 @@ myApp.factory('UserFactory', function ($http) {
   var userStatus = {
     loggedIn: false,
     isAdmin: false,
-    username: ''
-
+    username: '',
+    id: 0
 };
 
   // the public API
@@ -38,9 +38,18 @@ myApp.factory('UserFactory', function ($http) {
     //gets username
     setName: function (name) {
     userStatus.username = name;
+  },
+    //gets id
+    setId: function (id) {
+      userStatus.id = id;
+  },
+    getId: function () {
+      return userStatus.id;
   }
 
   };
+
+  console.log('after', userStatus.id);
 
   return publicAPI;
 

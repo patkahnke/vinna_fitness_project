@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Comfortaa';
+  src: url("/vendors/fonts/Comfortaa/Comfortaa-Regular.ttf");
+}
+
+.headerContainer {
+    background-color: #181818;
+    color: #e9ebee;
+    padding: 30px 40px 30px 50px;
+    font-family: 'Comfortaa';
+}
+
+.headerTitle {
+  display: inline;
+  cursor: pointer;
+}
+
+.headerNav {
+  display: inline;
+  float: right;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.dropdown {
+  margin-right: 2%;
+}
