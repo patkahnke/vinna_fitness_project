@@ -32,6 +32,7 @@ main {
   justify-content: center;
   align-items: center;
   overflow: auto;
+  background-color: #e9ebee;
   background-image: url(/vendors/images/iStock_000025435822Large.jpg);
   background-size: cover;
 }
