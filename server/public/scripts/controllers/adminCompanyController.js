@@ -1,4 +1,4 @@
-myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', '$window', 'UserFactory' function($scope, $http, AdminDataFactory, $location, $window, UserFactory)
+myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', '$window', 'UserFactory', function($scope, $http, AdminDataFactory, $location, $window, UserFactory)
 
 {
   //injections
