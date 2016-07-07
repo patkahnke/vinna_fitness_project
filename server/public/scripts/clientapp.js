@@ -60,7 +60,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
     .when('/search', {
       templateUrl: '/views/search.html',
-      controller: "AdminController"
+      controller: "AdminSearchController"
     })
 
     .when('/trainers', {
