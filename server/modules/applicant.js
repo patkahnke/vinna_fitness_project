@@ -1,28 +1,24 @@
 function Applicant(data, jobCriteria) {
   this.jobCriteria = jobCriteria;
-  this.firstName = data.firstName;
-  this.lastName = data.lastName;
-  this.dateOfBirth = data.dateOfBirth;
-  this.height = data.height;
-  this.weight = data.weight;
-  this.gender = data.gender;
-  this.medicalHistory = data.medicalHistory;
-  this.handMeasurement = data.handMeasurement;
-  this.toeTouch = data.toeTouch;
-  this.deepSquat = data.deepSquat;
-  this.hurdleStepLeft = data.hurdleStepLeft;
-  this.hurdleStepRight = data.hurdleStepRight;
-  this.inlineLungeLeft = data.inlineLungeLeft;
-  this.inlineLungeRight = data.inlineLungeRight;
-  this.shoulderMobLeftTop = data.shoulderMobLeftTop;
-  this.shoulderMobRightTop = data.shoulderMobRightTop;
-  this.shoulderMobLeft = data.shoulderMobLeft;
-  this.shoulderMobRight = data.shoulderMobRight;
-  this.activeStraightLegRaiseLeft = data.activeStraightLegRaiseLeft;
-  this.activeStraightLegRaiseRight = data.activeStraightLegRaiseRight;
-  this.trunkStabilityPushup = data.trunkStabilityPushup;
-  this.rotaryStabilityLeft = data.rotaryStabilityLeft;
-  this.rotaryStabilityRight = data.rotaryStabilityRight;
+  this.firstName = data.applicant.firstName;
+  this.lastName = data.applicant.lastName;
+  this.age = data.applicant.age;
+  this.height = data.applicant.height;
+  this.weight = data.applicant.weight;
+  this.gender = data.applicant.gender;
+  this.medicalHistory = data.applicant.medicalHistory;
+  this.deepSquat = data.squat;
+  this.hurdleStepLeft = data.hurdle.left;
+  this.hurdleStepRight = data.hurdle.right;
+  this.inlineLungeLeft = data.lunge.left;
+  this.inlineLungeRight = data.lunge.right;
+  this.shoulderMobLeft = data.shoulder.left;
+  this.shoulderMobRight = data.shoulder.right;
+  this.activeStraightLegRaiseLeft = data.leg_raise.left;
+  this.activeStraightLegRaiseRight = data.leg_raise.right;
+  this.trunkStabilityPushup = data.push_up;
+  this.rotaryStabilityLeft = data.rotary.left;
+  this.rotaryStabilityRight = data.rotary.right;
   this.hurdleStepTotal = function () {
     var lowScore = Math.min(this.hurdleStepLeft, this.hurdleStepRight);
     return lowScore;
@@ -203,31 +199,9 @@ function Applicant(data, jobCriteria) {
   this.passCoreSubtest = function () {
     console.log('core subtest');
     var pass = true;
-    var tests = '';
-    var exerciseArray = jobCriteria.minCoreSubtest.exerciseArray;
     var subtestTotalScore = 0;
-    var minSubtestScore = jobCriteria.minCoreSubtest.minScore;
-    for (var i = 0; i < exerciseArray.length; i++) {
-      var test = undefined;
-      if (exerciseArray[i] == 'deepSquat') {
-        test = this.deepSquat;
-      } else if (exerciseArray[i] == 'hurdleStep') {
-        test = this.hurdleStepTotal();
-      } else if (exerciseArray[i] == 'inlineLunge') {
-        test = this.inlineLungeTotal();
-      } else if (exerciseArray[i] == 'shoulderMob') {
-        test = this.shoulderMobTotal();
-      } else if (exerciseArray[i] == 'activeStraightLegRaise') {
-        test = this.activeStraightLegRaiseTotal();
-      } else if (exerciseArray[i] == 'rotaryStability') {
-        test = this.rotaryStabilityTotal();
-      } else if (exerciseArray[i] == 'trunkStabilityPushup') {
-        test = this.trunkStabilityPushup;
-      };
-
-      subtestTotalScore += test;
-      tests += exerciseArray[i] + '  ';
-    };
+    var minSubtestScore = jobCriteria.minCoreSubtest;
+    subtestTotalScore = this.activeStraightLegRaiseTotal + this.trunkStabilityPushup + this.rotaryStabilityTotal;
 
     if (subtestTotalScore < minSubtestScore) {
       pass = false;
@@ -236,41 +210,17 @@ function Applicant(data, jobCriteria) {
       pass = true;
     };
 
-    console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
+    console.log('subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
     return pass;
   };
 
   this.passShoulderSubtest = function () {
     console.log('shoulder subtest');
     var pass = true;
-    var exerciseArray = jobCriteria.minShoulderSubtest.exerciseArray;
     var subtestTotalScore = 0;
-    var minSubtestScore = jobCriteria.minShoulderSubtest.minScore;
-    var tests = '';
-    for (var i = 0; i < exerciseArray.length; i++) {
-      var test = 0;
-      if (exerciseArray[i] == 'deepSquat') {
-        test = this.deepSquat;
-      } else if (exerciseArray[i] == 'hurdleStep') {
-        test = this.hurdleStepTotal();
-      } else if (exerciseArray[i] == 'inlineLunge') {
-        test = this.inlineLungeTotal();
-      } else if (exerciseArray[i] == 'shoulderMob') {
-        test = this.shoulderMobTotal();
-      } else if (exerciseArray[i] == 'activeStraightLegRaise') {
-        test = this.activeStraightLegRaiseTotal();
-      } else if (exerciseArray[i] == 'rotaryStability') {
-        test = this.rotaryStabilityTotal();
-      } else if (exerciseArray[i] == 'trunkStabilityPushup') {
-        test = this.trunkStabilityPushup;
-      };
+    var minSubtestScore = jobCriteria.minShoulderSubtest;
+    subtestTotalScore = this.shoulderMobTotal;
 
-      tests += exerciseArray[i] + '  ';
-      subtestTotalScore += test;
-      console.log('subtestTotalScore', subtestTotalScore);
-    };
-
-      console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
     if (subtestTotalScore < minSubtestScore) {
       pass = false;
 
@@ -278,37 +228,16 @@ function Applicant(data, jobCriteria) {
       pass = true;
     };
 
+    console.log('subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
     return pass;
   };
 
   this.passLowerBodySubtest = function () {
     console.log('lower body subtest');
     var pass = true;
-    var tests = '';
-    var exerciseArray = jobCriteria.minLowerBodySubtest.exerciseArray;
     var subtestTotalScore = 0;
-    var minSubtestScore = jobCriteria.minLowerBodySubtest.minScore;
-    for (var i = 0; i < exerciseArray.length; i++) {
-      var test = undefined;
-      if (exerciseArray[i] == 'deepSquat') {
-        test = this.deepSquat;
-      } else if (exerciseArray[i] == 'hurdleStep') {
-        test = this.hurdleStepTotal();
-      } else if (exerciseArray[i] == 'inlineLunge') {
-        test = this.inlineLungeTotal();
-      } else if (exerciseArray[i] == 'shoulderMob') {
-        test = this.shoulderMobTotal();
-      } else if (exerciseArray[i] == 'activeStraightLegRaise') {
-        test = this.activeStraightLegRaiseTotal();
-      } else if (exerciseArray[i] == 'rotaryStability') {
-        test = this.rotaryStabilityTotal();
-      } else if (exerciseArray[i] == 'trunkStabilityPushup') {
-        test = this.trunkStabilityPushup;
-      };
-
-      subtestTotalScore += test;
-      tests += exerciseArray[i] + '  ';
-    };
+    var minSubtestScore = jobCriteria.minLowerBodySubtest;
+    subtestTotalScore = this.deepSquat;
 
     if (subtestTotalScore < minSubtestScore) {
       pass = false;
@@ -316,48 +245,49 @@ function Applicant(data, jobCriteria) {
     } else {
       pass = true;
     };
-console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
+
+    console.log('subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
     return pass;
-    };
+  };
 
-    this.passOtherSubtest = function () {
-      console.log('other subtest');
-      var pass = true;
-      var tests = '';
-      var exerciseArray = jobCriteria.minOtherSubtest.exerciseArray;
-      var subtestTotalScore = 0;
-      var minSubtestScore = jobCriteria.minOtherSubtest.minScore;
-      for (var i = 0; i < exerciseArray.length; i++) {
-        var test = undefined;
-        if (exerciseArray[i] == 'deepSquat') {
-          test = this.deepSquat;
-        } else if (exerciseArray[i] == 'hurdleStep') {
-          test = this.hurdleStepTotal();
-        } else if (exerciseArray[i] == 'inlineLunge') {
-          test = this.inlineLungeTotal();
-        } else if (exerciseArray[i] == 'shoulderMob') {
-          test = this.shoulderMobTotal();
-        } else if (exerciseArray[i] == 'activeStraightLegRaise') {
-          test = this.activeStraightLegRaiseTotal();
-        } else if (exerciseArray[i] == 'rotaryStability') {
-          test = this.rotaryStabilityTotal();
-        } else if (exerciseArray[i] == 'trunkStabilityPushup') {
-          test = this.trunkStabilityPushup;
-        };
-
-        subtestTotalScore += test;
-        tests += exerciseArray[i] + '  ';
-      };
-
-      if (subtestTotalScore < minSubtestScore) {
-        pass = false;
-
-      } else {
-        pass = true;
-      };
-  console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
-      return pass;
-    };
+  //   this.passOtherSubtest = function () {
+  //     console.log('other subtest');
+  //     var pass = true;
+  //     var tests = '';
+  //     var exerciseArray = jobCriteria.minOtherSubtest.exerciseArray;
+  //     var subtestTotalScore = 0;
+  //     var minSubtestScore = jobCriteria.minOtherSubtest.minScore;
+  //     for (var i = 0; i < exerciseArray.length; i++) {
+  //       var test = undefined;
+  //       if (exerciseArray[i] == 'deepSquat') {
+  //         test = this.deepSquat;
+  //       } else if (exerciseArray[i] == 'hurdleStep') {
+  //         test = this.hurdleStepTotal();
+  //       } else if (exerciseArray[i] == 'inlineLunge') {
+  //         test = this.inlineLungeTotal();
+  //       } else if (exerciseArray[i] == 'shoulderMob') {
+  //         test = this.shoulderMobTotal();
+  //       } else if (exerciseArray[i] == 'activeStraightLegRaise') {
+  //         test = this.activeStraightLegRaiseTotal();
+  //       } else if (exerciseArray[i] == 'rotaryStability') {
+  //         test = this.rotaryStabilityTotal();
+  //       } else if (exerciseArray[i] == 'trunkStabilityPushup') {
+  //         test = this.trunkStabilityPushup;
+  //       };
+  //
+  //       subtestTotalScore += test;
+  //       tests += exerciseArray[i] + '  ';
+  //     };
+  //
+  //     if (subtestTotalScore < minSubtestScore) {
+  //       pass = false;
+  //
+  //     } else {
+  //       pass = true;
+  //     };
+  // console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
+  //     return pass;
+  //   };
 
   this.passOverall = function () {
     if (this.passDeepSquat() == false) {
@@ -380,8 +310,8 @@ console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtest
       return false;
     } else if (this.passLowerBodySubtest() == false) {
       return false;
-    } else if (this.passOtherSubtest() == false) {
-      return false;
+    // } else if (this.passOtherSubtest() == false) {
+    //   return false;
     } else {
       return true;
     }

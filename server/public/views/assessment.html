@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/styles/assessment.css">
 <div class="assessmentContainer">
   <div class="assessmentContent">
   <h1 class="assessmentHeader">Functional Movement Screen</h1>
@@ -138,12 +139,12 @@
             <td><input type="number" step="0.1" class="measurement" name="shoulder-measurement" ng-model="assessment.shoulder.top_right" required></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Left Impingement:</h3></th>
+            <th><h3 class="assessmentItem">Left Impingement--pain present?</h3></th>
             <td><input type="radio" name="shoulder-left-impingement" ng-value="true" ng-model="assessment.shoulder.left_impingement" required><label for="Y">Y</label></td>
             <td><input type="radio" name="shoulder-left-impingement" ng-value="false" ng-model="assessment.shoulder.left_impingement"><label for="N">N</label></td>
           </tr>
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Right Impingement:</h3></th>
+            <th><h3 class="assessmentItem">Right Impingement--pain present?</h3></th>
             <td><input type="radio" name="shoulder-right-impingement" ng-value="true" ng-model="assessment.shoulder.right_impingement" required><label for="Y">Y</label></td>
             <td><input type="radio" name="shoulder-right-impingement" ng-value="false" ng-model="assessment.shoulder.right_impingement"><label for="N">N</label></td>
           </tr>
@@ -197,7 +198,7 @@
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent6()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Prone Press Up:</h3></th>
+            <th><h3 class="assessmentItem">Prone Press Up--pain present?</h3></th>
             <td><input type="radio" name="press_up" ng-value="true" ng-model="assessment.prone_press_up" required><label for="Y">Y</label></td>
             <td><input type="radio" name="press_up" ng-value="false" ng-model="assessment.prone_press_up"><label for="N">N</label></td>
           </tr>
@@ -219,7 +220,7 @@
         <button type="button submit" class="assessmentNext btn btn-secondary" ng-click="checkContent7()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
         <table class="borderless">
           <tr class="alignLeft">
-            <th><h3 class="assessmentItem">Kneeling Lumbar Flexion:</h3></th>
+            <th><h3 class="assessmentItem">Kneeling Lumbar Flexion--pain present?</h3></th>
             <td><input type="radio" name="lumbar-flexion" ng-value="true" ng-model="assessment.rotary.lumbar_flexion" required><label for="Y">Y</label></td>
             <td><input type="radio" name="lumbar-flexion" ng-value="false" ng-model="assessment.rotary.lumbar_flexion"><label for="N">N</label></td>
           </tr>
