@@ -3,8 +3,6 @@ var router = express.Router();
 var pg = require('pg');
 var connectionString = require('../modules/connection');
 
-
-<<<<<<< HEAD
 router.post('/', function(req, res) {
     pg.connect(connectionString, function(err, client, done) {
       if(err) {
@@ -35,7 +33,7 @@ router.post('/', function(req, res) {
 
     });
 
-=======
+
 router.get('/', function(req, res) {
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
@@ -61,6 +59,5 @@ router.get('/', function(req, res) {
         });
     });
 });
->>>>>>> master
 
 module.exports = router;
