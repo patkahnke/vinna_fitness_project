@@ -1,4 +1,4 @@
-myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory) {
+myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory', '$window', function($scope, $http, $location, ApplicantFactory, UserFactory, $window) {
   $scope.assessment = ApplicantFactory.currentAssessment;
   $scope.showA = true;
   $scope.show0 = false;
@@ -20,8 +20,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.applicantSubmit = function(){
     ApplicantFactory.currentAssessment = $scope.assessment;
         console.log('this ran');
-    $location.path('/assessment');
-
+    $window.location.href='#/assessment';
   };
 
   userFactory = UserFactory;
@@ -30,7 +29,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   if (userFactory.checkLoggedIn() === true) {
 
   } else {
-    $location.path('/');
+    $window.location.href='#/';
   }
 
   ApplicantFactory.all();
@@ -240,7 +239,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
             ApplicantFactory.currentAssessment = $scope.assessment;
             console.log($scope.assessment);
             alert('Assessment data successfully saved.');
-            $location.path('/applicant');
+            $window.location.href='#/applicant';
           } else {
             alert('Error saving results. Please try again.');
           }

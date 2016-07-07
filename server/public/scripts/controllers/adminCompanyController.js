@@ -1,4 +1,4 @@
-myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', function($scope, $http, AdminDataFactory, $location)
+myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', '$window', function($scope, $http, AdminDataFactory, $location, $window)
 {
   //injections
   $scope.dataFactory = AdminDataFactory;
@@ -103,16 +103,16 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
   //selectedCoRedirect
   $scope.selectedCoRedirect = function(company){
     $scope.dataFactory.selectedCo.job = company;
-    $location.path('/selectedco');
+    $window.location.href='#/selectedco';
   };
 
   //active/inactive company specific redirects
   $scope.activeCoView = function(){
-    $location.path('/companies');
+    $window.location.href='#/companies';
   };
 
   $scope.inactiveCoView = function(){
-    $location.path('/companies/inactive');
+    $window.location.href='#/companies/inactive';
   };
 
   //company modals

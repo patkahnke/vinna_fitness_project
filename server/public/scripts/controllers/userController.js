@@ -1,4 +1,4 @@
-myApp.controller('UserController', ['$scope', '$http', '$location', 'UserFactory', function ($scope, $http, $location, UserFactory) {
+myApp.controller('UserController', ['$scope', '$http', '$location', 'UserFactory', '$window', function ($scope, $http, $location, UserFactory, $window) {
 
 userFactory = UserFactory;
 
@@ -12,15 +12,15 @@ userFactory = UserFactory;
         if (response.data.admin === true) {
         userFactory.setAdmin(response.data.admin);
         userFactory.setId(response.data.id);
-        $location.path('/admin');
+        $window.location.href='#/admin';
       } else {
-        $location.path('/applicant');
+        $window.location.href='#/applicant';
       }
 
  } else { // is not logged in on server
    console.log('here');
    userFactory.setLoggedIn(false);
-   $location.path('/');
+   $window.location.href='#/';
      }
 
 
