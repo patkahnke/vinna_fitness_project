@@ -247,6 +247,10 @@ table {
   text-align: center;
 }
 
+.admin a:hover {
+  text-decoration: none;
+}
+
 .big-checkbox {
   width: 30px; height: 30px;
 }

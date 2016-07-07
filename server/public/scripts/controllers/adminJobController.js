@@ -1,4 +1,4 @@
-myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '$location', function($scope, $http, AdminDataFactory, $location)
+myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '$location', '$window', function($scope, $http, AdminDataFactory, $location, $window)
 {
   //injections
   $scope.dataFactory = AdminDataFactory;
@@ -105,7 +105,7 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
 
   //active/inactive company specific redirects
   $scope.activeCompanies = function(){
-    $location.path('/companies');
+    $window.location.href='#/companies';
   };
 
   //job modals

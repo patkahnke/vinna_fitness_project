@@ -1,4 +1,4 @@
-myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactory', 'UserFactory', '$location', function($scope, $http, AdminDataFactory, UserFactory, $location)
+myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactory', 'UserFactory', '$location', '$window', function($scope, $http, AdminDataFactory, UserFactory, $location, $window)
 {
   //injections
   $scope.dataFactory = AdminDataFactory;
@@ -10,13 +10,13 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
   //authenticated?
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
-      $location.path('/trainer');
+      $window.location.href='#/trainer';
     }
   } else {
-    $location.path('/');
-  };
+    $window.location.href='#/';
+  }
 
-  userFactory.logout()
+  userFactory.logout();
 
   getTrainers();
 
