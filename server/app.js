@@ -14,6 +14,12 @@ var jobs = require('./routes/jobs');
 var trainers = require('./routes/trainers');
 var login = require('./routes/login');
 var assessmentResults= require('./routes/assessmentResults');
+var search = require('./routes/search');
+
+
+
+
+
 //Pat's Dummy Data
 var Applicant = require('./modules/applicant');
 var JobCriteria = require('./modules/jobCriteria');
@@ -41,6 +47,7 @@ app.use('/assessmentResults', assessmentResults);
 app.use('/companies', companies);
 app.use('/jobs', jobs);
 app.use('/trainers', trainers);
+app.use('/search', search);
 
 
 app.post('/data/:number', function (req, res) {
