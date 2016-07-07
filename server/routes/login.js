@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
   console.log("HERE - user: " , req.user);
   if (req.isAuthenticated()) {
     console.log('authenticated ', req.user);
-    res.json({ name: req.user.name, admin: req.user.admin});
+    res.json({ name: req.user.name, admin: req.user.admin, id: req.user.id});
   } else {
     res.json({ status: false });
   }
