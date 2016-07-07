@@ -1,0 +1,36 @@
+main{
+  justify-content: flex-start;
+  align-items: stretch;
+  font-style: oblique;
+}
+.applicantForm{
+  margin-top: 2%;
+  background-color: #ffffff;
+  padding-bottom: 1%;
+}
+.topText{
+  text-align: top;
+}
+.largeTextArea{
+
+  width: 80%;
+  height: 150px;
+  padding: 4px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+
+}
+
+.paddingAdded{
+  padding-top: 1%;
+}
+
+.title{
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 0;
+}
