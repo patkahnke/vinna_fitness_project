@@ -4,7 +4,7 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
   $scope.dataFactory = AdminDataFactory;
   userFactory = UserFactory;
   //scope variables
-  $scope.applicants = {};
+  $scope.applicants = [];
   $scope.first_name = '';
   $scope.last_name = '';
 
