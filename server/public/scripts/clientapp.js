@@ -10,7 +10,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
     .when('/applicant', {
       templateUrl: '/views/applicant.html',
-      controller: "TrainerController"
+      controller: "AssessmentController"
     })
 
     .when('/assessment', {

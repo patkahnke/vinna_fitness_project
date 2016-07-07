@@ -9,12 +9,12 @@ myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location',
   userFactory.isLoggedIn()
   .then(function (response) {
       if (response.data.name !== undefined) {
-        $scope.hidden = false;
+        $scope.hide = false;
         if (response.data.admin === true) {
           $scope.hiddenAdmin = false;
         }
       } else {
-        $scope.hidden = true;
+        $scope.hide = true;
       }
 
   });
@@ -22,13 +22,13 @@ myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location',
   $scope.routeHome = function() {
     if (userFactory.checkLoggedIn() === true) {
       if ($scope.hiddenAdmin === true) {
-      $location.path('/applicant');
+      $window.location.href='#/applicant';
       }
       else {
-      $location.path('/admin');
+      $window.location.href='#/admin';
       }
     } else {
-      $location.path('/');
+      $window.location.href='#/';
     }
 };
 
@@ -37,7 +37,9 @@ myApp.controller('HeaderController', ['$scope', '$http', '$window', '$location',
   .then(function (response) { // success
     userFactory.setLoggedIn(false);
     userFactory.setAdmin(false);
-    $window.location.href = '/'; // forces a page reload which will update our UserController
+    $scope.hiddenAdmin = true;
+    $scope.hide = true;
+    $window.location.href = '#/'; // forces a page reload which will update our UserController
   });
   };
 
