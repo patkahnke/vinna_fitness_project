@@ -1,4 +1,4 @@
-myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory', 'UserFactory', '$location', function($scope, $http, AdminDataFactory, UserFactory, $location)
+myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory', 'UserFactory', '$location', '$window', function($scope, $http, AdminDataFactory, UserFactory, $location, $window)
 {
   //injections
   $scope.dataFactory = AdminDataFactory;
@@ -20,11 +20,18 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
 
   //Get applicant results from database
   $scope.getApplicant = function() {
+    var query = {
+      first_name: $scope.first_name,
+      last_name: $scope.last_name
+    }
     console.log('here');
-    $http.get('/search')
+    $http.post('/search', query)
       .then(function (response) {
         console.log('GET /applicant', response.data);
         $scope.applicants = response.data;
+        $scope.results = true;
+        $scope.first_name = '';
+        $scope.last_name = '';
       });
   }
 
@@ -32,6 +39,10 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
     modalShown : false
   };
 
+  $scope.toggleViewApplicantModal = function(applicant) {
+    $scope.viewApplicantModal.modalShown = !$scope.viewApplicantModal.modalShown;
+    $scope.applicant = applicant;
+  }
 
 
   }]);
