@@ -39,7 +39,10 @@ router.post('/:id', function (req, res) {
                   'min_trunk_push_up, min_composite, core_subtest, ' +
                   'shoulder_subtest, low_body_subtest, other_subtest) ' +
                   'VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)',
-                   [job.title, id, job.email, job.minDeepSquat, job.minHurdleStep, job.minInlineLunge, job.minShoulderMob, job.minActiveStraightLegRaise, job.minRotaryStability, job.minTrunkStabilityPushup, job.compositeScore, job.coreSubtest, job.shoulderSubtest, job.lowerBodySubtest, job.otherSubtest],
+                   [job.title, id, job.email, job.minDeepSquat, job.minHurdleStep, job.minInlineLunge,
+                    job.minShoulderMob, job.minActiveStraightLegRaise, job.minRotaryStability,
+                    job.minTrunkStabilityPushup, job.compositeScore, job.coreSubtest, job.shoulderSubtest, 
+                    job.lowerBodySubtest, job.otherSubtest],
                  function (err, result) {
                    done();
                    if (err) {
@@ -67,7 +70,10 @@ router.put('/update/:id', function(req, res) {
                          'min_trunk_push_up = $9, min_composite = $10, core_subtest = $11, ' +
                          'shoulder_subtest = $12, low_body_subtest = $13, other_subtest = $14 ' +
                          'WHERE id = $15 ',
-                         [job.title, job.job_email, job.minDeepSquat, job.minHurdleStep, job.minInlineLunge, job.minShoulderMob, job.minActiveStraightLegRaise, job.minRotaryStability, job.minTrunkStabilityPushup, job.compositeScore, job.coreSubtest, job.shoulderSubtest, job.lowerBodySubtest, job.otherSubtest, job.id],
+                         [job.title, job.job_email, job.minDeepSquat, job.minHurdleStep, job.minInlineLunge,
+                          job.minShoulderMob, job.minActiveStraightLegRaise, job.minRotaryStability,
+                          job.minTrunkStabilityPushup, job.compositeScore, job.coreSubtest, job.shoulderSubtest,
+                          job.lowerBodySubtest, job.otherSubtest, job.id],
                 function(err, result) {
                     done();
                     if (err) {

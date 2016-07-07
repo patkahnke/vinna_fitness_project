@@ -1,11 +1,22 @@
-myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', function($scope, $http, AdminDataFactory, $location)
+myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory', '$location', '$window', 'UserFactory' function($scope, $http, AdminDataFactory, $location, $window, UserFactory)
+
 {
   //injections
   $scope.dataFactory = AdminDataFactory;
+  userFactory = UserFactory;
   //scope variables
   $scope.activeCompanies = [];
   $scope.inactiveCompanies = [];
   $scope.newCompany = {};
+
+  //authenticated?
+  if (userFactory.checkLoggedIn() === true) {
+    if (userFactory.checkAdmin() === false) {
+      $location.path('/trainer');
+    }
+  } else {
+    $location.path('/');
+  };
 
   getActiveCompanies();
   getInactiveCompanies();
@@ -51,6 +62,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
         console.log('PUT /companies ', response);
         if (response.status == 204) {
            alert('Company Updated!');
+           $scope.newCompany = {};
            $scope.toggleEditCompanyModal();
            getActiveCompanies();
            return;
@@ -103,16 +115,16 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
   //selectedCoRedirect
   $scope.selectedCoRedirect = function(company){
     $scope.dataFactory.selectedCo.job = company;
-    $location.path('/selectedco');
+    $window.location.href='#/selectedco';
   };
 
   //active/inactive company specific redirects
   $scope.activeCoView = function(){
-    $location.path('/companies');
+    $window.location.href='#/companies';
   };
 
   $scope.inactiveCoView = function(){
-    $location.path('/companies/inactive');
+    $window.location.href='#/companies/inactive';
   };
 
   //company modals
