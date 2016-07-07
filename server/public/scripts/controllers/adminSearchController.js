@@ -4,6 +4,7 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
   $scope.dataFactory = AdminDataFactory;
   userFactory = UserFactory;
   //scope variables
+  $scope.applicants = {};
   $scope.first_name = '';
   $scope.last_name = '';
 
@@ -19,12 +20,17 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
 
   //Get applicant results from database
   $scope.getApplicant = function() {
-    $http.get('/trainers')
+    console.log('here');
+    $http.get('/search')
       .then(function (response) {
-        console.log('GET /trainers ', response.data);
-        $scope.trainers = response.data;
+        console.log('GET /applicant', response.data);
+        $scope.applicants = response.data;
       });
   }
+
+  $scope.viewApplicantModal = {
+    modalShown : false
+  };
 
 
 
