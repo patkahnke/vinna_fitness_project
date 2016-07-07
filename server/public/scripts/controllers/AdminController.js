@@ -1,18 +1,18 @@
-myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory',  function($scope, $http, $location, ApplicantFactory, UserFactory)
+myApp.controller('AdminController', ['$scope', '$http', '$location', 'ApplicantFactory', 'UserFactory', '$window',  function($scope, $http, $location, ApplicantFactory, UserFactory, $window)
 {
   userFactory = UserFactory;
   $scope.username = userFactory.currentUser.username;
 
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
-      $location.path('/trainer');
+      $window.location.href='#/trainer';
     }
   } else {
-    $location.path('/');
-  };
+    $window.location.href='#/';
+  }
 
-  userFactory.logout()
-  
+  userFactory.logout();
+
 
 
 }]);
