@@ -21,6 +21,7 @@ main {
   min-height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow: auto;
   padding-bottom: 53px;
 }
@@ -34,6 +35,7 @@ main {
 
 .headerTitle {
   display: inline;
+  cursor: pointer;
 }
 
 .headerNav {
