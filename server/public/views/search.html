@@ -1,5 +1,33 @@
-<h2>Search Applicants</h2>
-<!--nav bar-->
-<form>
-  
-</form>
+<div class="admin">
+  <h2>Search Applicants</h2>
+  <form>
+    <label for="first_name">First Name:</label>
+            <input type="text" id="searchApplicantFirstName" name="first_name" ng-model="first_name" />
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="searchApplicantLastName" name="last_name" ng-model="last_name" />
+            <button ng-click="getApplicant()">Search</button>
+  </form>
+</div>
+<!-- <table class="table table-striped table-bordered hide" ng-show="results">
+  <thead>
+          <tr>
+            <th>Name</th>
+            <th></th>
+          </tr>
+  </thead>
+  <tbody>
+      <tr id="applicantList" ng-repeat="applicant in applicants | orderBy:'name'">
+            <td id="applicant" name="name">{{applicant.name}}</td>
+            <td><button ng-click="viewApplicantModal(applicant)">View Results</button></td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <!-- <modal-dialog show="viewApplicantModal.modalShown" width="50%" height="50%">
+    <h2>Results for {{applicant.name}}</h2>
+      <p>Applied for: {{applicant.job_title}}, {{applicant.company_name}}</p>
+      <p>Assessed by: {{applicant.trainer_name}}</p>
+      <p>Date of screening: {{applicant.date}}</p>
+      <p>Passing score: {{applicant.test_pass}}</p>
+  </modal-dialog>
+</div> -->
