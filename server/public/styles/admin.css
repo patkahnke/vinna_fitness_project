@@ -1,7 +1,18 @@
-.admin {
-  text-align: center;
+main {
+  justify-content: center;
+  align-items: center;
+}
+
+.adminHeader {
+  padding-bottom: 10%;
 }
 
 .admin a:hover{
     text-decoration: none;
+}
+
+.adminButton {
+  height: 80px;
+  width: 185px;
+  font-size: 20px;
 }
