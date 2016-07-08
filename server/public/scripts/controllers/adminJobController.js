@@ -36,13 +36,6 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
 
   //add new job
   $scope.addJob = function () {
-newJob.minActiveStraightLegRaise
-newJob.minRotaryStability
-newJob.minTrunkStabilityPushup
-newJob.compositeScore
-newJob.coreSubtest
-newJob.shoulderSubtest
-newJob.lowerBodySubtest
     if ($scope.newJob.title !== undefined && $scope.newJob.minDeepSquat !== undefined && $scope.newJob.minHurdleStep !== undefined && $scope.newJob.minInlineLunge !== undefined && $scope.newJob.minShoulderMob !== undefined && $scope.newJob.minActiveStraightLegRaise !== undefined && $scope.newJob.minRotaryStability !== undefined && $scope.newJob.minTrunkStabilityPushup !== undefined && $scope.newJob.compositeScore !== undefined && $scope.newJob.coreSubtest !== undefined && $scope.newJob.shoulderSubtest !== undefined && $scope.newJob.lowerBodySubtest !== undefined) {
     var data = $scope.newJob;
     var id = $scope.selectedCo.id;
@@ -53,7 +46,7 @@ newJob.lowerBodySubtest
         if (response.status == 201 ) {
            $scope.toggleAddJobModal();
            getJobs();
-           resetObject($scope.newJob);
+           $scope.newJob = {};
            return;
         } else {
           alert('Job was not recieved. Please try again.');
