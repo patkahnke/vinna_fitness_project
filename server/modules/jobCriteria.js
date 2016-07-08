@@ -11,6 +11,7 @@ function JobCriteria(data) {
   this.minShoulderSubtest = data.shoulder_subtest;
   this.minLowerBodySubtest = data.low_body_subtest;
   this.minOtherSubtest = data.other_subtest;
+  this.minCompositeScore = data.min_composite;
 };
 
 module.exports = JobCriteria;
