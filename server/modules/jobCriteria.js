@@ -6,11 +6,11 @@ function JobCriteria(data) {
   this.minActiveStraightLegRaise = data.min_straight_leg;
   this.minRotaryStability = data.min_rotary_stab;
   this.minTrunkStabilityPushup = data.min_trunk_push_up;
-  this.minCompositeScore = data.composite;
   this.minCoreSubtest = data.core_subtest;
   this.minShoulderSubtest = data.shoulder_subtest;
   this.minLowerBodySubtest = data.low_body_subtest;
   this.minOtherSubtest = data.other_subtest;
+  this.minCompositeScore = data.min_composite;
 };
 
 module.exports = JobCriteria;
