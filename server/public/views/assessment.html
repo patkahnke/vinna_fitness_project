@@ -8,17 +8,17 @@
     <form>
       <table class="borderless">
         <tr>
-          <th><h3 class="assessmentItem">Company</h3></th>
+          <th class="dropdownLabel"><h3 class="assessmentItem">Company:</h3></th>
 
-          <td><select name="companySelector" ng-model="assessment.selectedCompany" ng-options="company.name for company in companies">
+          <td class="alignLeft"><select name="companySelector" ng-model="assessment.selectedCompany" ng-options="company.name for company in companies">
 
 
           </select></td>
         </tr>
           <button type="button submit" class="btn btn-secondary assessmentNext" ng-click="checkContentA()"><img class="arrowPic" src="/vendors/images/Arrow.png"/></button>
           <tr>
-            <th><h3 class="assessmentItem">Jobs: </h3></th>
-            <td><select ng-click="getJobs()" name="companySelector" ng-model="assessment.selectedJob" ng-options="job.title for job in jobs">
+            <th><h3 class="assessmentItem dropdownLabel">Job:</h3></th>
+            <td class="alignLeft"><select ng-click="getJobs()" name="companySelector" ng-model="assessment.selectedJob" ng-options="job.title for job in jobs">
             </select></td>
           </tr>
       </table>

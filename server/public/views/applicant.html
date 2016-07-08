@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="/styles/applicant.css">
 <div class="container">
   <div class="row">
-    <h1 class="row title">Welcome to Vinna Vel!</h2>
+    <h2 class="row title">Welcome to Vinna Vel!</h2>
 
 
-    <h3 class="row title">To begin, please fill out your information, then click submit.</h3>
+    <h4 class="row title">To begin, please fill out your information, then click submit.</h4>
 
   </div>
 
@@ -12,41 +12,42 @@
       <h3 class="title">Applicant Information Form</h3>
       <form class="applicantForm">
         <div class="row paddingAdded">
-          <label class="col-xs-4 col-xs-offset-1" for="assessment.applicant.firstName">First Name: </label>
+          <label class="col-xs-1 col-xs-offset-1 labelTitle" for="assessment.applicant.firstName">First Name: </label>
           <input type="text" ng-model="assessment.applicant.firstName" required/>
         </div>
 
         <div class="row paddingAdded">
-          <label class="col-xs-4 col-xs-offset-1" for="assessment.applicant.lastName">Last Name: </label>
+          <label class="col-xs-1 col-xs-offset-1 labelTitle" for="assessment.applicant.lastName">Last Name: </label>
           <input type="text" ng-model="assessment.applicant.lastName" required/>
         </div>
 
         <div class="row paddingAdded">
-          <label class="col-xs-4 col-xs-offset-1" for="assessment.applicant.gender">Gender: </label>
-          <input type="radio" name="gender" value="M" value="M"ng-model="assessment.applicant.gender"/> <label for="Male">M</label>
-          <input type="radio" name="gender" value="W" value="W"ng-model="assessment.applicant.gender"/> <label for="Female">F</label>
+          <label class="col-xs-1 col-xs-offset-1 labelTitle" for="assessment.applicant.gender">Gender: </label>
+          <input type="radio" name="gender" value="M" value="M" ng-model="assessment.applicant.gender" required/> <label for="Male">M</label>
+          <input type="radio" name="gender" value="W" value="W" ng-model="assessment.applicant.gender" required/> <label for="Female">F</label>
         </div>
 
         <div class="row paddingAdded">
-          <label class="col-xs-4 col-xs-offset-1" for="assessment.applicant.age">Age: </label>
+          <label class="col-xs-1 col-xs-offset-1 labelTitle" for="assessment.applicant.age">Age: </label>
           <input type="number" ng-model="assessment.applicant.age" required/>
         </div>
 
         <div class="row paddingAdded">
-          <label class="col-xs-4 col-xs-offset-1" for="assessment.applicant.height">Height In Inches: </label>
+          <label class="col-xs-1 col-xs-offset-1 labelTitle" for="assessment.applicant.height">Height In Inches: </label>
           <input type="number" ng-model="assessment.applicant.height" required/>
         </div>
         <div class="row paddingAdded">
-          <label class="col-xs-4 col-xs-offset-1" for="assessment.applicant.weight">Weight in Pounds: </label>
+          <label class="col-xs-1 col-xs-offset-1 labelTitle" for="assessment.applicant.weight">Weight in Pounds: </label>
           <input type="number" ng-model="assessment.applicant.weight" required/>
         </div>
         <div class="row paddingAdded">
-        <h4 class="topText col-xs-offset-1">Medical History</h4>
+          <label class="topText col-xs-1 col-xs-offset-1 labelTitle">Medical History:</label>
           <textarea class="largeTextArea col-xs-offset-1" type="text" ng-model="assessment.applicant.medicalHistory"></textarea>
         </div>
 
-        <button class="col-xs-2 col-xs-offset-5" ng-click="applicantSubmit()">Submit</button>
-
+        <div class="buttonPadding">
+          <button class="col-xs-2 col-xs-offset-5" type="submit" ng-click="applicantSubmit()">Submit</button>
+        </div>
       </form>
     </div>
 

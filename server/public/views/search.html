@@ -1,14 +1,15 @@
+<link rel="stylesheet" href="/styles/adminViews.css">
 <div class="admin">
-  <h2>Search Applicants</h2>
+  <h2 class="companyTitle">Search Applicants</h2>
   <form>
     <label for="first_name">First Name:</label>
-            <input type="text" id="searchApplicantFirstName" name="first_name" ng-model="first_name" />
+            <input type="text" class="searchApplicantFirstName" name="first_name" ng-model="first_name" required/>
             <label for="last_name">Last Name:</label>
-            <input type="text" id="searchApplicantLastName" name="last_name" ng-model="last_name" />
+            <input type="text" class="searchApplicantLastName" name="last_name" ng-model="last_name" required/>
             <button ng-click="getApplicant()">Search</button>
   </form>
 
-<table class="table table-striped table-bordered" ng-show="results">
+<table class="table table-striped table-bordered searchResults" ng-show="results">
   <thead>
           <tr>
             <th>Name</th>
@@ -18,7 +19,7 @@
   <tbody>
       <tr id="applicantList" ng-repeat="applicant in applicants | orderBy:'name'">
             <td id="applicant" name="name">{{applicant.fullname}}</td>
-            <td><button ng-click="toggleViewApplicantModal(applicant)">View Results</button></td>
+            <td class="text-center"><button ng-click="toggleViewApplicantModal(applicant)">View Results</button></td>
       </tr>
     </tbody>
   </table>

@@ -1,33 +1,43 @@
+<link rel="stylesheet" href="/styles/adminViews.css">
 <div class="companyContainer">
-<h2>Inactive Companies</h2>
+<h2 class="companyTitle">Inactive Companies</h2>
 <!--nav bar-->
   <div>
     <a ng-click="activeCoView()" class="link">View Active Companies</a>
   </div>
   <!-- list of companies -->
-  <table class="table table-striped table-bordered">
+  <table class="table table-striped table-bordered inactiveCompanyTable companyTable">
     <thead>
             <tr>
-              <th>Company</th>
+              <th><b>Company</b></th>
               <th></th>
             </tr>
     </thead>
     <tbody>
       <tr id="inactiveCompanyList" ng-repeat="company in inactiveCompanies | orderBy:'name'">
             <td id="company" name="name">{{company.name}}</td>
-            <td><button ng-click="toggleEditCompanyModal(company)">Edit</button></td>
+            <td class="text-center"><button ng-click="toggleEditCompanyModal(company)">Edit</button></td>
       </tr>
     </tbody>
   </table>
         <!-- edit opens edit modal -->
-  <modal-dialog show="editCompanyModal.modalShown" width="25%" height="30%">
-    <h2>{{company.name}}</h2>
+  <modal-dialog show="editCompanyModal.modalShown" width="40%" height="35%">
     <form class="editCompany">
       <ul>
-        <li>
-          <label for="location">Location: {{company.location}}</label>
-        </li>
+        <div class="row addCompanyTitle">
+          <li>
+            <h2>{{company.name}}</h2>
+          </li>
+        </div>
+        <div class="row inputPadding">
+          <li>
+            <label class="col-xs-4 companyLocation" for="location">Location: {{company.location}}</label>
+          </li>
+        </div>
+        <div class="row col-xs-4 submitNew">
           <button ng-click="reactivateCompany(company)">Reactivate</button>
+        </div>
       </ul>
   </form>
   </modal-dialog>
+</div>

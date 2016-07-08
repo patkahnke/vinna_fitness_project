@@ -18,9 +18,11 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
 
 
   $scope.applicantSubmit = function(){
+    if ($scope.assessment.applicant.firstName !== undefined && $scope.assessment.applicant.lastName !== undefined && $scope.assessment.applicant.gender !== undefined && $scope.assessment.applicant.age !== undefined && $scope.assessment.applicant.height !== undefined && $scope.assessment.applicant.weight !== undefined && $scope.assessment.applicant.medicalHistory !== undefined) {
     ApplicantFactory.currentAssessment = $scope.assessment;
         console.log('this ran');
     $window.location.href='#/assessment';
+  }
   };
 
   userFactory = UserFactory;
@@ -44,6 +46,9 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       console.log(ApplicantFactory.currentAssessment);
       $scope.showA = false;
       $scope.show0 = true;
+    }
+    else {
+      alert('Please select an option from both dropdowns before proceeding.');
     }
   };
 
