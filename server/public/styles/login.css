@@ -10,10 +10,11 @@ main {
   color: white;
   padding: 0 3% 0 3%;
   height: 60%;
+  min-height: 333.5px;
 }
 
 .login h1 {
-  padding-bottom: 8%;
+  padding-bottom: 10vh;
 }
 
 .login a {
@@ -21,7 +22,7 @@ main {
 }
 
 .googleLogin {
-  padding-top: 5%;
+  padding-top: 8vh;
   padding-bottom: 3%;
 }
 
