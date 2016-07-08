@@ -20,7 +20,7 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
     }
   } else {
     $location.path('/');
-  };
+  }
 
   getJobs();
 
@@ -48,7 +48,7 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
            resetObject($scope.newJob);
            return;
         } else {
-          alert('Your job was not recieved!');
+          alert('Job was not recieved. Please try again.');
           return;
         }
       });
@@ -61,12 +61,12 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
         .then(function (response) {
           console.log('PUT /job ', response);
           if (response.status == 204) {
-             alert('Job Updated!');
+             alert('Job updated!');
              $scope.toggleEditJobModal();
              getJobs();
              return;
           } else {
-            alert('Your job was not recieved!');
+            alert('Job update was not recieved. Please try again.');
             return;
           }
         });
@@ -81,7 +81,6 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
           .then(function (response) {
             console.log('DELETE /jobs/', response);
             $scope.toggleEditJobModal();
-            alert('Job Removed!');
             getJobs();
             return;
           });

@@ -16,7 +16,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
     }
   } else {
     $location.path('/');
-  };
+  }
 
   getActiveCompanies();
   getInactiveCompanies();
@@ -49,7 +49,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
            $scope.toggleAddCompanyModal();
            getActiveCompanies();
         } else {
-          alert('Your company was not recieved!');
+          alert('Your company was not recieved. Please try again.');
         }
       });
   };
@@ -67,7 +67,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
            getActiveCompanies();
            return;
         } else {
-          alert('Your company was not recieved!');
+          alert('Your company was not recieved. Please try again.');
         }
       });
   };
@@ -82,12 +82,10 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
         .then(function (response) {
           console.log('PUT /companies/', response);
           $scope.toggleEditCompanyModal();
-          alert('Company Removed!');
           getActiveCompanies();
           return;
         });
       } else {
-        alert('You can find removed companies in the inactive company screen.');
         $scope.toggleEditCompanyModal();
         return;
       }

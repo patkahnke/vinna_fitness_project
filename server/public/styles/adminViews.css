@@ -1,0 +1,62 @@
+.companyTable, .trainerTable {
+  min-width: 600px;
+  margin-top: 2%;
+  margin-bottom: 8%
+}
+
+.inactiveCompanyTable, .selectedCoTable {
+  min-width: 350px;
+}
+
+.inputPadding {
+  padding-bottom: 3%;
+}
+
+input[type=text] {
+  width: 230px;
+}
+
+.submitNew {
+  padding-top: 3%;
+}
+
+.addCompanyTitle {
+  padding-bottom: 3%;
+}
+
+main {
+  align-items: stretch;
+}
+
+.companyTitle, .trainerTitle {
+  padding-top: 4%;
+}
+
+.companyLocation {
+  min-width: 240px;
+}
+
+.checkbox label {
+  padding-left: 15px;
+}
+
+.checkbox input[type=checkbox] {
+  margin-left: 0;
+}
+
+.padRight {
+  margin-right: 5%
+}
+
+.admin input[type=text] {
+  margin-right: 20px;
+  width: 150px;
+}
+
+.admin label {
+  padding-right: 5px;
+}
+
+.searchResults {
+  margin-top: 3%;
+}
