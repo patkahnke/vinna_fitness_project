@@ -16,3 +16,12 @@ main {
   width: 185px;
   font-size: 20px;
 }
+
+.admin {
+  background-color: #F05123;
+  padding: 5%;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid;
+  border-color: #d0d1d5;
+}
