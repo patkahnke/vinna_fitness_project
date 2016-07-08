@@ -41,6 +41,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
 
   //add new company
   $scope.addCompany = function () {
+    if ($scope.newCompany.name !== undefined && $scope.newCompany.location !== undefined && $scope.newCompany.email !== undefined) {
     var data = $scope.newCompany;
     $http.post('/companies', data)
       .then(function (response) {
@@ -52,6 +53,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
           alert('Your company was not recieved. Please try again.');
         }
       });
+    }
   };
 
   // update existing company

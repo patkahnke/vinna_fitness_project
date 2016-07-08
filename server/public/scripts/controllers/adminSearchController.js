@@ -20,7 +20,7 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
 
   //Get applicant results from database
   $scope.getApplicant = function() {
-    if ($scope.first_name && $scope.last_name !== undefined) {
+    if ($scope.first_name !== undefined && $scope.last_name !== undefined) {
     var query = {
       first_name: $scope.first_name,
       last_name: $scope.last_name
