@@ -31,6 +31,7 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
 
   //add new company
   $scope.addTrainer = function () {
+    if ($scope.newTrainer.name !== undefined && $scope.newTrainer.email !== undefined) {
     var data = $scope.newTrainer;
     $http.post('/trainers', data)
       .then(function (response) {
@@ -43,6 +44,7 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
           alert('Trainer was not received. Please try again.');
         }
       });
+    }
     };
 
   // update existing company

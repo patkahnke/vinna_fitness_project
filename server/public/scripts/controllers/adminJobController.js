@@ -36,6 +36,7 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
 
   //add new job
   $scope.addJob = function () {
+    if ($scope.newJob.title !== undefined) {
     var data = $scope.newJob;
     var id = $scope.selectedCo.id;
     $http.post('/jobs/' + id, data)
@@ -52,6 +53,7 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
           return;
         }
       });
+    }
     };
 
     // update existing job
