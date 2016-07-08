@@ -35,13 +35,12 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
     $http.post('/trainers', data)
       .then(function (response) {
         console.log('POST /trainers', response);
-        alert("Trainer added!");
         if (response.status == 201) {
            $scope.toggleAddTrainerModal();
            getTrainers();
            $scope.newTrainer = {};
         } else {
-          alert('Your trainer was not received!');
+          alert('Trainer was not received. Please try again.');
         }
       });
     };
@@ -54,12 +53,12 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
       .then(function (response) {
         console.log('PUT /trainers ', response);
         if (response.status == 204) {
-           alert('Trainer Updated!');
+           alert('Trainer updated!');
            $scope.toggleEditTrainerModal();
            getTrainers();
            return;
         } else {
-          alert('Your trainer was not received!');
+          alert('Trainer update was not received. Please try again.');
         }
       });
   };
@@ -73,13 +72,11 @@ myApp.controller('AdminTrainersController', ['$scope', '$http', 'AdminDataFactor
       $http.delete('/trainers/' + id)
         .then(function (response) {
           console.log('PUT /trainers/', response);
-          alert('Trainer Removed!');
           $scope.toggleEditTrainerModal();
           getTrainers();
           return;
         });
       } else {
-        alert('You can find removed trainers in the inactive trainer screen.');
         $scope.toggleEditTrainerModal();
         return;
       }

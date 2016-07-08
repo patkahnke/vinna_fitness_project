@@ -15,15 +15,16 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
     }
   } else {
     $location.path('/');
-  };
+  }
 
 
   //Get applicant results from database
   $scope.getApplicant = function() {
+    if ($scope.first_name && $scope.last_name !== undefined) {
     var query = {
       first_name: $scope.first_name,
       last_name: $scope.last_name
-    }
+    };
     console.log('here');
     $http.post('/search', query)
       .then(function (response) {
@@ -33,7 +34,8 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
         $scope.first_name = '';
         $scope.last_name = '';
       });
-  }
+    }
+  };
 
   $scope.viewApplicantModal = {
     modalShown : false
@@ -42,7 +44,7 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
   $scope.toggleViewApplicantModal = function(applicant) {
     $scope.viewApplicantModal.modalShown = !$scope.viewApplicantModal.modalShown;
     $scope.applicant = applicant;
-  }
+  };
 
 
   }]);

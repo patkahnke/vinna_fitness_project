@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/styles/companies.css">
+<link rel="stylesheet" href="/styles/adminViews.css">
 <div class="companyContainer">
-<h2>Companies</h2>
+<h2 class="companyTitle">Companies</h2>
 <div class="admin">
   <div>
     <a ng-click="toggleAddCompanyModal()" class="link">Add New Company</a>
@@ -13,8 +13,8 @@
   <table class="table table-striped table-bordered companyTable">
     <thead>
             <tr>
-              <th>Company</th>
-              <th>Contact</th>
+              <th><b>Company</b></th>
+              <th><b>Contact</b></th>
               <th></th>
               <th></th>
             </tr>
@@ -32,30 +32,30 @@
   <modal-dialog show="addCompanyModal.modalShown" width="50%" height="50%">
     <form class="addCompany">
      <ul>
-      <div class="row">
+      <div class="row addCompanyTitle">
         <li>
           <h2>Add A New Company</h2>
         </li>
       </div>
-      <div class="row">
+      <div class="row inputPadding">
         <li>
-          <label for="name">Name:</label>
+          <label class="col-xs-4" for="name">Name:</label>
           <input type="text" name="name" ng-model="newCompany.name" required>
         </li>
       </div>
-      <div class="row">
+      <div class="row inputPadding">
         <li>
-          <label for="location">Location:</label>
+          <label class="col-xs-4" for="location">Location:</label>
           <input type="text" name="location" ng-model="newCompany.location" required>
         </li>
       </div>
-      <div class="row">
+      <div class="row inputPadding">
         <li>
-          <label for="email">Contact Email:</label>
+          <label class="col-xs-4" for="email">Contact Email:</label>
           <input type="text" name="email" ng-model="newCompany.email" required>
         </li>
       </div>
-      <div class="row">
+      <div class="row col-xs-4 submitNew">
         <button type="submit" ng-click="addCompany(newCompany)">Submit</button>
       </div>
     </ul>
@@ -63,25 +63,37 @@
   </modal-dialog>
 
   <modal-dialog show="editCompanyModal.modalShown" width="50%" height="50%">
-    <h2>Edit {{company.name}}</h2>
     <form class="editCompany">
       <ul>
-      <li>
-        <label for="name">Name:</label>
-        <input type="text" name="name" ng-model="company.name">
-      </li>
-      <li>
-        <label for="location">Location:</label>
-        <input type="text" name="location" ng-model="company.location">
-      </li>
-      <li>
-        <label for="email">Contact Email:</label>
-        <input type="text" name="email" ng-model="company.email" required>
-        <h6>*contact email required</h6>
-      </li>
-        <button type="update" ng-click="updateCompany(company)">Update</button>
-        <button ng-click="deactivateCompany(company)">Remove</button>
+        <div class="row addCompanyTitle">
+          <li>
+            <h2>Edit {{company.name}}'s Information</h2>
+          </li>
+        </div>
+        <div class="row inputPadding">
+          <li>
+            <label class="col-xs-4" for="name">Name:</label>
+            <input type="text" name="name" ng-model="company.name">
+          </li>
+        </div>
+        <div class="row inputPadding">
+          <li>
+            <label class="col-xs-4" for="location">Location:</label>
+            <input type="text" name="location" ng-model="company.location">
+          </li>
+        </div>
+        <div class="row inputPadding">
+          <li>
+            <label class="col-xs-4" for="email">Contact Email:</label>
+            <input type="text" name="email" ng-model="company.email" required>
+          </li>
+        </div>
+        <div class="row col-xs-6 submitNew">
+          <button type="update" class="padRight" ng-click="updateCompany(company)">Update</button>
+          <button ng-click="deactivateCompany(company)">Remove</button>
+        </div>
     </ul>
   </form>
   </modal-dialog>
+</div>
 </div>
