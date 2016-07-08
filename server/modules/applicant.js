@@ -193,7 +193,7 @@ function Applicant(data, jobCriteria) {
       riskCategoryVar = 'elevated';
     } else {
       riskCategoryVar = 'normal';
-    };
+    }
 
     return riskCategoryVar;
   };
