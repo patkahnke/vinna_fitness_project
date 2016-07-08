@@ -32,7 +32,6 @@ var mailOptions = {
           '<h3>Shoulder Subtest Requirement: ' + applicant.passShoulderSubtest() + '</h3>' +
           '<h3>Lower Body/Compound Subtest Requirement: ' + applicant.passLowerBodySubtest() + '</h3></div>' +
           // '<h3>Other Subtest Requirement: ' + applicant.passOtherSubtest() + '</h3></div>' +
-          '<h2><u>JOB-SPECIFIC OVERALL RESULT:</u>' + ' ' + applicant.passOverall() + '</h2>' +
           '<h3><u>Raw Results: </u><h3>' +
           '<table style=" background-repeat:no-repeat; width:450px; margin:0;" cellpadding="5px" cellspacing="0" border="1px">' +
             '<tr>' +
@@ -103,6 +102,9 @@ var mailOptions = {
               '<th>Right</th>' +
               '<td>' + applicant.rotaryStabilityRight + '</td>' +
             '</tr>' +
+            '<h1><u>JOB-SPECIFIC OVERALL RESULT:</u>' + ' ' + applicant.passOverall() + '</h1>' +
+            '<div style=" line-height:50%;"><h3><u>Risk Category: ' + applicant.riskCategory + '<u></h3>' +
+            '<h3>' + applicant.riskMessage + '</h3></div>' +
           '</table>' +
           '</body>'// html body
 };

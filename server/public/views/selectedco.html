@@ -137,14 +137,14 @@
             </select>
         </li>
       </div>
-      <div class="row inputPadding">
-        <li>
-          <label class="col-xs-6" for="other_subtest">Other Subtest</label>
-            <select name="other_subtest" ng-model="newJob.otherSubtest">
-              <option ng-repeat="min in otherMinimums" value="{{min}}">{{min}}</option>
-            </select>
-        </li>
-      </div>
+      <!-- <div class="row inputPadding"> -->
+        <!-- <li> -->
+          <!-- <label class="col-xs-6" for="other_subtest">Other Subtest</label> -->
+            <!-- <select name="other_subtest" ng-model="newJob.otherSubtest"> -->
+              <!-- <option ng-repeat="min in otherMinimums" value="{{min}}">{{min}}</option> -->
+            <!-- </select> -->
+        <!-- </li> -->
+      <!-- </div> -->
       <div class="row col-xs-6 submitNew">
         <button type="submit" ng-click="addJob(newJob)">Submit</button>
       </div>
@@ -261,14 +261,14 @@
             </select>
           </li>
         </div>
-        <div class="row inputPadding">
-          <li>
-            <label class="col-xs-6" for="other_subtest">Other Subtest: {{job.other_subtest}}</label>
-            <select name="other_subtest" ng-model="job.otherSubtest">
-              <option ng-repeat="min in otherMinimums" value="{{min}}">{{min}}</option>
-            </select>
-          </li>
-        </div>
+        <!-- <div class="row inputPadding"> -->
+          <!-- <li> -->
+            <!-- <label class="col-xs-6" for="other_subtest">Other Subtest: {{job.other_subtest}}</label> -->
+            <!-- <select name="other_subtest" ng-model="job.otherSubtest"> -->
+              <!-- <option ng-repeat="min in otherMinimums" value="{{min}}">{{min}}</option> -->
+            <!-- </select> -->
+          <!-- </li> -->
+        <!-- </div> -->
         <div class="row col-xs-6 submitNew">
           <button type="submit" class="padRight" ng-click="updateJob(job)">Submit</button>
           <button ng-click="deleteJob(job)">Delete</button>
