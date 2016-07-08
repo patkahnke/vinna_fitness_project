@@ -19,10 +19,10 @@ var mailOptions = {
     subject: applicant.firstName + ' ' + applicant.lastName + ' CES/FMS Results', // Subject line
     text: 'CES/FMS Results', // plaintext body
     html: '<center><b><h1 style="margin: 0;">Initial CES/FMS Screen Report For: ' +  applicant.firstName + ' ' + applicant.lastName + '<h1></b></center>' +
-          '<center><h2 style="margin: 0;">Test Date:</h3></center>' +
-          '<h3>Work Location: ' + applicant.jobCriteria.location + '</h3>' +
-          '<h3>Job Title: ' + applicant.jobCriteria.title + '</h3>' +
-          '<h3>DOB: ' + applicant.dateOfBirth + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Height: ' + applicant.height + '"' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Weight: ' + applicant.weight + 'lbs' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Gender: ' + applicant.gender + '</h3>' +
+          '<center><h2 style="margin: 0;">Test Date: ' + moment().format('MM/DD/YYYY') + '</h2></center>' +
+          '<h3>Work Location: ' + applicant.jobTitle + '</h3>' +
+          '<h3>Job Title: ' + applicant.jobLocation + '</h3>' +
+          '<h3>Age: ' + applicant.age + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Height: ' + applicant.height + '"' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Weight: ' + applicant.weight + 'lbs' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 'Gender: ' + applicant.gender + '</h3>' +
           '<h3>Significant Medical History: ' + applicant.medicalHistory + '</h3>' +
           '<h3><u>COMPOSITE MOVEMENT SCORE (scores range from 0-21, average is 12.7):</u>' + ' ' + applicant.compositeScore() + '</h3>' +
           '<h3><u>High Injury Risk Indicators (0s and 1s on subtests & asymmetric patterning):</u>' + ' ' + applicant.totalHighRiskAreas() + '</h3>' +
