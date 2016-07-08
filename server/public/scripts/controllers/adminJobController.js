@@ -36,7 +36,14 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
 
   //add new job
   $scope.addJob = function () {
-    if ($scope.newJob.title !== undefined) {
+newJob.minActiveStraightLegRaise
+newJob.minRotaryStability
+newJob.minTrunkStabilityPushup
+newJob.compositeScore
+newJob.coreSubtest
+newJob.shoulderSubtest
+newJob.lowerBodySubtest
+    if ($scope.newJob.title !== undefined && $scope.newJob.minDeepSquat !== undefined && $scope.newJob.minHurdleStep !== undefined && $scope.newJob.minInlineLunge !== undefined && $scope.newJob.minShoulderMob !== undefined && $scope.newJob.minActiveStraightLegRaise !== undefined && $scope.newJob.minRotaryStability !== undefined && $scope.newJob.minTrunkStabilityPushup !== undefined && $scope.newJob.compositeScore !== undefined && $scope.newJob.coreSubtest !== undefined && $scope.newJob.shoulderSubtest !== undefined && $scope.newJob.lowerBodySubtest !== undefined) {
     var data = $scope.newJob;
     var id = $scope.selectedCo.id;
     $http.post('/jobs/' + id, data)
@@ -53,6 +60,9 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
           return;
         }
       });
+    }
+    else {
+      alert("Please complete all required fields.")
     }
     };
 

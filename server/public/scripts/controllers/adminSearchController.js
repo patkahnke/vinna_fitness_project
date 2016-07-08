@@ -5,8 +5,6 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
   userFactory = UserFactory;
   //scope variables
   $scope.applicants = [];
-  $scope.first_name = '';
-  $scope.last_name = '';
 
   //authenticated?
   if (userFactory.checkLoggedIn() === true) {
