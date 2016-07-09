@@ -70,3 +70,7 @@ main {
   background-color: white;
   border: #d0d1d5 1px solid;
 }
+
+.noPadding {
+  padding: 0;
+}

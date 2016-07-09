@@ -18,7 +18,7 @@ body {
 }
 
 main {
-  min-height: 91%;
+  min-height: 88%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +44,7 @@ main {
 }
 
 footer {
+  font-family: 'Myriad Pro';
   position: relative;
   margin-top: -53px;
   clear: both;

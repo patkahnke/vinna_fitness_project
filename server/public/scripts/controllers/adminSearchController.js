@@ -3,6 +3,7 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
   //injections
   $scope.dataFactory = AdminDataFactory;
   userFactory = UserFactory;
+  $scope.noResultMessage = '';
   //scope variables
   $scope.applicants = [];
 
@@ -18,7 +19,7 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
 
   //Get applicant results from database
   $scope.getApplicant = function() {
-    if ($scope.first_name !== undefined && $scope.last_name !== undefined) {
+    if ($scope.first_name !== undefined || '' && $scope.last_name !== undefined || '') {
     var query = {
       first_name: $scope.first_name,
       last_name: $scope.last_name
@@ -27,10 +28,19 @@ myApp.controller('AdminSearchController', ['$scope', '$http', 'AdminDataFactory'
     $http.post('/search', query)
       .then(function (response) {
         console.log('GET /applicant', response.data);
+        if (response.data.length === 0) {
+        $scope.results = false;
+        $scope.noResultMessage = 'No results were found matching your search.';
+        console.log($scope.noResultMessage);
+        }
+        else {
+        console.log(response.data.length);
         $scope.applicants = response.data;
+        $scope.noResultMessage = '';
         $scope.results = true;
         $scope.first_name = '';
         $scope.last_name = '';
+      }
       });
     }
   };
