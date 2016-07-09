@@ -23,8 +23,8 @@
       <tr id="companyList" ng-repeat="company in activeCompanies | orderBy:'name'">
             <td id="company" name="name">{{company.name}}</td>
             <td id="company" name="email">{{company.email}}</td>
-            <td class="text-center"><button ng-click="selectedCoRedirect(company)">Jobs</button></td>
             <td class="text-center"><button ng-click="toggleEditCompanyModal(company)">Edit</button></td>
+            <td class="text-center"><button ng-click="selectedCoRedirect(company)">Jobs</button></td>
       </tr>
     </tbody>
   </table>

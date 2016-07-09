@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/styles/adminViews.css">
+<link rel="stylesheet" href="/styles/search.css">
 <div class="companyContainer">
 <div class="admin">
   <h2 class="companyTitle">Search Applicants</h2>
@@ -10,6 +10,7 @@
             <button ng-click="getApplicant()">Search</button>
   </form>
 
+<h4 class="searchResults companyTable">{{noResultMessage}}</h4>
 <table class="table table-striped table-bordered searchResults companyTable" ng-show="results">
   <thead>
           <tr>

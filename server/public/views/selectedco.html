@@ -175,6 +175,12 @@
         </div>
         <div class="row inputPadding">
           <li>
+            <label class="col-xs-6" for="min_deep_squat"><u>Curring Scoring Requirements</u></label>
+            <label class="col-xs-6 noPadding" for="min_deep_squat"><u>Edit Requirements</u></label>
+          </li>
+        </div>
+        <div class="row inputPadding">
+          <li>
             <label class="col-xs-6" for="min_deep_squat">Deep Squat Min: {{job.min_deep_squat}}</label>
             <select name="min_deep_squat" ng-model="job.minDeepSquat">
               <option ng-repeat="min in standardMinimums" value="{{min}}">{{min}}</option>
