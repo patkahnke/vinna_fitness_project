@@ -19,6 +19,8 @@ function Applicant(data, jobCriteria) {
   this.trunkStabilityPushup = data.push_up;
   this.rotaryStabilityLeft = data.rotary.left;
   this.rotaryStabilityRight = data.rotary.right;
+  this.pronePressup = data.pronePressup;
+  this.lumbarFlexion = data.lumbarFLexion;
   this.hurdleStepTotal = function () {
     var lowScore = Math.min(this.hurdleStepLeft, this.hurdleStepRight);
     return lowScore;
@@ -120,67 +122,91 @@ function Applicant(data, jobCriteria) {
   };
 
   this.passDeepSquat = function () {
+    var message = '';
     if (this.deepSquat >= jobCriteria.minDeepSquat) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.passHurdleStep = function () {
+    var message = '';
     if (this.hurdleStepTotal() >= jobCriteria.minHurdleStep) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.passInlineLunge = function () {
+    var message = '';
     if (this.inlineLungeTotal() >= jobCriteria.minInlineLunge) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.passShoulderMob = function () {
+    var message = '';
     if (this.shoulderMobTotal() >= jobCriteria.minShoulderMob) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.passActiveStraightLegRaise = function () {
+    var message = '';
     if (this.activeStraightLegRaiseTotal() >= jobCriteria.minActiveStraightLegRaise) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.passRotaryStability = function () {
+    var message = '';
     if (this.rotaryStabilityTotal() >= jobCriteria.minRotaryStability) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.passTrunkStability = function () {
+    var message = '';
     if (this.trunkStabilityPushup >= jobCriteria.minTrunkStabilityPushup) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.passCompositeScore = function () {
+    var message = '';
     if (this.compositeScore() >= jobCriteria.minCompositeScore) {
-      return true;
+      message = 'PASS';
     } else {
-      return false;
+      message = 'FAIL';
     }
+
+    return message;
   };
 
   this.riskCategory = function () {
@@ -196,63 +222,86 @@ function Applicant(data, jobCriteria) {
     return riskCategoryVar;
   };
 
+  this.riskMessage = function () {
+    var message = '';
+    if (this.riskCategory == 'extreme') {
+      message = 'This test subject is in the Extreme Risk Category (Composite ' +
+      'Score of ≤ 9) and is >12X more likely to suffer major injury than an individual ' +
+      'in the normal range (>13 Composite Score).\nThis individual demonstrates pathological ' +
+      'movement patterns making them far more likely than others to suffer serious injury.' +
+      '\nExtreme scores can rarely be improved without extensive, prolonged intervention and ' +
+      'may be considered likely to be permanent within the employment context.';
+    } else if (this.riskCategory == 'elevated') {
+      message = 'This test subject is in the Elevated Risk Category (Composite score of 10-13) ' +
+      'and is 4X more likely to suffer major injury than an individual in the normal range (>13).' +
+      '\nThese reduced scores are often the result of the accumulation of years or decades worth ' +
+      'of small- and micro-injuries leading your body to adopt progressively pathological ' +
+      'movement patterns.\nCES offers brief, targeted, individualized or group corrective ' +
+      'interventions that can improve scores in as little as one hour-long session. ' +
+      'Contact CES at 612-341-0097 to arrange correctives.';
+    } else {
+      message = 'This test subject is in the Normal Risk Category (Composite score of 14 or ' +
+      'above) and is not at increased risk of musculoskeletal injury due to movement ' +
+      'deficiencies, though any High Risk Areas (see below) still need to be addressed.' +
+      '\nThough Normal scores are not indicative of increased injury risk, movement patterns ' +
+      'can always be refined and corrected, and CES has experience with up to Pro-Level athletes.' +
+      '\nCES offers brief, targeted, individualized or group corrective interventions that can ' +
+      'improve scores in as little as one hour-long session. Contact CES at 612-341-0097 to ' +
+      'arrange correctives.';
+    };
+  };
+
   this.passCoreSubtest = function () {
-    console.log('core subtest');
-    var pass = true;
+    var message = 'PASS';
     var subtestTotalScore = 0;
     var minSubtestScore = jobCriteria.minCoreSubtest;
     subtestTotalScore = this.activeStraightLegRaiseTotal + this.trunkStabilityPushup + this.rotaryStabilityTotal;
 
     if (subtestTotalScore < minSubtestScore) {
-      pass = false;
+      message = 'FAIL';
 
     } else {
-      pass = true;
+      message = 'PASS';
     };
 
-    console.log('subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
-    return pass;
+    return message;
   };
 
   this.passShoulderSubtest = function () {
-    console.log('shoulder subtest');
-    var pass = true;
+    var message = 'PASS';
     var subtestTotalScore = 0;
     var minSubtestScore = jobCriteria.minShoulderSubtest;
     subtestTotalScore = this.shoulderMobTotal;
 
     if (subtestTotalScore < minSubtestScore) {
-      pass = false;
+      message = 'FAIL';
 
     } else {
-      pass = true;
+      message = 'PASS';
     };
 
-    console.log('subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
-    return pass;
+    return message;
   };
 
   this.passLowerBodySubtest = function () {
-    console.log('lower body subtest');
-    var pass = true;
+    var message = 'PASS';
     var subtestTotalScore = 0;
     var minSubtestScore = jobCriteria.minLowerBodySubtest;
     subtestTotalScore = this.deepSquat;
 
     if (subtestTotalScore < minSubtestScore) {
-      pass = false;
+      message = 'FAIL';
 
     } else {
-      pass = true;
+      message = 'PASS';
     };
 
-    console.log('subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
-    return pass;
+    return message;
   };
 
-  //   this.passOtherSubtest = function () {
-  //     console.log('other subtest');
-  //     var pass = true;
+  //   SAVING THIS FOR FUTURE EXPANSION - ALLOWS ADMIN TO CEATE A SPECIFIC SUBTEST
+  //    this.passOtherSubtest = function () {
+  //     var message = 'PASS';
   //     var tests = '';
   //     var exerciseArray = jobCriteria.minOtherSubtest.exerciseArray;
   //     var subtestTotalScore = 0;
@@ -280,41 +329,53 @@ function Applicant(data, jobCriteria) {
   //     };
   //
   //     if (subtestTotalScore < minSubtestScore) {
-  //       pass = false;
+  //       message = 'FAIL';
   //
   //     } else {
-  //       pass = true;
+  //       message = 'PASS';
   //     };
-  // console.log('tests', tests, 'subtestTotalScore:', subtestTotalScore, 'minSubtestScore', minSubtestScore);
-  //     return pass;
+  //     return message;
   //   };
 
   this.passOverall = function () {
-    if (this.passDeepSquat() == false) {
-      return false;
-    } else if (this.passHurdleStep() == false) {
-      return false;
-    } else if (this.passInlineLunge() == false) {
-      return false;
-    } else if (this.passShoulderMob() == false) {
-      return false;
-    } else if (this.passActiveStraightLegRaise() == false) {
-      return false;
-    } else if (this.passRotaryStability() == false) {
-      return false;
-    } else if (this.passCompositeScore() == false) {
-      return false;
-    } else if (this.passCoreSubtest() == false) {
-      return false;
-    } else if (this.passShoulderSubtest() == false) {
-      return false;
-    } else if (this.passLowerBodySubtest() == false) {
-      return false;
-    // } else if (this.passOtherSubtest() == false) {
-    //   return false;
+    var message = '';
+    if (this.passDeepSquat() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passHurdleStep() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passInlineLunge() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passShoulderMob() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passActiveStraightLegRaise() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passRotaryStability() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passCompositeScore() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passCoreSubtest() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passShoulderSubtest() == 'FAIL') {
+      message = 'FAIL';
+      return message;
+    } else if (this.passLowerBodySubtest() == 'FAIL') {
+      message = 'FAIL';
+
+      // } else if (this.passOtherSubtest() == false) {
+      //   return false;
     } else {
-      return true;
+      message = 'PASS';
     }
+
+    return message;
   };
 };
 
