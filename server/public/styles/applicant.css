@@ -3,11 +3,12 @@ main{
   align-items: stretch;
   font-style: oblique;
 }
+
 .applicantForm{
   margin-top: 2%;
-  background-color: #ffffff;
   padding-bottom: 1%;
 }
+
 .topText{
   text-align: top;
 }
@@ -45,4 +46,10 @@ input {
 
 .dropdownLabel {
   padding-right: 6%;
+}
+
+.container {
+  background-color: white;
+  width: 75%;
+  border: #d0d1d5 1px solid;
 }

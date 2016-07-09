@@ -21,6 +21,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     if ($scope.assessment.applicant.firstName !== undefined && $scope.assessment.applicant.lastName !== undefined && $scope.assessment.applicant.gender !== undefined && $scope.assessment.applicant.age !== undefined && $scope.assessment.applicant.height !== undefined && $scope.assessment.applicant.weight !== undefined && $scope.assessment.applicant.medicalHistory !== undefined) {
     ApplicantFactory.currentAssessment = $scope.assessment;
         console.log('this ran');
+        alert('Thank you! Your initial information has been successfully submitted. Please hand this device to the trainer to begin the assessment.');
     $window.location.href='#/assessment';
   }
   };
