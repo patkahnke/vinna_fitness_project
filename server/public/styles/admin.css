@@ -15,4 +15,20 @@ main {
   height: 80px;
   width: 185px;
   font-size: 20px;
+  background-color: #FF7C2E;
+  color: white;
+  border: 1px solid #DB6B27;
+}
+
+.adminButton:hover {
+  background-color: #dd5a0c;
+  border-color: #b64605;
+  color: white;
+}
+
+.admin {
+  background-color: white;
+  padding: 5%;
+  border-radius: 10px;
+  border: #d0d1d5 1px solid;
 }

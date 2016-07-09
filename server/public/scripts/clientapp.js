@@ -18,24 +18,9 @@ myApp.config(['$routeProvider', function($routeProvider) {
       controller: "AssessmentController"
     })
 
-    .when('/vitals', {
-      templateUrl: '/views/vitals.html',
-      controller: "HomeController"
-    })
-
     .when('/login', {
       templateUrl: '/views/login.html',
       controller: "HomeController"
-    })
-
-    .when('/stage', {
-      templateUrl: '/views/stage.html',
-      controller: "TrainerController"
-    })
-
-    .when('/screen', {
-      templateUrl: '/views/screen.html',
-      controller: "TrainerController"
     })
 
     .when('/admin', {
