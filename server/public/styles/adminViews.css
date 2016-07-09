@@ -5,7 +5,7 @@
 }
 
 .inactiveCompanyTable, .selectedCoTable {
-  min-width: 350px;
+  min-width: 400px;
 }
 
 .inputPadding {
@@ -59,4 +59,14 @@ main {
 
 .searchResults {
   margin-top: 3%;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #e9ebee;
+}
+
+.companyContainer {
+  padding: 0 4% 0 4%;
+  background-color: white;
+  border: #d0d1d5 1px solid;
 }
