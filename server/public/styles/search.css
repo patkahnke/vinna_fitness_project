@@ -39,3 +39,7 @@ main {
 .companyTitle {
   padding-top: 4%;
 }
+
+.addCompanyTitle, .inputPadding {
+  padding-bottom: 3%;
+}

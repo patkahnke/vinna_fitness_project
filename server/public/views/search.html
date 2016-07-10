@@ -26,12 +26,34 @@
     </tbody>
   </table>
 
-   <modal-dialog show="viewApplicantModal.modalShown" width="50%" height="50%">
-    <h2>Results for {{applicant.fullname}}</h2>
-      <p>Applied for: {{applicant.title}}, {{applicant.company_name}}</p>
-      <p>Assessed by: {{applicant.trainer_name}}</p>
-      <p>Date of screening: {{applicant.date | date: 'MM/dd/yyyy'}}</p>
-      <p>Passing score: {{applicant.test_pass}}</p>
+   <modal-dialog show="viewApplicantModal.modalShown" width="45%" height="45%">
+     <ul>
+       <div class="row addCompanyTitle">
+         <li>
+            <h2>Results for {{applicant.fullname}}</h2>
+         </li>
+       </div>
+       <div class="row inputPadding">
+         <li>
+           <p class="col-xs-12">Applied for: {{applicant.title}}, {{applicant.company_name}}</p>
+         </li>
+       </div>
+       <div class="row inputPadding">
+         <li>
+           <p class="col-xs-12">Assessed by: {{applicant.trainer_name}}</p>
+         </li>
+       </div>
+       <div class="row inputPadding">
+         <li>
+           <p class="col-xs-12">Date of screening: {{applicant.date | date: 'MM/dd/yyyy'}}</p>
+         </li>
+       </div>
+       <div class="row inputPadding">
+         <li>
+           <p class="col-xs-12">Passing score: {{applicant.test_pass}}</p>
+         </li>
+       </div>
+    </ul>
   </modal-dialog>
 </div>
 </div>
