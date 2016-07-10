@@ -55,7 +55,7 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
       });
     }
     else {
-      alert("Please complete all required fields.")
+      alert("Please complete all required fields.");
     }
     };
 
