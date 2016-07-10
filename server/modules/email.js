@@ -104,8 +104,8 @@ var mailOptions = {
             '</tr>' +
           '</table>' +
           '<h1><u>JOB-SPECIFIC OVERALL RESULT:</u>' + ' ' + applicant.passOverall() + '</h1>' +
-          '<div style=" line-height:50%;"><h3><u>Risk Category: ' + applicant.riskCategory() + '<u></h3>' +
-          '<h3>' + applicant.riskMessage() + '</h3></div>' +
+          '<div style=" line-height:50%;"><h3><u>Risk Category:</u>' + ' ' + applicant.riskCategory() + '</h3></div>' +
+          '<h3>' + applicant.riskMessage() + '</h3>' +
           '</body>'// html body
 };
 

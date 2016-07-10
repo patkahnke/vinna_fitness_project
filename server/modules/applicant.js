@@ -64,31 +64,31 @@ function Applicant(data, jobCriteria) {
     var totalZerosAndOnes = 0;
     if (this.deepSquat < 2) {
       totalZerosAndOnes++;
-    };
+    }
 
     if (this.hurdleStepTotal() < 2) {
       totalZerosAndOnes++;
-    };
+    }
 
     if (this.inlineLungeTotal() < 2) {
       totalZerosAndOnes++;
-    };
+    }
 
     if (this.shoulderMobTotal() < 2) {
       totalZerosAndOnes++;
-    };
+    }
 
     if (this.activeStraightLegRaiseTotal() < 2) {
       totalZerosAndOnes++;
-    };
+    }
 
     if (this.rotaryStabilityTotal() < 2) {
       totalZerosAndOnes++;
-    };
+    }
 
     if (this.trunkStabilityPushup < 2) {
       totalZerosAndOnes++;
-    };
+    }
 
     return totalZerosAndOnes;
   };
@@ -97,23 +97,23 @@ function Applicant(data, jobCriteria) {
     var totalAsymmetries = 0;
     if (this.hurdleStepLeft != this.hurdleStepRight) {
       totalAsymmetries++;
-    };
+    }
 
     if (this.inlineLungeLeft != this.inlineLungeRight) {
       totalAsymmetries++;
-    };
+    }
 
     if (this.shoulderMobLeft != this.shoulderMobRight) {
       totalAsymmetries++;
-    };
+    }
 
     if (this.activeStraightLegRaiseLeft != this.activeStraightLegRaiseRight) {
       totalAsymmetries++;
-    };
+    }
 
     if (this.rotaryStabilityLeft != this.rotaryStabilityRight) {
       totalAsymmetries++;
-    };
+    }
 
     return totalAsymmetries;
   };
@@ -214,11 +214,11 @@ function Applicant(data, jobCriteria) {
   this.riskCategory = function () {
     var riskCategoryVar = '';
     if (this.compositeScore() <= 9) {
-      riskCategoryVar = 'extreme';
+      riskCategoryVar = 'EXTREME';
     } else if (this.compositeScore() <= 13) {
-      riskCategoryVar = 'elevated';
+      riskCategoryVar = 'ELEVATED';
     } else {
-      riskCategoryVar = 'normal';
+      riskCategoryVar = 'NORMAL';
     }
 
     return riskCategoryVar;
@@ -226,14 +226,15 @@ function Applicant(data, jobCriteria) {
 
   this.riskMessage = function () {
     var message = '';
-    if (this.riskCategory == 'extreme') {
+    if (this.riskCategory == 'EXTREME') {
       message = 'This test subject is in the Extreme Risk Category (Composite ' +
       'Score of ≤ 9) and is >12X more likely to suffer major injury than an individual ' +
       'in the normal range (>13 Composite Score).\nThis individual demonstrates pathological ' +
       'movement patterns making them far more likely than others to suffer serious injury.' +
       '\nExtreme scores can rarely be improved without extensive, prolonged intervention and ' +
       'may be considered likely to be permanent within the employment context.';
-    } else if (this.riskCategory == 'elevated') {
+      return message;
+    } else if (this.riskCategory == 'ELEVATED') {
       message = 'This test subject is in the Elevated Risk Category (Composite score of 10-13) ' +
       'and is 4X more likely to suffer major injury than an individual in the normal range (>13).' +
       '\nThese reduced scores are often the result of the accumulation of years or decades worth ' +
@@ -241,6 +242,7 @@ function Applicant(data, jobCriteria) {
       'movement patterns.\nCES offers brief, targeted, individualized or group corrective ' +
       'interventions that can improve scores in as little as one hour-long session. ' +
       'Contact CES at 612-341-0097 to arrange correctives.';
+      return message;
     } else {
       message = 'This test subject is in the Normal Risk Category (Composite score of 14 or ' +
       'above) and is not at increased risk of musculoskeletal injury due to movement ' +
@@ -250,7 +252,8 @@ function Applicant(data, jobCriteria) {
       '\nCES offers brief, targeted, individualized or group corrective interventions that can ' +
       'improve scores in as little as one hour-long session. Contact CES at 612-341-0097 to ' +
       'arrange correctives.';
-    };
+      return message;
+    }
   };
 
   this.passCoreSubtest = function () {
@@ -264,7 +267,7 @@ function Applicant(data, jobCriteria) {
 
     } else {
       message = 'PASS';
-    };
+    }
 
     return message;
   };
@@ -280,7 +283,7 @@ function Applicant(data, jobCriteria) {
 
     } else {
       message = 'PASS';
-    };
+    }
 
     return message;
   };
@@ -296,7 +299,7 @@ function Applicant(data, jobCriteria) {
 
     } else {
       message = 'PASS';
-    };
+    }
 
     return message;
   };
@@ -379,6 +382,6 @@ function Applicant(data, jobCriteria) {
 
     return message;
   };
-};
+}
 
 module.exports = Applicant;
