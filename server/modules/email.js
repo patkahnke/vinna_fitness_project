@@ -26,7 +26,7 @@ var mailOptions = {
           '<h3>Significant Medical History: ' + applicant.medicalHistory + '</h3>' +
           '<h3><u>COMPOSITE MOVEMENT SCORE (scores range from 0-21, average is 12.7):</u>' + ' ' + applicant.compositeScore() + '</h3>' +
           '<h3><u>High Injury Risk Indicators (0s and 1s on subtests & asymmetric patterning):</u>' + ' ' + applicant.totalHighRiskAreas() + '</h3>' +
-          '<div style=" line-height:50%;"><h3><u>Job-Specific Requirements</u></h3>' +
+          '<div style=" line-height:60%;"><h3><u>Job-Specific Requirements</u></h3>' +
           '<h3>Minimum Passing Composite Score: ' + applicant.jobCriteria.minCompositeScore + '</h3>' +
           '<h3>Core Subtest Requirement: ' + applicant.passCoreSubtest() + '</h3>' +
           '<h3>Shoulder Subtest Requirement: ' + applicant.passShoulderSubtest() + '</h3>' +
@@ -36,71 +36,71 @@ var mailOptions = {
           '<table style=" background-repeat:no-repeat; width:450px; margin:0;" cellpadding="5px" cellspacing="0" border="1px">' +
             '<tr>' +
               '<th style=" background-color:lightgray;"><b>Deep Squat</b></th>' +
-              '<td style=" background-color:lightgray;"><b>' + applicant.deepSquat + '</b></td>' +
+              '<td style=" background-color:lightgray;"><b><center>' + applicant.deepSquat + '</center></b></td>' +
             '</tr>' +
             '<tr>' +
               '<th style=" background-color:lightgray;"><b>Hurdle Step</b></th>' +
-              '<td style=" background-color:lightgray;"><b>' + applicant.hurdleStepTotal() + '</b></td>' +
+              '<td style=" background-color:lightgray;"><b><center>' + applicant.hurdleStepTotal() + '</center></b></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Left</th>' +
-              '<td>' + applicant.hurdleStepLeft + '</td>' +
+              '<td><center>' + applicant.hurdleStepLeft + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Right</th>' +
-              '<td>' + applicant.hurdleStepRight + '</td>' +
+              '<td><center>' + applicant.hurdleStepRight + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th style=" background-color:lightgray;"><b>Inline Lunge</b></th>' +
-              '<td style=" background-color:lightgray;"><b>' + applicant.inlineLungeTotal() + '</b></td>' +
+              '<td style=" background-color:lightgray;"><b><center>' + applicant.inlineLungeTotal() + '</center></b></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Left</th>' +
-              '<td>' + applicant.inlineLungeLeft + '</td>' +
+              '<td><center>' + applicant.inlineLungeLeft + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Right</th>' +
-              '<td>' + applicant.inlineLungeRight + '</td>' +
+              '<td><center>' + applicant.inlineLungeRight + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th style=" background-color:lightgray;"><b>Shoulder Mobility</b></th>' +
-              '<td style=" background-color:lightgray;"><b>' + applicant.shoulderMobTotal() + '</b></td>' +
+              '<td style=" background-color:lightgray;"><b><center>' + applicant.shoulderMobTotal() + '</center></b></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Left</th>' +
-              '<td>' + applicant.shoulderMobLeft + '</td>' +
+              '<td><center>' + applicant.shoulderMobLeft + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Right</th>' +
-              '<td>' + applicant.shoulderMobRight + '</td>' +
+              '<td><center>' + applicant.shoulderMobRight + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th style=" background-color:lightgray;"><b>Active Straight Leg Raise</b></th>' +
-              '<td style=" background-color:lightgray;"><b>' + applicant.activeStraightLegRaiseTotal() + '</b></td>' +
+              '<td style=" background-color:lightgray;"><b><center>' + applicant.activeStraightLegRaiseTotal() + '</center></b></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Left</th>' +
-              '<td>' + applicant.activeStraightLegRaiseLeft + '</td>' +
+              '<td><center>' + applicant.activeStraightLegRaiseLeft + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Right</th>' +
-              '<td>' + applicant.activeStraightLegRaiseRight + '</td>' +
+              '<td><center>' + applicant.activeStraightLegRaiseRight + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th style=" background-color:lightgray;"><b>Trunk Stability</b></th>' +
-              '<td style=" background-color:lightgray;"><b>' + applicant.trunkStabilityPushup + '</b></td>' +
+              '<td style=" background-color:lightgray;"><b><center>' + applicant.trunkStabilityPushup + '</center></b></td>' +
             '</tr>' +
             '<tr>' +
               '<th style=" background-color:lightgray;"><b>Rotary Stability Quadruped</b></th>' +
-              '<td style=" background-color:lightgray;"><b>' + applicant.rotaryStabilityTotal() + '</b></td>' +
+              '<td style=" background-color:lightgray;"><b><center>' + applicant.rotaryStabilityTotal() + '</center></b></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Left</th>' +
-              '<td>' + applicant.rotaryStabilityLeft + '</td>' +
+              '<td><center>' + applicant.rotaryStabilityLeft + '</center></td>' +
             '</tr>' +
             '<tr>' +
               '<th>Right</th>' +
-              '<td>' + applicant.rotaryStabilityRight + '</td>' +
+              '<td><center>' + applicant.rotaryStabilityRight + '</center></td>' +
             '</tr>' +
           '</table>' +
           '<h1><u>JOB-SPECIFIC OVERALL RESULT:</u>' + ' ' + applicant.passOverall() + '</h1>' +
