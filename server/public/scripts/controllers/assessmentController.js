@@ -241,7 +241,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
             $scope.assessment = {};
             ApplicantFactory.currentAssessment = $scope.assessment;
             console.log($scope.assessment);
-            alert('Assessment data successfully saved.');
+            alert('Assessment data successfully submitted.');
             $window.location.href='#/applicant';
           } else {
             alert('Error saving results. Please try again.');
