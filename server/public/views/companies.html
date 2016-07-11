@@ -8,9 +8,9 @@
     <a ng-click="inactiveCoView()" class="link">View Inactive Companies</a>
   </div>
 
-
   <!-- list of companies -->
-  <table class="table table-striped table-bordered companyTable">
+  <h4 class="emptyTable" ng-if="activeCompanies.length === 0">No companies have been added yet.</h4>
+  <table ng-if="activeCompanies.length > 0" class="table table-striped table-bordered companyTable">
     <thead>
             <tr>
               <th><b>Company</b></th>

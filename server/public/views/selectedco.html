@@ -11,7 +11,8 @@
 
 </div>
   <!-- list of jobs -->
-  <table class="table table-striped table-bordered selectedCoTable companyTable">
+  <h4 class="emptyTable" ng-if="jobs.length === 0">No jobs have been added yet.</h4>
+  <table ng-if="jobs.length > 0" class="table table-striped table-bordered selectedCoTable companyTable">
     <thead>
             <tr>
               <th><b>Job Title</b></th>
