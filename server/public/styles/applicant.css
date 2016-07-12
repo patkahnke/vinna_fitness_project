@@ -41,6 +41,7 @@ main{
   border-radius: 10px;
   background-color: #FF7C2E;
   color: white;
+  border: #d0d1d5 1px solid;
 }
 
 input {
