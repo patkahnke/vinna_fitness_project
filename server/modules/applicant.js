@@ -1,4 +1,7 @@
+//Applicant prototype: new applicant is created on submit of applicant data
 function Applicant(data, jobCriteria) {
+
+  //jobCriteria is specific to each job, and applicant results are measured against the criteria
   this.jobCriteria = jobCriteria;
   this.jobTitle = data.selectedJob.title;
   this.jobLocation = data.selectedCompany.location;
@@ -23,6 +26,9 @@ function Applicant(data, jobCriteria) {
   this.rotaryStabilityRight = data.rotary.right;
   this.pronePressup = data.pronePressup;
   this.lumbarFlexion = data.lumbarFLexion;
+
+  //applicant prototype functions. "Total" scores are usually the lowest of left/right,
+  //or else a composite of several exercise totals
   this.hurdleStepTotal = function () {
     var lowScore = Math.min(this.hurdleStepLeft, this.hurdleStepRight);
     return lowScore;
@@ -118,11 +124,15 @@ function Applicant(data, jobCriteria) {
     return totalAsymmetries;
   };
 
+  //Total high risk areas takes in total zeros and ones and total asymmetries to indicate the
+  //number of high risk areas. This number is called out in the final email report
+  // for informational purposes only.
   this.totalHighRiskAreas = function () {
     var totalHighRisk = this.totalZerosAndOnes() + this.totalAsymmetries();
     return totalHighRisk;
   };
 
+  //All of the "pass" functions are measuring applicant scores against job criteria.
   this.passDeepSquat = function () {
     var message = '';
     if (this.deepSquat >= jobCriteria.minDeepSquat) {
@@ -260,7 +270,8 @@ function Applicant(data, jobCriteria) {
     var message = 'PASS';
     var subtestTotalScore = 0;
     var minSubtestScore = jobCriteria.minCoreSubtest;
-    subtestTotalScore = this.activeStraightLegRaiseTotal() + this.trunkStabilityPushup + this.rotaryStabilityTotal();
+    subtestTotalScore = this.activeStraightLegRaiseTotal() + this.trunkStabilityPushup
+    + this.rotaryStabilityTotal();
 
     if (subtestTotalScore < minSubtestScore) {
       message = 'FAIL';
@@ -342,6 +353,8 @@ function Applicant(data, jobCriteria) {
   //     return message;
   //   };
 
+  //In order to pass overall, an applicant must pass every test. One failure equals an
+  //overall score of "FAIL"
   this.passOverall = function () {
     var message = '';
     if (this.passDeepSquat() == 'FAIL') {
