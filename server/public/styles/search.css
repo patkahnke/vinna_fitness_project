@@ -36,6 +36,16 @@ main {
   border: #d0d1d5 1px solid;
 }
 
+<<<<<<< HEAD
+=======
+.companyContainer2 {
+  padding: 0 4% 0 4%;
+  background-color: white;
+  border: #d0d1d5 1px solid;
+  box-shadow: 2px 2px 5px #888888;
+}
+
+>>>>>>> 8cf96f6c35b58ee4260774cb4fbca3622609cd77
 .companyTitle {
   padding-top: 4%;
 }

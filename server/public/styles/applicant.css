@@ -34,6 +34,7 @@ main{
 
 .title2{
   text-align: center;
+<<<<<<< HEAD
   margin-right: 23%;
   margin-left: 23%;
   margin-bottom: 2%;
@@ -41,6 +42,16 @@ main{
   border-radius: 10px;
   background-color: #F05123;
   color: white;
+=======
+  margin-right: 29%;
+  margin-left: 29%;
+  margin-bottom: 3%;
+  padding: 1.5% 0 1.5% 0;
+  border-radius: 10px;
+  background-color: #FF7C2E;
+  color: white;
+  border: #d0d1d5 1px solid;
+>>>>>>> 8cf96f6c35b58ee4260774cb4fbca3622609cd77
 }
 
 input {

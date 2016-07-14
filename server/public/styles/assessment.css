@@ -11,6 +11,10 @@
   transform: translateY(1%);
   left: 5%;
   padding: 0;
+<<<<<<< HEAD
+=======
+  box-shadow: -2.5px 2.5px 5px #888888;
+>>>>>>> 8cf96f6c35b58ee4260774cb4fbca3622609cd77
 }
 
 .assessmentPrev img {
@@ -27,6 +31,10 @@
   transform: translateY(1%);
   right: 5%;
   padding: 0;
+<<<<<<< HEAD
+=======
+  box-shadow: 2.5px 2.5px 5px #888888;
+>>>>>>> 8cf96f6c35b58ee4260774cb4fbca3622609cd77
 }
 
 .assessmentSubmit {
@@ -52,6 +60,10 @@
   min-width: 560px;
   border: 1px solid;
   border-color: #d0d1d5;
+<<<<<<< HEAD
+=======
+  box-shadow: 2.5px 2.5px 5px #888888;
+>>>>>>> 8cf96f6c35b58ee4260774cb4fbca3622609cd77
 }
 
 .measurement {

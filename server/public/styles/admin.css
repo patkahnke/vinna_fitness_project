@@ -18,6 +18,10 @@ main {
   background-color: #FF7C2E;
   color: white;
   border: 1px solid #DB6B27;
+<<<<<<< HEAD
+=======
+  box-shadow: 2.5px 2.5px 5px #888888;
+>>>>>>> 8cf96f6c35b58ee4260774cb4fbca3622609cd77
 }
 
 .adminButton:hover {
@@ -31,4 +35,8 @@ main {
   padding: 5%;
   border-radius: 10px;
   border: #d0d1d5 1px solid;
+<<<<<<< HEAD
+=======
+  box-shadow: 6px 6px 5px #888888;
+>>>>>>> 8cf96f6c35b58ee4260774cb4fbca3622609cd77
 }
