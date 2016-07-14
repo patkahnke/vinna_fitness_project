@@ -260,7 +260,7 @@ function Applicant(data, jobCriteria) {
     var message = 'PASS';
     var subtestTotalScore = 0;
     var minSubtestScore = jobCriteria.minCoreSubtest;
-    subtestTotalScore = this.activeStraightLegRaiseTotal + this.trunkStabilityPushup + this.rotaryStabilityTotal;
+    subtestTotalScore = this.activeStraightLegRaiseTotal() + this.trunkStabilityPushup + this.rotaryStabilityTotal();
 
     if (subtestTotalScore < minSubtestScore) {
       message = 'FAIL';
@@ -276,7 +276,7 @@ function Applicant(data, jobCriteria) {
     var message = 'PASS';
     var subtestTotalScore = 0;
     var minSubtestScore = jobCriteria.minShoulderSubtest;
-    subtestTotalScore = this.shoulderMobTotal;
+    subtestTotalScore = this.shoulderMobTotal();
 
     if (subtestTotalScore < minSubtestScore) {
       message = 'FAIL';

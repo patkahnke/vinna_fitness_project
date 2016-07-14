@@ -11,6 +11,8 @@
   transform: translateY(1%);
   left: 5%;
   padding: 0;
+  box-shadow: -2.5px 2.5px 5px #888888;
+
 }
 
 .assessmentPrev img {
@@ -27,6 +29,8 @@
   transform: translateY(1%);
   right: 5%;
   padding: 0;
+  box-shadow: 2.5px 2.5px 5px #888888;
+
 }
 
 .assessmentSubmit {
@@ -52,6 +56,8 @@
   min-width: 560px;
   border: 1px solid;
   border-color: #d0d1d5;
+  box-shadow: 2.5px 2.5px 5px #888888;
+
 }
 
 .measurement {
