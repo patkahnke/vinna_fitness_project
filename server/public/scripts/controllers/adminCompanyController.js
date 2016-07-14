@@ -64,13 +64,13 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
       .then(function (response) {
         console.log('PUT /companies ', response);
         if (response.status == 204) {
-           alert('Company Updated!');
+           alert('Company updated!');
            $scope.newCompany = {};
            $scope.toggleEditCompanyModal();
            getActiveCompanies();
            return;
         } else {
-          alert('Your company was not recieved. Please try again.');
+          alert('Company update was not recieved. Please try again.');
         }
       });
   };
