@@ -34,14 +34,14 @@ main{
 
 .title2{
   text-align: center;
-  margin-right: 29%;
-  margin-left: 29%;
-  margin-bottom: 3%;
-  padding: 1.5% 0 1.5% 0;
+  margin-right: 23%;
+  margin-left: 23%;
+  margin-bottom: 2%;
+  padding: 2% 0 2% 0;
   border-radius: 10px;
-  background-color: #FF7C2E;
+  background-color: #F05123;
   color: white;
-  border: #d0d1d5 1px solid;
+
 }
 
 input {

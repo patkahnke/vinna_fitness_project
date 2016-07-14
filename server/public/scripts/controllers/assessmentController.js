@@ -17,18 +17,23 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
   $scope.selectedCo = {};
 
   userFactory = UserFactory;
+
   //console.log(userFactory);
 
 //Checks if user is still logged in.
+
   if (userFactory.checkLoggedIn() === true) {
   } else {
     $window.location.href='#/';
   }
 
+
   //console.log($scope.assessment);
+
 
   //utility functions
   getActiveCompanies();
+
 
 //Stores applicant information in ApplicantFactory.
   $scope.applicantSubmit = function(){
@@ -39,6 +44,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
         $window.location.href='#/assessment';
   }
   };
+
 
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
   $scope.checkContentA = function () {
@@ -53,6 +59,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
   $scope.checkContent0 = function () {
     if($scope.assessment.leg_measurement !== undefined && $scope.assessment.hand_measurement !== undefined) {
@@ -63,7 +70,9 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
+
   $scope.checkContent0Prev = function () {
     if($scope.assessment.leg_measurement !== undefined && $scope.assessment.hand_measurement !== undefined) {
       $scope.show0 = false;
@@ -71,18 +80,24 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
+
   $scope.checkContent1 = function () {
     if($scope.assessment.toe_touch !== undefined && $scope.assessment.squat !== undefined) {
       $scope.assessment.squat = parseInt($scope.assessment.squat);
       ApplicantFactory.currentAssessment = $scope.assessment;
+
       //console.log(ApplicantFactory.currentAssessment);
+
       $scope.show1 = false;
       $scope.show2 = true;
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
+
   $scope.checkContent1Prev = function () {
     if($scope.assessment.toe_touch !== undefined && $scope.assessment.squat !== undefined) {
       $scope.show0 = true;
@@ -90,19 +105,25 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
+
   $scope.checkContent2 = function () {
     if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined) {
       $scope.assessment.hurdle.right = parseInt($scope.assessment.hurdle.right);
       $scope.assessment.hurdle.left = parseInt($scope.assessment.hurdle.left);
       ApplicantFactory.currentAssessment = $scope.assessment;
+
       //console.log(ApplicantFactory.currentAssessment);
+
       $scope.show2 = false;
       $scope.show3 = true;
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
+
   $scope.checkContent2Prev = function () {
     if($scope.assessment.hurdle.right !== undefined && $scope.assessment.hurdle.left !== undefined) {
       $scope.show1 = true;
@@ -110,19 +131,27 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
+
   $scope.checkContent3 = function () {
     if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined) {
       $scope.assessment.lunge.right = parseInt($scope.assessment.lunge.right);
       $scope.assessment.lunge.left = parseInt($scope.assessment.lunge.left);
       ApplicantFactory.currentAssessment = $scope.assessment;
+
       //console.log(ApplicantFactory.currentAssessment);
+
+      //console.log(ApplicantFactory.currentAssessment);
+
       $scope.show3 = false;
       $scope.show4 = true;
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
+
   $scope.checkContent3Prev = function () {
     if($scope.assessment.lunge.right !== undefined && $scope.assessment.lunge.left !== undefined) {
       $scope.show3 = false;
@@ -130,7 +159,9 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Calculates recommended shoulder mobility score if no pain is present on either side during shoulder impingement test.
+
   $scope.getShoulderScore = function () {
     if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.hand_measurement !== undefined) {
       var shoulderScore = function (handDist, shoulderTop) {
@@ -159,7 +190,9 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
+
   $scope.checkContent4 = function () {
     if($scope.assessment.shoulder.top_right !== undefined && $scope.assessment.shoulder.top_left !== undefined && $scope.assessment.shoulder.right !== undefined && $scope.assessment.shoulder.left !== undefined && $scope.assessment.shoulder.right_impingement !== undefined && $scope.assessment.shoulder.left_impingement !== undefined) {
       $scope.assessment.shoulder.right = parseInt($scope.assessment.shoulder.right);
@@ -171,6 +204,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
   $scope.checkContent4Prev = function () {
     //console.log($scope.assessment);
@@ -179,6 +213,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show3 = true;
     }
   };
+
 
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
   $scope.checkContent5 = function () {
@@ -193,6 +228,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
   $scope.checkContent5Prev = function () {
     //console.log($scope.assessment);
@@ -201,6 +237,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show4 = true;
     }
   };
+
 
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
   $scope.checkContent6 = function () {
@@ -214,14 +251,17 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
   $scope.checkContent6Prev = function () {
     //console.log($scope.assessment);
+
     if($scope.assessment.push_up !== undefined && $scope.assessment.prone_press_up !== undefined) {
       $scope.show6 = false;
       $scope.show5 = true;
     }
   };
+
 
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
   $scope.checkContent7 = function () {
@@ -236,6 +276,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the previous view.
   $scope.checkContent7Prev = function () {
     //console.log($scope.assessment);
@@ -245,7 +286,9 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
     }
   };
 
+
 //Checks if all required fields have been completed before showing the next view, and stores assessment data in ApplicantFactory.
+
   $scope.checkContent8 = function () {
     //console.log($scope.assessment);
     $scope.assessment.trainerId = userFactory.getId();
@@ -262,6 +305,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
             $scope.assessment = {};
             ApplicantFactory.currentAssessment = $scope.assessment;
             //console.log($scope.assessment);
+
             alert('Assessment data successfully submitted.');
             $window.location.href='#/applicant';
           } else {
@@ -269,6 +313,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
           }
         });
   };
+
 
 //Checks if all required fields have been completed before showing the previous view.
   $scope.checkContent8Prev = function () {

@@ -1,3 +1,6 @@
+//Job Criteria prototype creates a new set of criteria for each job entered on the jobs page.
+//This job criteria is used in conjunction with the Applicant prototype to weigh the
+//applicant scores against the stated criteria for the specific job being applied for.
 function JobCriteria(data) {
   this.minDeepSquat = data.min_deep_squat;
   this.minHurdleStep = data.min_hurdle_step;

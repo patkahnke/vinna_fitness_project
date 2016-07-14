@@ -1,3 +1,5 @@
+
+//THIS FILE IS NOT HOOKED IN TO THE APP, FOR CHANGES CHANGE MINIFIED FILE.
 (function() {
   var app;
 
