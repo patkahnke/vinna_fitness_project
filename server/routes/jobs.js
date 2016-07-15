@@ -3,7 +3,7 @@ var router = express.Router();
 var pg = require('pg');
 var connectionString = require('../modules/connection');
 
-
+//retrieve company bound jobs from database
 router.get('/:id', function(req, res) {
     var id = req.params.id;
     pg.connect(connectionString, function(err, client, done) {
@@ -25,6 +25,7 @@ router.get('/:id', function(req, res) {
     });
 });
 
+//post job specific values/minumums
 router.post('/:id', function (req, res) {
   var id = req.params.id;
   var job = req.body;
@@ -41,7 +42,7 @@ router.post('/:id', function (req, res) {
                   'VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)',
                    [job.title, id, job.email, job.minDeepSquat, job.minHurdleStep, job.minInlineLunge,
                     job.minShoulderMob, job.minActiveStraightLegRaise, job.minRotaryStability,
-                    job.minTrunkStabilityPushup, job.compositeScore, job.coreSubtest, job.shoulderSubtest, 
+                    job.minTrunkStabilityPushup, job.compositeScore, job.coreSubtest, job.shoulderSubtest,
                     job.lowerBodySubtest, job.otherSubtest],
                  function (err, result) {
                    done();
@@ -54,10 +55,11 @@ router.post('/:id', function (req, res) {
     });
 });
 
+//update selected job values
 router.put('/update/:id', function(req, res) {
     var job = req.body;
     var id = req.params.id;
-     console.log('HERE FOOL', job);
+     //console.log('HERE FOOL', job);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');
@@ -86,9 +88,10 @@ router.put('/update/:id', function(req, res) {
     });
 });
 
+//delete selected job
 router.delete('/delete/:id', function(req, res) {
     var id = req.params.id;
-     console.log('DELETING JOB ID :', id);
+     //console.log('DELETING JOB ID :', id);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');

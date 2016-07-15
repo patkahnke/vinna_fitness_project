@@ -3,7 +3,7 @@ var router = express.Router();
 var pg = require('pg');
 var connectionString = require('../modules/connection');
 
-
+//retrive active companies from database
 router.get('/active', function(req, res) {
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
@@ -23,13 +23,14 @@ router.get('/active', function(req, res) {
     });
 });
 
+// retrieve inactive companies from database
 router.get('/inactive', function(req, res) {
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
             res.sendStatus(500);
         }
         client.query('SELECT * FROM company ' +
-                     'WHERE active = false ' + 
+                     'WHERE active = false ' +
                      'ORDER BY id ASC',
          function(err, result) {
             if (err) {
@@ -42,6 +43,7 @@ router.get('/inactive', function(req, res) {
     });
 });
 
+//post a new company to database
 router.post('/', function (req, res) {
   var company = req.body;
   pg.connect(connectionString, function (err, client, done) {
@@ -63,9 +65,10 @@ router.post('/', function (req, res) {
     });
 });
 
+//edit existing company to database
 router.put('/edit/:id', function(req, res) {
     var company = req.body;
-     console.log('HERE FOOL', company);
+     //console.log('HERE FOOL', company);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');
@@ -89,9 +92,10 @@ router.put('/edit/:id', function(req, res) {
     });
 });
 
+//deactivate existing company
 router.put('/deactivate/:id', function(req, res) {
     var id = req.params.id;
-     console.log('DEACTIVATED COMPANY', id);
+     //console.log('DEACTIVATED COMPANY', id);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');
@@ -113,9 +117,10 @@ router.put('/deactivate/:id', function(req, res) {
     });
 });
 
+//reactivate company
 router.put('/reactivate/:id', function(req, res) {
     var id = req.params.id;
-     console.log('REACTIVATED COMPANY', id);
+     //console.log('REACTIVATED COMPANY', id);
     pg.connect(connectionString, function(err, client, done) {
             if (err) {
                 console.log('connection err');

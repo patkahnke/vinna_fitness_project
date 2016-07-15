@@ -7,15 +7,22 @@ console.log('targetEmail: ', targetEmail);
 var transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-          user: 'vinnatest@gmail.com',
-          pass: 'vinnafitness',
+          user: 'info@vinnafitness.com',
+          pass: '40Exercise',
       }
   });
 
+if(applicant.jobEmail === null){
+  applicant.targetEmail = applicant.companyEmail;
+} else{
+  applicant.targetEmail = applicant.jobEmail;
+}
+
+
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: '"Vinna Test 👥" <vinnatest@gmail.com>', // sender address
-    to: targetEmail, // list of receivers, targetEmail = string parameter
+    from: '"VinnaVel Emailer 👥" <info@vinnafitness.com>', // sender address
+    to: applicant.targetEmail, // list of receivers, targetEmail = string parameter
     subject: applicant.firstName + ' ' + applicant.lastName + ' CES/FMS Results', // Subject line
     text: 'CES/FMS Results', // plaintext body
     html: '<center><b><h1 style="margin: 0;">Initial CES/FMS Screen Report For: ' +  applicant.firstName + ' ' + applicant.lastName + '<h1></b></center>' +

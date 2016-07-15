@@ -13,7 +13,7 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
   $scope.otherMinimums = [0,1,2,3,4,5,6,7,8,9,10,11,12];
   $scope.compositeMinimums = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 
-  //authenticated?
+  //authenticated
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
       $location.path('/trainer');
@@ -30,19 +30,19 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
     $http.get('/jobs/' + id)
       .then(function (response) {
         $scope.jobs = response.data;
-        console.log('GET /jobs ', response.data);
+        //console.log('GET /jobs ', response.data);
       });
   }
 
-  //add new job
+  //post http call to add new job
   $scope.addJob = function () {
     if ($scope.newJob.title !== undefined && $scope.newJob.minDeepSquat !== undefined && $scope.newJob.minHurdleStep !== undefined && $scope.newJob.minInlineLunge !== undefined && $scope.newJob.minShoulderMob !== undefined && $scope.newJob.minActiveStraightLegRaise !== undefined && $scope.newJob.minRotaryStability !== undefined && $scope.newJob.minTrunkStabilityPushup !== undefined && $scope.newJob.compositeScore !== undefined && $scope.newJob.coreSubtest !== undefined && $scope.newJob.shoulderSubtest !== undefined && $scope.newJob.lowerBodySubtest !== undefined) {
     var data = $scope.newJob;
     var id = $scope.selectedCo.id;
     $http.post('/jobs/' + id, data)
       .then(function (response) {
-        console.log('POST /jobs');
-        console.log(response);
+        //console.log('POST /jobs');
+        //console.log(response);
         if (response.status == 201 ) {
            $scope.toggleAddJobModal();
            getJobs();
@@ -59,12 +59,12 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
     }
     };
 
-    // update existing job
+    //put http call to update existing job
     $scope.updateJob = function (job) {
       var id = job.id;
       $http.put('/jobs/update/' + id, job)
         .then(function (response) {
-          console.log('PUT /job ', response);
+          //console.log('PUT /job ', response);
           if (response.status == 204) {
              alert('Job updated!');
              $scope.toggleEditJobModal();
@@ -77,14 +77,14 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
         });
     };
 
-    // delete existing selected job
+    //delet http call to delete existing selected job
     $scope.deleteJob = function(job) {
       var id = job.id;
       var deleteJob = confirm('Are you sure you want to remove ' + job.title + '?');
       if (deleteJob === true){
         $http.delete('/jobs/delete/' + id)
           .then(function (response) {
-            console.log('DELETE /jobs/', response);
+            //console.log('DELETE /jobs/', response);
             $scope.toggleEditJobModal();
             getJobs();
             return;
@@ -95,11 +95,12 @@ myApp.controller('AdminJobController', ['$scope', '$http', 'AdminDataFactory', '
         }
     };
 
-  //resets any object you pass through it. Utilized after AJAX calls
+  //resets any object you pass through it. To be Utilized after AJAX calls
   function resetObject (object) {
     object = {};
   }
 
+  //variable naming prep for backend
   function defaultValues (selected) {
     $scope.job = selected;
     $scope.job.minDeepSquat = selected.min_deep_squat;

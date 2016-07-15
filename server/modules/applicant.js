@@ -5,6 +5,8 @@ function Applicant(data, jobCriteria) {
   this.jobCriteria = jobCriteria;
   this.jobTitle = data.selectedJob.title;
   this.jobLocation = data.selectedCompany.location;
+  this.companyEmail = data.selectedCompany.email;
+  this.jobEmail = data.selectedJob.job_email;
   this.firstName = data.applicant.firstName;
   this.lastName = data.applicant.lastName;
   this.age = data.applicant.age;

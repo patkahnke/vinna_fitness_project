@@ -9,7 +9,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
   $scope.inactiveCompanies = [];
   $scope.newCompany = {};
 
-  //authenticated?
+  //authentication functions
   if (userFactory.checkLoggedIn() === true) {
     if (userFactory.checkAdmin() === false) {
       $location.path('/trainer');
@@ -21,31 +21,31 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
   getActiveCompanies();
   getInactiveCompanies();
 
-  //get existing companies
+  //get http call for existing companies
   function getActiveCompanies() {
     $http.get('/companies/active')
       .then(function (response) {
-        console.log('GET /companies/active ', response.data);
+        //console.log('GET /companies/active ', response.data);
         $scope.activeCompanies = response.data;
       });
   }
 
-  //get inactive companies
+  //get http call for inactive companies
   function getInactiveCompanies() {
     $http.get('/companies/inactive')
       .then(function (response) {
-        console.log('GET /companies/inactive ', response.data);
+        //console.log('GET /companies/inactive ', response.data);
         $scope.inactiveCompanies = response.data;
       });
   }
 
-  //add new company
+  //post http call to add new company
   $scope.addCompany = function () {
     if ($scope.newCompany.name !== undefined && $scope.newCompany.location !== undefined && $scope.newCompany.email !== undefined) {
     var data = $scope.newCompany;
     $http.post('/companies', data)
       .then(function (response) {
-        console.log('POST /companies', response);
+        //console.log('POST /companies', response);
         if (response.status == 201) {
            $scope.newCompany = {};
            $scope.toggleAddCompanyModal();
@@ -57,12 +57,12 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
     }
   };
 
-  // update existing company
+  //put http call to update existing company
   $scope.updateCompany = function (company) {
     var id = company.id;
     $http.put('/companies/edit/' + id, company)
       .then(function (response) {
-        console.log('PUT /companies ', response);
+        //console.log('PUT /companies ', response);
         if (response.status == 204) {
            alert('Company updated!');
            $scope.newCompany = {};
@@ -77,13 +77,12 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
 
   // 'delete' == deactivate(gives company inactive status) existing company
   $scope.deactivateCompany = function(company) {
-    console.log('deactivate', company);
     var id = company.id;
     var deactivateCompany = confirm('Are you sure you want to remove ' + company.name + '?');
     if (deactivateCompany === true){
       $http.put('/companies/deactivate/' + id)
         .then(function (response) {
-          console.log('PUT /companies/', response);
+          //console.log('PUT /companies/', response);
           $scope.toggleEditCompanyModal();
           getActiveCompanies();
           return;
@@ -94,15 +93,14 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
       }
   };
 
-  // reactivate existing company
+  //put http call to reactivate existing company
   $scope.reactivateCompany = function(company) {
-    console.log('reactivate', company);
     var id = company.id;
     var reactivateCompany = confirm('Are you sure you want to reactivate ' + company.name + '?');
     if (reactivateCompany === true){
       $http.put('/companies/reactivate/' + id)
         .then(function (response) {
-          console.log('PUT /companies', response);
+          //console.log('PUT /companies', response);
           $scope.toggleEditCompanyModal();
           getInactiveCompanies();
           return;
@@ -113,7 +111,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
       }
   };
 
-  //selectedCoRedirect
+  //selected Company Redirect
   $scope.selectedCoRedirect = function(company){
     $scope.dataFactory.selectedCo.job = company;
     $window.location.href='#/selectedco';
@@ -128,7 +126,7 @@ myApp.controller('AdminCompanyController', ['$scope', '$http', 'AdminDataFactory
     $window.location.href='#/companies/inactive';
   };
 
-  //company modals
+  //company modal function
   $scope.addCompanyModal = {
     modalShown : false
   };

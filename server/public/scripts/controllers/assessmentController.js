@@ -322,7 +322,7 @@ myApp.controller('AssessmentController', ['$scope', '$http', '$location', 'Appli
       $scope.show7 = true;
     };
 
-  //get companies for testing
+  //get http call to retrieve companies for testing
   function getActiveCompanies() {
     $http.get('/companies/active')
       .then(function (response) {
