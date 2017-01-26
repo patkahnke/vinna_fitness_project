@@ -26,18 +26,4 @@ userFactory = UserFactory;
 
   });
 
-  // _this.logout = function () {
-  //   userFactory.logout()
-  //     .then(function (response) { // success
-  //       userFactory.setLoggedIn(false);
-  //         userFactory.isAdmin = false;
-  //       $window.location.href = '/login'; // forces a page reload which will update our UserController
-  //     },
-  //
-  //     function (response) { // error
-  //       _this.message.text = 'Unable to logout';
-  //       _this.message.type = 'error';
-  //     });
-  // };
-
 }]);

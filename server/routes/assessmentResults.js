@@ -1,16 +1,18 @@
+//dependencies
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = require('../modules/connection');
 var nodemailer = require('nodemailer');
+//module routes
+var connectionString = require('../modules/connection');
 var sendEmail = require('../modules/email');
 var Applicant = require('../modules/applicant');
 var JobCriteria = require('../modules/jobCriteria');
 
-//The Golden Thread. Assessment, backend logic, Job Criteria  test and post to DB
+//"The Golden Thread" FMS Assessment Scores, backend logic, Job Criteria test and post to DB
 router.post('/', function (req, res) {
   var assessment = req.body;
-  console.log(assessment);
+  // console.log(assessment);
   var jobCriteria = new JobCriteria(assessment.selectedJob);
   var applicant = new Applicant(assessment, jobCriteria);
   pg.connect(connectionString, function (err, client, done) {
@@ -53,7 +55,7 @@ router.post('/', function (req, res) {
                                 done();
                                 if (err) {
                                   console.log('after', err);
-                                  console.log(applicant)
+                                  // console.log(applicant);
                                   res.sendStatus(500);
                                   return;
                                 }
@@ -61,10 +63,12 @@ router.post('/', function (req, res) {
                                   sendEmail(applicant, targetEmail);
                                   res.sendStatus(201);
                               });
+                              //^^ second query close
                 });
+                //^^ first query close
     });
-    // ^^^ PG close
+    // ^^^PG close
 });
-//^^ routter close
+//^^ router close
 
 module.exports = router;
